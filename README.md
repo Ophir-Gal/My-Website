@@ -9,9 +9,6 @@ Here I will present my bio, projects, and more.
 - Project 2
 - Project 3
 
-**Bold** and _Italic_ and `Code` text
-
-
 ```
 You can write stuff like: [Link](url) and ![Image](src) 
 
