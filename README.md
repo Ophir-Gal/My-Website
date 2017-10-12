@@ -1,32 +1,21 @@
-## Welcome to GitHub Pages
+## Welcome to My Website
 
-You can use the [editor on GitHub](https://github.com/Ophir-Gal/hello-world/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Here I will present my bio, projects, and more.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Bio
+## CS Projects
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
+- Project 1
+- Project 2
+- Project 3
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+```
+You can write stuff like: [Link](url) and ![Image](src) 
+
+//For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
 
