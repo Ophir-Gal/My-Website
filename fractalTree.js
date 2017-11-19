@@ -9,8 +9,8 @@
          pop();
          textSize(40);
          fill(0);
-         text("Fractal Tree",50,height*8/9);
-         text("Move the mouse :)",30,height*17/18);
+         text(" Fractal Tree",50,height*8/9);
+         text("Press & Move :)",30,height*17/18);
   }
   
   function drawTree(){
