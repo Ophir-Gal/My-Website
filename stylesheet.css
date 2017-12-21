@@ -1,9 +1,8 @@
 body {
-  font-family: arial;
+  font-family: "Trebuchet MS", arial, Serif;
 }
 
 .links {
-  font-size: 25px;
-  color: green;
-  font-family: arial;
+  font: bold 30px Georgia, sans-serif;
+  color: mediumblue;
 }
