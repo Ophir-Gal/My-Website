@@ -1,8 +1,32 @@
 body {
-  font-family: "Trebuchet MS", arial, Serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin: auto;
+  width: 50%;
 }
 
 .links {
-  font: bold 30px Georgia, sans-serif;
-  color: mediumblue;
+  font-size: large;
+  font-weight: bold;
+  font-family: "Verdana", Geneva, sans-serif;
+  background-color: white;
+  color: #496ab5;
+  border: 1px solid #a3aabb;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+/* mouse over link */
+
+.links:hover {
+  color: white;
+  background-color: darkblue;
+}
+
+/* selected link */
+
+.links:active {
+  color: blue;
 }
