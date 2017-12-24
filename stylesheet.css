@@ -1,9 +1,9 @@
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: auto;
+  text-align:center;
   width: 50%;
 }
-
 .links {
   font-size: large;
   font-weight: bold;
@@ -11,11 +11,12 @@ body {
   background-color: white;
   color: #496ab5;
   border: 1px solid #a3aabb;
+  margin: 10px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin-left: 20px;
+  margin: 5px;
 }
 
 /* mouse over link */
