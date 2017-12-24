@@ -25,7 +25,8 @@ body {
   background-color: darkblue;
 }
 
-/* selected link */
+/* clicked link */
 .links:active {
-  color: blue;
+  color: gray;
+  background-color: white;
 }
