@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8" name="viewport" width="device-width" , initial-scale="1.0" , user-scalable="0" />
+<head lang="en">
+  <meta charset="utf-8" name="viewport" width="device-width" height="device-height" , initial-scale="1.0" , user-scalable="0" />
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <script src="p5.min.js"></script>
-  <script src="p5.dom.min.js"></script>
-  <script src="p5.sound.min.js"></script>
 </head>
 
 <body>
-  <center>
     <h1><strong>p5.js Projects</strong></h1>
     <h2><strong>Fractal Tree</strong></h2>
-    <div style="margin:auto; width:50%;">
-      <script src="fractalTree.js"></script>
+    <iframe src="fractalTree.html" id="fractalTree" style="border: 2px solid black;"></iframe>
+    <script type="text/javascript">
+      
+      document.getElementById('fractalTree').width = 250; 
+      document.getElementById('fractalTree').height = 250; 
+    </script>
+    <div>
+      <a class="links" href="index.html">Home</a>
     </div>
-    <a class="links" href="index.html">Home</a>
-  </center>
 </body>
 
 </html>

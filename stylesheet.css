@@ -1,9 +1,10 @@
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: auto;
-  text-align:center;
+  text-align: center;
   width: 50%;
 }
+
 .links {
   font-size: large;
   font-weight: bold;
@@ -20,14 +21,12 @@ body {
 }
 
 /* mouse over link */
-
 .links:hover {
   color: white;
   background-color: darkblue;
 }
 
 /* selected link */
-
 .links:active {
   color: blue;
 }
