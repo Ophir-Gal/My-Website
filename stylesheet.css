@@ -4,6 +4,15 @@ body {
   text-align: center;
 }
 
+/*#myHead.area:hover {opacity: 0.7;}
+#CS.area:hover {opacity: 0.7;}*/
+
+table, td {
+  border: 1px solid black;
+  margin: auto;
+  width: 1px;
+}
+
 .links {
   font-size: large;
   font-weight: bold;
