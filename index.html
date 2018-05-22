@@ -1,45 +1,110 @@
 <!DOCTYPE html>
-<html>
-
-<head lang="en">
+<html lang="en">
+<head>
+  <title>Ophir Gal</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-  <title> Ophir Gal </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  </style>
 </head>
-
 <body>
-  <br><br>
-  <img id="profile_pic_1" src="Profile_1.png" width="300" height="300" alt="Profile_Image" usemap="#header_map">
-<!--    <img id="header_img" src="header_img.png" width="670" height="300" alt="Header_Image" usemap="#header_map">
 
-<map name="header_map">
- <area id="myHead" shape="circle" coords="335,150,150" alt="Ophir" href="CS_Projects.html">
-  <area id="CS" shape="rect" coords="0,0,335,150" alt="Programming" href="CS_Projects.html">
-   <area id="Music" shape="rect" coords="290,172,333,250" alt="Music" href="CS_Projects.html">
-  <area id="Visuals" shape="rect" coords="290,172,333,250" alt="Visual_Arts" href="CS_Projects.html">
-  <area id="Skateboarding" shape="rect" coords="290,172,333,250" alt="Skateboarding" href="CS_Projects.html"> 
-</map>
-  -->
-    <h1>Ophir Gal</h1>
-    <table>
-      <!-- <tr>
-       
-        <td><a class="links" href="Bio.html">Bio</a></td>
-      </tr> -->
-      <tr>
-        <td><a class="links" href="http://www.ophirgal.com/Website_Resume_Ophir_Gal.pdf">Resume</a></td>
-        <td><a class="links" href="CS_Projects.html">p5.js</a></td>
-        <td><a class="links" href="Music.html">Music</a></td>
-      </tr>
-    </table>
-   
-      <a href="https://www.facebook.com/ophir.gal.7" class="fa fa-facebook"></a>
-      <a href="https://www.linkedin.com/in/ophir-gal-362879133/" class="fa fa-linkedin"></a>
-      <a href="https://www.youtube.com/user/OPHIR1809/" class="fa fa-youtube"></a>
-      
-    
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Me</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="links" href="http://www.ophirgal.com/Website_Resume_Ophir_Gal.pdf">Resume</a></li>
+        <li><a class="links" href="CS_Projects.html">p5.js</a></li>
+        <li><a class="links" href="Music.html">Music</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Ophir Gal</h3>
+  <img id="profile_pic_1"  width="300" height="300" alt="Profile_Image" usemap="#header_map">
+  <img src="Profile_1.png" class="img-responsive img-circle margin" style="display:inline" alt="Profile_pic" width="350" height="350">
+  <h3>Computer Science Major | Musician | Mentor</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">About</h3>
+  <p>   Hey there! I'm an Israeli-American currently living and studying at the University of Maryland, College Park. 
+        I grew up in Israel, served in the IDF, and then decided to join my parents who had moved to Maryland,
+        where I started studying towards a computer science degree in spring 2017.
+        Things that are pure fun for me are playing drums, guitar, and piano, recording and mixing music,
+        and of course singing in the shower. Areas of computer science I'm passionate about are
+        machine learning, natural language processing, audio, mobile, and web.
+  </p>
+  <a href="#" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-search"></span> Search
+  </a>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <a href="https://www.facebook.com/ophir.gal.7" class="fa fa-facebook"></a>
+  <a href="https://www.linkedin.com/in/ophir-gal-362879133/" class="fa fa-linkedin"></a>
+  <a href="https://www.youtube.com/user/OPHIR1809/" class="fa fa-youtube"></a>
+  <p>Ophir Gal 2018</p>
+</footer>
+
 </body>
-
 </html>
