@@ -71,6 +71,12 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a class="links" href="Resume.html">Resume</a></li>
+        <script>
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+              // changes link element if mobile device
+              document.getElementById("resume_link").setAttribute('href', "Website_Resume_Ophir_Gal.pdf");
+          }
+        </script>
         <li><a class="links" href="CS_Projects.html">p5.js</a></li>
         <li><a class="links" href="Music.html">Music</a></li>
         <li><a class="links" href="#about">About</a></li>
