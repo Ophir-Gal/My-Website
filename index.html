@@ -18,6 +18,9 @@
   }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
+  #name_link:hover {
+      color: #1abc9c; /* Green */
+  }
   .bg-1 { 
       background-color: #1abc9c; /* Green */
       color: #ffffff;
@@ -55,7 +58,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id="top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -63,7 +66,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <p class="navbar-brand" id="top">Ophir Gal</p>
+      <a id="name_link" href="index.html" class="navbar-brand">Ophir Gal</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
