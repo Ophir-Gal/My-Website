@@ -70,9 +70,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="links" href="Resume.html">Resume</a></li>
+        <li><a id="resume_link" class="links" href="Resume.html">Resume</a></li>
         <script>
-          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+          if (navigator.userAgent.match(/Android|Opera Mini|webOS|iPhone|iPad|iPod|BlackBerry/i)) {
               // changes link element if mobile device
               document.getElementById("resume_link").setAttribute('href', "Website_Resume_Ophir_Gal.pdf");
           }
