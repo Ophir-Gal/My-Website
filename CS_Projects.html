@@ -84,13 +84,29 @@
 </nav>
 
 <!-- First Container -->
-<div class="container-fluid bg-2 text-center">
-  
+<div id="first_container" class="container-fluid bg-2 text-center">
+  <span id="project1">
     <h2><strong>Line of Best Fit<br>w/ Gradient Descent</strong><br>(add points to predict trend)</h2>
     <iframe src="linearReg.html" id="linearReg" height="250" width="300" style="border:0px"></iframe>
+  </span>
+  <span id="project2">
     <h2><strong>Fractal Tree</strong></h2>
     <iframe src="fractalTree.html" id="fractalTree" height="250" width="300" style="border:0px"></iframe>
+  </span>
 </div>
+ 
+ <script>
+          if (!navigator.userAgent.match(/Android|Opera Mini|webOS|iPhone|iPad|iPod|BlackBerry/i)) {
+            // Create table.
+            var table = document.createElement('table');
+            table.tBodies[0].appendChild(document.createElement('tr'));
+            table.tBodies[0].rows[0].appendChild(document.getElementById("project1");
+            table.tBodies[0].rows[1].appendChild(document.getElementById("project2");
+            // Append Table into div.
+            var div = document.getElementById("first_container");
+            div.appendChild(table); 
+          }
+ </script>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
