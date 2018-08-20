@@ -92,7 +92,7 @@
 </div>
 
 <!-- Second Container -->
-<div id="about" style="height:75vh;padding-top:10vh;padding-bottom:10vh" class="container-fluid bg-2 text-center">
+<div id="about" style="height:75vh" class="container-fluid bg-2 text-center">
   <h3 class="margin">About</h3>
   <p id="about_p">   Hey there! I'm an Israeli-American student at the University of Maryland, College Park. 
         I grew up in Israel, served in the IDF, then joined my parents who had moved to Maryland,
@@ -101,12 +101,12 @@
         and of course singing in the shower. Areas of computer science I'm passionate about are
         machine learning, natural language processing, audio, mobile, and web.
   </p>
-</div>
-<br><br>
+  </div>
 <script>
     if (!navigator.userAgent.match(/Android|Opera Mini|webOS|iPhone|iPad|iPod|BlackBerry/i)) {
         // changes link element if mobile device
         document.getElementById("about_p").setAttribute('style', "margin:0px 275px 10px");
+        document.getElementById("about_p").appendChild(document.createTextNode("<br>"));
     }
 </script>
 <!-- Footer -->
