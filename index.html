@@ -10,7 +10,14 @@
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
-</head><body><div id="StayFocusd-infobar" style="display: none; top: 818px;">
+</head><body><div id="StayFocusd-infobar" style="display: none; top: 0px;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div><div id="StayFocusd-infobar" style="display: none; top: 818px;">
     <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
     <span id="StayFocusd-infobar-msg"></span>
     <span id="StayFocusd-infobar-links">
@@ -23,7 +30,7 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
     
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
@@ -44,13 +51,13 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
   <div class="w3-display-container w3-center" style="display: block;">
-    <br><br><img src="http://www.ophirgal.com/Profile_2.png" style="border-radius:50%; width:30%">
-<br><br>
+    <br><br><img src="http://www.ophirgal.com/Profile_2.png" style="border-radius:50%; width:60%; max-width:400px;">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       
       
          
     </div>
+    <br><br>
       <div> <h3>Computer Science Major | Musician | Mentor</h3> </div>
   </div>
   
@@ -120,6 +127,7 @@ function myFunction() {
     }
 }
 </script>
+
 
 
 </body></html>
