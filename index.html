@@ -1,117 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Ophir Gal</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  body {
-      font: 20px Montserrat, sans-serif;
-      line-height: 1.8;
-      color: #f5f6f7;
-  }
-  p {font-size: 16px;}
-  .margin {margin-bottom: 20px;}
-  #name_link:hover {
-      color: #1abc9c; /* Green */
-  }
-  .bg-1 { 
-      background-color: #1abc9c; /* Green */
-      color: #ffffff;
-  }
-  .bg-2 { 
-      background-color: #474e5d; /* Dark Blue */
-      color: #ffffff;
-  }
-  .bg-3 { 
-      background-color: #ffffff; /* White */
-      color: #555555;
-  }
-  .bg-4 { 
-      background-color: #2f2f2f; /* Black Gray */
-      color: #fff;
-  }
-  .container-fluid {
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
-  .navbar {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      border: 0;
-      border-radius: 0;
-      margin-bottom: 0;
-      font-size: 12px;
-      letter-spacing: 2px;
-  }
-  .navbar-nav  li a:hover {
-      color: #1abc9c !important;
-  }
-  </style>
-</head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-default" id="top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a href="index.html" id="name_link" style="font-weight:bold" class="navbar-brand">Ophir Gal</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a id="resume_link" class="links" href="Resume.html">Resume</a></li>
-        <script>
-          if (navigator.userAgent.match(/Android|Opera Mini|webOS|iPhone|iPad|iPod|BlackBerry/i)) {
-              // changes link element if mobile device
-              document.getElementById("resume_link").setAttribute('href', "Website_Resume_Ophir_Gal.pdf");
-          }
-        </script>
-        <!-- <li><a class="links" href="CS_Projects.html">p5.js</a></li> --> 
-        <li><a class="links" href="Music.html">Music</a></li>
-        <li><a class="links" href="#about">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- First Container -->
-<div style="height:85vh;padding-top:10vh;padding-bottom:10vh" class="container-fluid bg-2 text-center">
-  <img src="profile2.jpg" class="img-responsive img-circle" style="display:inline" alt="Profile_pic" width="300" height="300">
-  <h3 style="padding:3vh">Computer Science Major | Musician | Mentor</h3>
+<html lang="en"><head><title>Ophir Gal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+</head><body><div id="StayFocusd-infobar" style="display: none; top: 0px;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
 </div>
 
-<!-- Second Container -->
-<div id="about" style="height:75vh" class="container-fluid bg-2 text-center">
-  <h3 class="margin">About</h3>
-  <p id="about_p">   Hey there! I'm an Israeli-American student at the University of Maryland, College Park. 
-        I grew up in Israel, served in the IDF, then joined my parents who had moved to Maryland,
-        where I started studying towards a computer science degree in spring 2017.
-        Things that are pure fun for me are playing drums, guitar, and piano, recording and mixing music,
-        and of course singing in the shower. Areas of computer science I'm passionate about are
-        machine learning, natural language processing, audio, mobile, and web.
-  </p>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
+    
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    
+    
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
+  
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+  
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- Automatic Slideshow Images -->
+  <div class="w3-display-container w3-center" style="display: block;">
+    <img src="http://www.ophirgal.com/Profile_2.png" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Computer Science Major | Musician | Mentor</h3>
+         
+    </div>
+  </div>
+  
+  
+
+  <!-- The About Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="about">
+    <h2 class="w3-wide">About Me</h2>
+    
+    <p class="w3-justify">Hey there! I'm an Israeli-American student at the University of Maryland, College Park. I grew up in Israel, served in the IDF, then joined my parents who had moved to Maryland, where I started studying towards a computer science degree in spring 2017. Things that are pure fun for me are playing drums, guitar, and piano, recording and mixing music, and of course singing in the shower. Areas of computer science I'm passionate about are machine learning, natural language processing, audio, mobile, and web.</p>
+    
   </div>
 
+  
+  
+
+  
+  
+
+  <!-- The Contact Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">CONTACT</h2>
+    <p class="w3-opacity w3-center"><i>Drop me a line!</i></p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker" style="width:30px"></i> Rockville,  MD, USA<br>
+        <!-- <i class="fa fa-phone" style="width:30px"></i> Phone: N/A<br> -->
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: ophirgal2@gmail.com<br>
+      </div>
+      <div class="w3-col m6">
+        <form action="/action_page.php" target="_blank">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required="" name="Name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Email" required="" name="Email">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Message" required="" name="Message">
+          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<!-- End Page Content -->
+</div>
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+
 <!-- Footer -->
-<footer class="container-fluid bg-4 text-center">
-  <p>Connect with me on social media!<br/></p>
-  <a href="https://www.facebook.com/ophir.gal.7" style="color:white; text-decoration: none; width:70px" class="fa fa-facebook"></a>
-  <a href="https://www.linkedin.com/in/ophir-gal-362879133/" style="color:white; text-decoration: none; width:70px" class="fa fa-linkedin"></a>
-  <a href="https://www.youtube.com/user/OPHIR1809/" style="color:white; text-decoration: none; width:70px" class="fa fa-youtube"></a>
-  <br/><br/>
-  <a href="#top" style="text-decoration:none; color:white">^ Back to top ^</a>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-youtube w3-hover-opacity"></i>
+  
+  
+  
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  
 </footer>
 
-</body>
-</html>
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000);    
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+</body></html>
