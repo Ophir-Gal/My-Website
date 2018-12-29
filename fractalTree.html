@@ -1,77 +1,72 @@
  <!DOCTYPE html>
       <html>
          <head lang="en">
+             <title>Fractal Tree</title>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1">
              <script src="p5.min.js"></script>
              <script src="p5.dom.min.js"></script>
-             <script src="p5.sound.min.js"></script>
          </head>
          <body>
-           <script type="text/javascript">
-                var slider;
-
-                function setup() {
-                  //create canvas
-                  createCanvas(0.9*(window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth), 0.9*(window.innerHeight
-|| document.documentElement.clientHeight
-|| document.body.clientHeight));
-                  noStroke();
-
-                  // create slider
-                  slider = createSlider(0, height*1.1, height/4);
-                  slider.position(width*0.32, height);
-                }
-
-                function draw() {
-                  push();
-                  drawTree();
-                  pop();
-                  fill(0);
-                }
-
-                function drawTree() {
-                  background(255);
-                  stroke(50, 35, 6);
-                  translate(width / 2.0, height);
-                  //if (slider.value() <= width / 2) {
-                    branch(slider.value() / 3.0);
-                  //} else {
-                    //branch((width - slider.value()) / 3.0);
-                  //}
-                }
-
-                function branch(len) {
-                  if (len < 70 && len >= 50) {
-                    stroke(60, 50, 15);
-                  } else if (len < 50 && len >= 30) {
-                    stroke(90, 60, 5);
-                  } else if (len < 30 && len >= 20) {
-                    stroke(30, 160, 30);
-                  } else if (len < 20) {
-                    stroke(23, 104, 23);
-                  }
-                  strokeWeight((len / 8.0));
-                  line(0, 0, 0, -len);
-                  stroke(50, 35, 6);
-                  translate(0, -len);
-                  if (len > 15) {
-                    push();
-                    rotate(PI / 6.0);
-                    branch(len * 0.67);
-                    pop();
-                    push();
-                    rotate(PI / 3.0);
-                    branch(len * 0.67);
-                    pop();
-                    push();
-                    rotate(-PI / 3.0);
-                    branch(len * 0.67);
-                    pop();
-                    rotate(-PI / 6.0);
-                    branch(len * 0.67);
-                  }
-                }
-           </script>
+            
+                    <script type="text/javascript" src="fractal.js">
+                        var slider;
+                        function setup() {
+                          //create canvas
+                          createCanvas(0.9*(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth),
+                                       0.9*(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight));
+                          noStroke();
+                          // create slider
+                          slider = createSlider(0, height*1.1, height/4);
+                          slider.position(width*0.32, height);
+                        }
+                        function draw() {
+                          push();
+                          drawTree();
+                          pop();
+                          fill(0);
+                        }
+                        function drawTree() {
+                          background(255);
+                          stroke(50, 35, 6);
+                          translate(width / 2.0, height);
+                          //if (slider.value() <= width / 2) {
+                            branch(slider.value() / 3.0);
+                          //} else {
+                            //branch((width - slider.value()) / 3.0);
+                          //}
+                        }
+                        function branch(len) {
+                          if (len < 70 && len >= 50) {
+                            stroke(60, 50, 15);
+                          } else if (len < 50 && len >= 30) {
+                            stroke(90, 60, 5);
+                          } else if (len < 30 && len >= 20) {
+                            stroke(30, 160, 30);
+                          } else if (len < 20) {
+                            stroke(23, 104, 23);
+                          }
+                          strokeWeight((len / 8.0));
+                          line(0, 0, 0, -len);
+                          stroke(50, 35, 6);
+                          translate(0, -len);
+                          if (len > 15) {
+                            push();
+                            rotate(PI / 6.0);
+                            branch(len * 0.67);
+                            pop();
+                            push();
+                            rotate(PI / 3.0);
+                            branch(len * 0.67);
+                            pop();
+                            push();
+                            rotate(-PI / 3.0);
+                            branch(len * 0.67);
+                            pop();
+                            rotate(-PI / 6.0);
+                            branch(len * 0.67);
+                          }
+                        }
+                   </script>
          </body>
       </html>
