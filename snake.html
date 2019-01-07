@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+   <head lang="en">
+       <title>Snake</title>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <style>
+          #field {
+            background: gray;
+            position: relative;
+            margin: 0;
+            border: 0;
+            padding: 0;
+          }
+          #link {
+            background: green;
+            position: absolute;
+          }
+          #apple {
+            background: red;
+            position: absolute;
+          }
+          #body {
+            background: purple;
+            position: relative;
+          }
+          </style>
+   </head>
+   <body id="body" onkeydown="keyWasPressed(event)">
+     <div id="field">
+      <div id="link">
+      </div>
+      <div id="apple">
+      </div>
+    </div>
+     <script type="text/javascript">
+      // Set up Constants & Variables
+      const LEFT = 37;
+      const UP = 38;
+      const RIGHT = 39;
+      const DOWN = 40;
+      var speed = 100//prompt(); // (the milliseconds interval)
+      var w = window.innerWidth-15;
+      var h = window.innerHeight-15;
+      var linkSize = Math.floor(Math.max(h,w)*0.05);
+      w -= w % linkSize;
+      h -= h % linkSize;
+      var posHor = Math.floor(w/2);
+      posHor -= posHor % linkSize;
+      var posVer = Math.floor(h/2);
+      posVer -= posVer % linkSize;
+      var field = document.getElementById('field');
+      var head = document.getElementById('link');
+      var apple = document.getElementById('apple');
+      field.style.width = w+'px';
+      field.style.height = h+'px';
+      console.log(field.style);
+      head.style.width = linkSize+'px';
+      head.style.height = head.style.width;
+      head.style.left = posHor+'px';
+      head.style.top = posVer+'px'
+      apple.style.width = head.style.width;
+      apple.style.height = head.style.width;
+      var t;
+      var snake = [head];
+      var snakeSize = 1;
+      var leftEdge = 0;
+      var rightEdge = w - linkSize;
+      var topEdge = 0;
+      var bottomEdge = h - linkSize;
+      var dir = undefined;
+      var gameOver = false;
+      var appleCount = 0;
+      var moving = false;
+      var godMode = false;
+      if('g'.localeCompare(prompt("Enter 'g' for God Mode?")) == 0){
+        godMode = true;
+      } 
+      newApple();
+      setInterval(runGame, speed);
+      
+
+      // Main Program
+      function runGame(){ //(infinite loop)
+        
+        if (gameOver) { // prepare new game
+          alert(`Game over, good job!\nYou've consumed ${appleCount} apples.`);
+          snake = [];
+          location.reload();
+        } else if (eaten()) {
+          // replace old apple with add new apple
+          newApple();
+          // add link to snake
+          addLink();
+        }
+        // move snake
+        move();
+        if (!godMode) {
+          checkCollision();
+        }
+      }
+
+      function move(){
+        moving = true;
+        if (dir != undefined){
+          // remove last link
+          addLink();
+          // add in front
+          removeLast();
+        }
+        moving = false;
+      }
+
+      function checkCollision(){
+        let h = snake[0];
+        for (let i = 1; i<snake.length; i++){
+          if (snake[i].style.left.localeCompare(h.style.left) == 0
+              && snake[i].style.top.localeCompare(h.style.top) == 0) {
+                gameOver = true;
+              }
+        }
+      }
+
+      function addLink(){
+        head = document.createElement('div');
+        head.id = 'link';
+        head.style.width = linkSize+'px';
+        head.style.height = head.style.width;
+        head.style.background = godMode ? (snake[0].style.background < 'green' ? 'green' : 'black') : 'green';
+        head.style.position = 'absolute';
+        switch (dir) {
+          case LEFT:
+            posHor = (posHor > leftEdge) ? posHor - linkSize : rightEdge;
+            break;
+          case UP:
+            posVer = (posVer > topEdge) ? posVer - linkSize : bottomEdge;
+            break;
+          case RIGHT:
+            posHor = (posHor < rightEdge) ? posHor + linkSize : leftEdge;
+            break;
+          case DOWN:
+            posVer = (posVer < bottomEdge) ? posVer + linkSize : topEdge;
+            break;
+        }
+        head.style.left = posHor+'px';
+        head.style.top = posVer+'px';
+        field.appendChild(head);
+        snake = [head].concat(snake);
+        snakeSize++;
+      }
+
+      
+      function removeLast(){
+        field.removeChild(document.getElementById(snake[--snakeSize].id));
+        snake = snake.slice(0,snakeSize);
+      }
+      
+      // Display a new apple to be eaten
+      function newApple(){
+        let apple = document.getElementById('apple');
+        let l = Math.floor(w*Math.random());
+        l -= l % linkSize;
+        let t = Math.floor(h*Math.random());
+        t -= t % linkSize;
+        while (true){
+          for (let link of snake){
+            if ((l+'px').localeCompare(link.style.left) == 0 
+                && (t+'px').localeCompare(link.style.top) == 0){
+              l = Math.floor(w*Math.random());
+              l -= l % linkSize;
+              t = Math.floor(h*Math.random());
+              t -= t % linkSize;
+              continue;
+            } 
+          }
+          // if we got here we're good (apple is not under snake)
+          break;
+        }
+        apple.style.left = l+'px';
+        apple.style.top = t+'px';
+      }
+
+      function eaten(){
+        let apple = document.getElementById('apple');
+        let appPosHor = apple.style.left;
+        let appPosVer = apple.style.top;
+        if (appPosHor.localeCompare(posHor+'px') == 0 
+            && appPosVer.localeCompare(posVer+'px') == 0) {
+          appleCount++;
+          return true;
+        }
+        return false;
+      }
+
+      function oppositeDirs(d1, d2){
+        return   (d1 == RIGHT && d2 == LEFT) 
+               ||(d2 == RIGHT && d1 == LEFT)
+               ||(d1 == UP && d2 == DOWN) 
+               ||(d2 == UP && d1 == DOWN);
+      }
+
+      function keyWasPressed(event){
+        if (!moving){
+          let c = event.keyCode;
+          if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
+            if ((!godMode) && snakeSize > 1 && oppositeDirs(c,dir)){
+              gameOver = true;
+              return;
+            } else {
+              dir = c;
+            }
+          }
+        }
+      }          
+
+     </script>
+   </body>
+</html>
