@@ -98,7 +98,7 @@
         godMode = true;
       }
       newApple();
-      setInterval(runGame, speed);
+      var t = setInterval(runGame, speed);
       
 
       // Main Program
@@ -106,7 +106,9 @@
         
         if (gameOver) { // prepare new game
           alert(`Game over, good job!\nYou've consumed ${appleCount} apples.`);
+          clearInterval(t);
           location.reload();
+          return;
         } else if (eaten()) {
           // replace old apple with add new apple
           newApple();
@@ -237,7 +239,7 @@
       }   
 
       function buttonPress(c){
-        //if (!moving){
+        if (!moving){
           if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
             if ((!godMode) && snakeSize > 1 && oppositeDirs(c,dir)){
               gameOver = true;
@@ -246,7 +248,7 @@
               dir = c;
             }
           }
-        //}
+        }
       }       
 
      </script>
