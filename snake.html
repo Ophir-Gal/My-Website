@@ -8,9 +8,9 @@
           #field {
             background: gray;
             position: relative;
-            margin: 0;
-            border: 0;
-            padding: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
           }
           #link {
             background: green;
@@ -21,14 +21,13 @@
             position: absolute;
           }
           #body {
-            background: purple;
+            background: black;
             position: relative;
           }
           #footer {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 3%;
           }
           </style>
    </head>
@@ -40,7 +39,7 @@
       </div>
     </div>
     <div id="footer">
-      <table>
+      <table id="table">
         <tr>
           <td></td>
           <td><button onclick="buttonPress(UP)">▲</button></td>
@@ -51,7 +50,7 @@
           <td><button onclick="buttonPress(DOWN)">▼</button></td>
           <td><button onclick="buttonPress(RIGHT)">►</button></td>
         </tr>
-      </table>  
+    </table>
     </div>
      <script type="text/javascript">
       // Set up Constants & Variables
@@ -60,12 +59,14 @@
       const RIGHT = 39;
       const DOWN = 40;
       var speed = 70;//prompt(); // (the milliseconds interval)
-      var w = window.innerWidth-15;
-      var h = window.innerHeight-15;
+      var w = window.innerWidth-10;
+      var h = window.innerHeight-10;
       var linkSize = Math.floor(Math.max(h,w)*0.05);
       w -= w % linkSize;
       h -= h % linkSize;
       h -= 2*linkSize;
+      document.getElementById("footer").style.height = 2*linkSize+'px';
+      document.getElementById("footer").style.width = w+'px';
       var posHor = Math.floor(w/2);
       posHor -= posHor % linkSize;
       var posVer = Math.floor(h/2);
@@ -219,6 +220,10 @@
       }
 
       function keyPress(event){
+        if (event.keyCode == 27){ // escape key
+          gameOver = true;
+          return;
+        }
         if (!moving){
           let c = event.keyCode;
           if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
