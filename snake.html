@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
-   <head lang="en">
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
        <title>Snake</title>
-       <meta charset="UTF-8">
+       
        <meta name="viewport" content="width=device-width, initial-scale=1">
        <style>
           #field {
@@ -31,26 +30,37 @@
           }
           </style>
    </head>
-   <body id="body" onkeydown="keyPress(event)">
-     <div id="field">
-      <div id="link">
+   <body id="body" onkeydown="keyPress(event)"><div id="StayFocusd-infobar" style="display:none;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+     <div id="field" style="width: 1340px; height: 469px;">
+      <div id="link" style="width: 67px; height: 67px; left: 670px; top: 201px;">
       </div>
-      <div id="apple">
+      <div id="apple" style="width: 67px; height: 67px; left: 1072px; top: 268px;">
       </div>
     </div>
-    <div id="footer">
+    <div id="footer" style="height: 134px; width: 1340px;">
       <table id="table">
-        <tr>
+        <tbody><tr>
+          <td></td>
           <td></td>
           <td><button onclick="buttonPress(UP)">▲</button></td>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td><button onclick="buttonPress(LEFT)">◄</button></td>
+          <td id="space1"></td>
           <td><button onclick="buttonPress(DOWN)">▼</button></td>
+          <td id="space2"></td>
           <td><button onclick="buttonPress(RIGHT)">►</button></td>
         </tr>
-    </table>
+    </tbody></table>
     </div>
      <script type="text/javascript">
       // Set up Constants & Variables
@@ -67,6 +77,13 @@
       h -= 2*linkSize;
       document.getElementById("footer").style.height = 2*linkSize+'px';
       document.getElementById("footer").style.width = w+'px';
+      document.getElementById("space1").style.width = linkSize+'px';
+      document.getElementById("space2").style.width = linkSize+'px';
+      for (let b of document.getElementsByTagName('button')){
+        b.style.height = linkSize+'px';
+        b.style.width = linkSize+'px';
+        b.style.fontSize = linkSize/2+'pt';
+      }
       var posHor = Math.floor(w/2);
       posHor -= posHor % linkSize;
       var posVer = Math.floor(h/2);
@@ -252,5 +269,6 @@
       }       
 
      </script>
-   </body>
-</html>
+   
+
+</body></html>
