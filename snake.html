@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+   <head lang="en">
        <title>Snake</title>
-       
+       <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
        <style>
           #field {
@@ -30,23 +31,16 @@
           }
           </style>
    </head>
-   <body id="body" onkeydown="keyPress(event)"><div id="StayFocusd-infobar" style="display:none;">
-    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
-    <span id="StayFocusd-infobar-msg"></span>
-    <span id="StayFocusd-infobar-links">
-        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="StayFocusd-infobar-hide">hide once</a>
-    </span>
-</div>
-     <div id="field" style="width: 1340px; height: 469px;">
-      <div id="link" style="width: 67px; height: 67px; left: 670px; top: 201px;">
+   <body id="body" onkeydown="keyPress(event)">
+     <div id="field">
+      <div id="link">
       </div>
-      <div id="apple" style="width: 67px; height: 67px; left: 1072px; top: 268px;">
+      <div id="apple">
       </div>
     </div>
-    <div id="footer" style="height: 134px; width: 1340px;">
+    <div id="footer">
       <table id="table">
-        <tbody><tr>
+        <tr>
           <td></td>
           <td></td>
           <td><button onclick="buttonPress(UP)">▲</button></td>
@@ -60,7 +54,7 @@
           <td id="space2"></td>
           <td><button onclick="buttonPress(RIGHT)">►</button></td>
         </tr>
-    </tbody></table>
+    </table>
     </div>
      <script type="text/javascript">
       // Set up Constants & Variables
@@ -77,13 +71,6 @@
       h -= 2*linkSize;
       document.getElementById("footer").style.height = 2*linkSize+'px';
       document.getElementById("footer").style.width = w+'px';
-      document.getElementById("space1").style.width = linkSize+'px';
-      document.getElementById("space2").style.width = linkSize+'px';
-      for (let b of document.getElementsByTagName('button')){
-        b.style.height = linkSize+'px';
-        b.style.width = linkSize+'px';
-        b.style.fontSize = linkSize/2+'pt';
-      }
       var posHor = Math.floor(w/2);
       posHor -= posHor % linkSize;
       var posVer = Math.floor(h/2);
@@ -114,10 +101,17 @@
       if('g'.localeCompare(prompt("Enter 'g' for GOD MODE, otherwise anything else.")) == 0){
         godMode = true;
       }
+      document.getElementById("space1").style.width = linkSize+'px';
+      document.getElementById("space2").style.width = linkSize+'px';
+      let buttons = document.getElementsByTagName('button');
+      for (let b of buttons){
+        b.style.height = linkSize+'px';
+        b.style.width = linkSize+'px';
+        b.style.fontSize = linkSize/2+'pt';
+      }
       newApple();
       var t = setInterval(runGame, speed);
       
-
       // Main Program
       function runGame(){ //(infinite loop)
         
@@ -138,7 +132,6 @@
           checkCollision();
         }
       }
-
       function move(){
         moving = true;
         if (dir != undefined){
@@ -149,7 +142,6 @@
         }
         moving = false;
       }
-
       function checkCollision(){
         let h = snake[0];
         for (let i = 1; i<snake.length; i++){
@@ -159,7 +151,6 @@
               }
         }
       }
-
       function addLink(){
         head = document.createElement('div');
         head.id = 'link';
@@ -217,7 +208,6 @@
         apple.style.left = l+'px';
         apple.style.top = t+'px';
       }
-
       function eaten(){
         let apple = document.getElementById('apple');
         let appPosHor = apple.style.left;
@@ -229,14 +219,12 @@
         }
         return false;
       }
-
       function oppositeDirs(d1, d2){
         return   (d1 == RIGHT && d2 == LEFT) 
                ||(d2 == RIGHT && d1 == LEFT)
                ||(d1 == UP && d2 == DOWN) 
                ||(d2 == UP && d1 == DOWN);
       }
-
       function keyPress(event){
         if (event.keyCode == 27){ // escape key
           gameOver = true;
@@ -254,7 +242,6 @@
           }
         }
       }   
-
       function buttonPress(c){
         if (!moving){
           if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
@@ -267,8 +254,6 @@
           }
         }
       }       
-
      </script>
-   
-
-</body></html>
+   </body>
+</html>
