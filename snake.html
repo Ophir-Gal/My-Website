@@ -239,7 +239,7 @@
           let c = event.keyCode;
           if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
             if ((!godMode) && snakeSize > 1 && oppositeDirs(c,dir)){
-              gameOver = true;
+              //gameOver = true;
               return;
             } else {
               dir = c;
