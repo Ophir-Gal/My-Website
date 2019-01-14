@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
-<!-- saved from url=(0034)http://www.ophirgal.com/snake.html -->
-<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+   <head lang="en">
        <title>Snake</title>
-       
+       <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
        <style>
           #field {
@@ -31,37 +32,30 @@
           }
           </style>
    </head>
-   <body id="body" onkeydown="keyPress(event)"><div id="StayFocusd-infobar" style="display:none;">
-    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
-    <span id="StayFocusd-infobar-msg"></span>
-    <span id="StayFocusd-infobar-links">
-        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="StayFocusd-infobar-hide">hide once</a>
-    </span>
-</div>
-     <div id="field" style="width: 1340px; height: 469px;">
-      <div id="link" style="width: 67px; height: 67px; left: 670px; top: 201px;">
+   <body id="body" onkeydown="keyPress(event)">
+     <div id="field">
+      <div id="link">
       </div>
-      <div id="apple" style="width: 67px; height: 67px; left: 201px; top: 402px;">
+      <div id="apple">
       </div>
     </div>
-    <div id="footer" style="height: 134px; width: 1340px;">
+    <div id="footer">
       <table id="table">
-        <tbody><tr>
+        <tr>
           <td></td>
           <td></td>
-          <td><button onclick="buttonPress(UP)" style="height: 67px; width: 67px; font-size: 33.5pt;">▲</button></td>
+          <td><button onclick="buttonPress(UP)">▲</button></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td><button onclick="buttonPress(LEFT)" style="height: 67px; width: 67px; font-size: 33.5pt;">◄</button></td>
-          <td id="space1" style="width: 67px;"></td>
-          <td><button onclick="buttonPress(DOWN)" style="height: 67px; width: 67px; font-size: 33.5pt;">▼</button></td>
-          <td id="space2" style="width: 67px;"></td>
-          <td><button onclick="buttonPress(RIGHT)" style="height: 67px; width: 67px; font-size: 33.5pt;">►</button></td>
+          <td><button onclick="buttonPress(LEFT)">◄</button></td>
+          <td id="space1"></td>
+          <td><button onclick="buttonPress(DOWN)">▼</button></td>
+          <td id="space2"></td>
+          <td><button onclick="buttonPress(RIGHT)">►</button></td>
         </tr>
-    </tbody></table>
+    </table>
     </div>
      <script type="text/javascript">
       // Set up Constants & Variables
@@ -69,7 +63,7 @@
       const UP = 38;
       const RIGHT = 39;
       const DOWN = 40;
-      var speed = 75;//prompt(); // (the milliseconds interval)
+      var speed = 70;//prompt(); // (the milliseconds interval)
       var w = window.innerWidth-10;
       var h = window.innerHeight-10;
       var linkSize = Math.floor(Math.min(h,w)*0.06);
@@ -100,7 +94,7 @@
       var rightEdge = w - linkSize;
       var topEdge = 0;
       var bottomEdge = h - linkSize;
-      var dir = LEFT;//undefined;
+      var dir = UP;
       var gameOver = false;
       var appleCount = 0;
       var moving = false;
@@ -120,6 +114,7 @@
       addLink();
       addLink();
       addLink();
+      dir = undefined;
       var t = setInterval(runGame, speed);
       
       // Main Program
@@ -163,7 +158,7 @@
       }
       function addLink(){
         head = document.createElement('div');
-        head.id = 'link'+snakeSize;
+        head.id = 'link';
         head.style.width = linkSize+'px';
         head.style.height = head.style.width;
         head.style.background = godMode ? (snake[0].style.background < 'green' ? 'green' : 'black') : 'green';
@@ -244,7 +239,7 @@
           let c = event.keyCode;
           if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
             if ((!godMode) && snakeSize > 1 && oppositeDirs(c,dir)){
-              //gameOver = true;
+              gameOver = true;
               return;
             } else {
               dir = c;
@@ -256,7 +251,7 @@
         if (!moving){
           if (c != dir && (c == LEFT || c == RIGHT || c == UP || c == DOWN)){
             if ((!godMode) && snakeSize > 1 && oppositeDirs(c,dir)){
-              gameOver = true;
+              //gameOver = true;
               return;
             } else {
               dir = c;
@@ -265,6 +260,5 @@
         }
       }       
      </script>
-   
-
-</body></html>
+   </body>
+</html>
