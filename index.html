@@ -36,15 +36,13 @@ body {font-family: "Lato", sans-serif}
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
-  <div class="w3-display-container w3-center w3-padding-64" style="display: block;">
+  <!-- The About Section -->
+  <div class="w3-display-container w3-center w3-padding-64" style="display: block;" id="about">
     <div class="w3-half" style="padding-left:10%;padding-right:10%">
        <img src="http://www.ophirgal.com/Profile_2.png" style="border-radius:50%; width:65%; max-width:300px">
     </div>
-    <!-- The About Section -->
-    <div class="w3-half">
-	    <div class="w3-container w3-content w3-center w3-padding-16" style="max-width:800px;padding-right:10%;padding-left:10%" id="about">
+    <div class="w3-half w3-container w3-content w3-center w3-padding-16" style="max-width:800px;padding-right:10%;padding-left:10%">
 	    <h2 class="w3-wide">ABOUT ME</h2>
-
 	    <p class="w3-justify w3-padding-8">
 		    Hey there! Welcome to my website. I'm an Israeli-American student 
 		    at the University of Maryland, College Park. I grew up in Israel, served in the IDF, 
@@ -53,12 +51,9 @@ body {font-family: "Lato", sans-serif}
 		    and of course singing in the shower. Areas of computer science I'm passionate about are machine learning,
 		    natural language processing, audio, mobile, and web.
 	    </p>
-
-	    </div>
      </div>
-    </div>
+   </div>
     
-</div>
   
 
  <!-- The Projects Section -->
@@ -106,53 +101,9 @@ body {font-family: "Lato", sans-serif}
         <!-- <i class="fa fa-phone" style="width:30px"></i> Phone: N/A<br> -->
         <i class="fa fa-envelope" style="width:30px"> </i> Email: ophirgal2@gmail.com<br>
       </div>
-      <!-- <div class="w3-col m6">
-        <form action="https://formspree.io/ophirgal2@gmail.com" method="POST" id="contact-form">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Name" required="" name="name" id="inputName">
-            </div>
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="email" placeholder="Email" required="" name="_replyto" id="inputEmail">
-            </div>
-          </div>
-          <input class="w3-input w3-border" type="text" placeholder="Message" required="" name="inputMessage" id="inputMessage">
-          <button class="w3-button w3-black w3-section w3-right" type="submit" value="Send">SEND</button>
-        </form>
-	<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script><script src="//code.jquery.com/jquery-2.2.4.min.js"></script><script src="//alertifyjs.com/build/alertify.js"></script>
-<script>(function() {
-  $(document).ready(function() {
-    return $('#contact-form').submit(function(e) {
-      var email, message, name;
-      name = document.getElementById('inputName');
-      email = document.getElementById('inputEmail');
-      message = document.getElementById('inputMessage');
-      if (!name.value || !email.value || !message.value) {
-        alertify.error('Please check your entries');
-        return false;
-      } else {
-        $.ajax({
-          method: 'POST',
-          url: 'https://formspree.io/ophirgal2@gmail.com',
-          data: $('#contact-form').serialize(),
-          datatype: 'json'
-        });
-        e.preventDefault();
-        $(this).get(0).reset();
-        return alertify.success('Message sent');
-      }
-    });
-  });
-
-}).call(this);
-
-
-</script>
-	      
-      </div> -->
-	    
     </div> 
   </div>
+	
 </div>
 <!-- End Page Content -->
 
