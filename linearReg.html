@@ -33,7 +33,17 @@
               ellipse(x, y, 8, 8);
             }
             if (data.length > 1) {
-                gradientDescent();
+                var loss = 0
+                for (i=0; i<data.length; i++) {
+                  var x = data[i].x;
+                  var y = data[i].y;
+                  var guess = m * x + b;
+                  loss += (guess - y) > 0 ? (guess - y) : -(guess - y);
+                }
+                loss = loss / data.length;
+                if(loss > 0.0001){
+                    gradientDescent();
+                }
                 drawLine();
             }
             fill(255);
@@ -41,20 +51,20 @@
             text("tap to add points", width*0.3, height*0.9);
           }
           function gradientDescent() {
-            var learningRate = 0.05;
+            var learningRate = 0.2;
             var m_deriv = 0;
             var b_deriv = 0;
             for (i=0; i<data.length; i++) {
               var x = data[i].x;
               var y = data[i].y;
               var guess = m * x + b;
-              var error = y - guess;
-              m_deriv += -error * x;
-              b_deriv += -error;
+              var error = guess - y;
+              m_deriv += error * x;
+              b_deriv += error;
             }
             // We subtract because the derivatives point in direction of steepest ascent
-            m = m - learningRate * m_deriv;
-            b = b - learningRate * b_deriv;
+            m = m - learningRate * (m_deriv/data.length);
+            b = b - learningRate * (b_deriv/data.length);
           }
           function drawLine() {
             var x1 = 0;
