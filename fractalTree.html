@@ -16,9 +16,18 @@
                           createCanvas(0.9*(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth),
                                        0.9*(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight));
                           noStroke();
-                          // create slider
-                          slider = createSlider(0, height*1.1, height/4);
-                          slider.position(width*0.32, height);
+                          // create sliders
+                          slider = createSlider(0, height*1.1, height);
+                          slider.position(width*0.05, height);
+                            
+                          slider2 = createSlider(1, 20, 5, 0);
+                          slider2.position(width*0.3, height);  
+                          
+                          slider3 = createSlider(1, 2, 1.5, 0);
+                          slider3.position(width*0.65, height);  
+
+                          slider4 = createSlider(1, 30, 1, 0);
+                          slider4.position(width*0.88, height); 
                         }
                         function draw() {
                           push();
@@ -28,7 +37,8 @@
                         }
                         function drawTree() {
                           background(255);
-                          stroke(50, 35, 6);
+                          var s4 = slider4.value();
+                          stroke(50*s4%255, 35*s4%255, 6*s4%255);
                           translate(width / 2.0, height);
                           //if (slider.value() <= width / 2) {
                             branch(slider.value() / 3.0);
@@ -37,33 +47,34 @@
                           //}
                         }
                         function branch(len) {
+                          var s4 = slider4.value();
                           if (len < 70 && len >= 50) {
-                            stroke(60, 50, 15);
+                            stroke(60*s4%255, 50*s4%255, 15*s4%255);
                           } else if (len < 50 && len >= 30) {
-                            stroke(90, 60, 5);
+                            stroke(90*s4%255, 60*s4%255, 5*s4%255);
                           } else if (len < 30 && len >= 20) {
-                            stroke(30, 160, 30);
+                            stroke(30*s4%255, 160*s4%255, 30*s4%255);
                           } else if (len < 20) {
-                            stroke(23, 104, 23);
+                            stroke(23*s4%255, 104*s4%255, 23*s4%255);
                           }
                           strokeWeight((len / 8.0));
                           line(0, 0, 0, -len);
-                          stroke(50, 35, 6);
+                          stroke(50*s4%255, 35*s4%255, 6*s4%255);
                           translate(0, -len);
                           if (len > 15) {
                             push();
-                            rotate(PI / 6.0);
+                            rotate(PI / slider2.value());
                             branch(len * 0.67);
                             pop();
                             push();
-                            rotate(PI / 3.0);
+                            rotate(PI / slider2.value()*slider3.value());
                             branch(len * 0.67);
                             pop();
                             push();
-                            rotate(-PI / 3.0);
+                            rotate(-PI / slider2.value());
                             branch(len * 0.67);
                             pop();
-                            rotate(-PI / 6.0);
+                            rotate(-PI / slider2.value());
                             branch(len * 0.67);
                           }
                         }
