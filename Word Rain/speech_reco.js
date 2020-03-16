@@ -4,7 +4,8 @@ var interim_span = document.getElementById('interim_span');
 var recognizing = false;
 var ignore_onend = false;
 var start_timestamp;
-var last_word = null; // to not create the same word again
+
+var last_sentence = null; // to not create the same sentence
 
 if (!('webkitSpeechRecognition' in window)) {
     upgrade();
@@ -50,17 +51,15 @@ if (!('webkitSpeechRecognition' in window)) {
         }
 
         // ----------------------MY_CODE_START-------------------------
-        if (final_transcript.length > 50) {
-            final_transcript = ''
-        }
+        final_transcript = ''; // erase what's been said
         // ----------------------MY_CODE_END---------------------------
-        
+
         for (var i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
                 final_transcript += event.results[i][0].transcript;
                 // -----------------------MY_CODE_START------------------------
                 let sentence = event.results[i][0].transcript.trim().split(' ');
-                //console.log(sentence);
+                console.log(sentence);
                 let last_indent = 0;
                 // randomize initial indent
                 last_indent += Math.floor(Math.random() * 200 + 50);
@@ -68,7 +67,9 @@ if (!('webkitSpeechRecognition' in window)) {
                 for (let i=0; i<sentence.length; i++){
                     let word = sentence[i].toUpperCase();
                     last_indent += word.length * 25 + 35;
+                    console.time('addBodyFromSVG()');
                     addBodyFromSVG(stringToSVG(word), last_indent); 
+                    console.timeEnd('addBodyFromSVG()');
                 }
 
                 // ------------------------MY_CODE_END-------------------------

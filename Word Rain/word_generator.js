@@ -14,6 +14,9 @@ var Engine = Matter.Engine,
 var engine = Engine.create(),
     world = engine.world;
 
+// change the gravity
+world.gravity.scale = 0.002;
+
 // create renderer
 var render = Render.create({
     element: document.body,
@@ -21,8 +24,7 @@ var render = Render.create({
     options: {
         width: 960,//current_width,
         height: 540,//current_height
-        wireframes: false, // <-- important
-        //background: 'white'
+        wireframes: false // <-- important
     }
 });
 
@@ -33,7 +35,7 @@ var runner = Runner.create();
 Runner.run(runner, engine);
 
 // Add body from SVG
-addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
+var addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
     // assuming 'data' is an SVG object with paths
 
     var vertexSets = [];
@@ -53,7 +55,7 @@ addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
             strokeStyle: 'white',
             lineWidth: 1
         },
-        restitution: 0.95
+        restitution: 0.98
     }, true);
 
     // shrink its size
@@ -63,15 +65,20 @@ addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
     World.add(world, body);
 }
 
-addBodyFromSVG();
+addBodyFromSVG(); // add a '*' into the world
 
 World.add(world, [
-    //Bodies.rectangle(400, 0, 800, 50, { isStatic: true }),
-    Bodies.rectangle(render.options.width/2, render.options.height*1.12,
-                     render.options.width*2, 100,
+    //top
+    Bodies.rectangle(render.options.width/2, render.options.height*0.02,
+                     render.options.width*2, 75, { isStatic: true }), 
+    //bottom
+    Bodies.rectangle(render.options.width/2, render.options.height*1.1, 
+                     render.options.width*2, 75,
                      { isStatic: true }),
-    //Bodies.rectangle(800, 300, 50, 600, { isStatic: true }),
-    //Bodies.rectangle(0, 300, 50, 600, { isStatic: true })
+    // right
+    Bodies.rectangle(render.options.width-25, 300, 50, 600, { isStatic: true }),
+    // left
+    Bodies.rectangle(-110-25, 300, 50, 600, { isStatic: true })
 ]);
 
 // add mouse control

@@ -3,19 +3,18 @@
     position: absolute;
     z-index: 1;
     font-size: xx-large;
-    font-weight: bold;
     /* border: 1px solid #ddd; */
     padding: 20px;
     text-align: left;
-    max-width: 960px;
+    max-width: 900px;
     max-height: 20px;
-    overflow-y: auto;
-    overflow: hidden; /* Hide scrollbars */
 }
 .interim {
-    color: gray;
+    color: white;
+    font-weight: lighter;
 }
 .final {
     color: white;
+    font-weight: bold;
     padding-right: 3px;
 }
