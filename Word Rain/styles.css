@@ -1,0 +1,21 @@
+/* CSS for Word Rain Project */
+#results {
+    position: absolute;
+    z-index: 1;
+    font-size: xx-large;
+    font-weight: bold;
+    /* border: 1px solid #ddd; */
+    padding: 20px;
+    text-align: left;
+    max-width: 960px;
+    max-height: 20px;
+    overflow-y: auto;
+    overflow: hidden; /* Hide scrollbars */
+}
+.interim {
+    color: gray;
+}
+.final {
+    color: white;
+    padding-right: 3px;
+}
