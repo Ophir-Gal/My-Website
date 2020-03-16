@@ -67,8 +67,7 @@ if (!('webkitSpeechRecognition' in window)) {
                 for (let i=0; i<sentence.length; i++){
                     let word = sentence[i].toUpperCase();
                     last_indent += word.length * 25 + 35;
-                    let svg = stringToSVG(word);
-                    addBodyFromSVG(svg, last_indent); 
+                    addBodyFromString(word, last_indent); 
                 }
                 // ------------------------MY_CODE_END-------------------------
             } else {

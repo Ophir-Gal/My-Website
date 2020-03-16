@@ -34,11 +34,11 @@ Render.run(render);
 var runner = Runner.create();
 Runner.run(runner, engine);
 
-// Add body from SVG
-var addBodyFromSVG = function(svg=stringToSVG('*'), indent=0){
-    // assuming 'svg' is an SVG object with paths
+// Add body from String
+var addBodyFromString = function(word='HEY', indent=0){
 
-    var vertexSets = [];
+    let svg = stringToSVG(word); // convert string to SVG object 
+    var vertexSets = [];         // initialize list of vertex sets
     
     // in case you wany to color differnet letters differently -
     //var color = Common.choose(['white', 'white', 'white', ...]);
@@ -47,6 +47,17 @@ var addBodyFromSVG = function(svg=stringToSVG('*'), indent=0){
         let points = Svg.pathToVertices(path, 50, i*2500);
         vertexSets.push(points);
     });
+    
+    // -------------- alternative approach ------------------------
+    // -------------- get vertices directly from strings ----------
+    /**
+     * For each letter in word
+     *      get its points from pre-made dictionary
+     *      indent x value of all of its points by index * some_magic_number
+     *      append the points to list of vertex sets
+     */            
+    // ------------------------------------------------------------
+    // ------------------------------------------------------------
 
     // create body
     var body = Bodies.fromVertices(50 + indent, 80, vertexSets, {
