@@ -35,16 +35,16 @@ var runner = Runner.create();
 Runner.run(runner, engine);
 
 // Add body from SVG
-var addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
-    // assuming 'data' is an SVG object with paths
+var addBodyFromSVG = function(svg=stringToSVG('*'), indent=0){
+    // assuming 'svg' is an SVG object with paths
 
     var vertexSets = [];
     
     // in case you wany to color differnet letters differently -
     //var color = Common.choose(['white', 'white', 'white', ...]);
 
-    $(data).find('path').each(function(i, path) {
-        let points = Svg.pathToVertices(path, 50, i*2500)
+    $(svg).find('path').each(function(i, path) {
+        let points = Svg.pathToVertices(path, 50, i*2500);
         vertexSets.push(points);
     });
 
