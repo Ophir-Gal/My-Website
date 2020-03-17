@@ -9,6 +9,14 @@
     max-width: 900px;
     max-height: 20px;
 }
+#loading_msg {
+    position: absolute;
+    z-index: -1;
+    font-size: xx-large;
+    padding-top: 250px;
+    padding-left: 350px;
+    font-weight: bold;
+}
 .interim {
     color: white;
     font-weight: lighter;
