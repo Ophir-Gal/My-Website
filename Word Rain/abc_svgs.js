@@ -58,5 +58,3 @@ for (let letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'){
     let path = stringToSVG(letter).childNodes[1].childNodes[0];
     letterToVertixSet[letter] = Svg_abc.pathToVertices(path, 50)
 }
-
-//console.log(letterToVertixSet('A'));
