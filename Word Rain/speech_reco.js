@@ -67,14 +67,11 @@ if (!('webkitSpeechRecognition' in window)) {
                 for (let i=0; i<sentence.length; i++){
                     let word = sentence[i].toUpperCase();
                     last_indent += word.length * 25 + 35;
-                    console.time('addBodyFromSVG()');
-                    addBodyFromSVG(stringToSVG(word), last_indent); 
-                    console.timeEnd('addBodyFromSVG()');
+                    addBodyFromString(word, last_indent); 
                 }
-
                 // ------------------------MY_CODE_END-------------------------
             } else {
-            interim_transcript += event.results[i][0].transcript;
+                interim_transcript += event.results[i][0].transcript;
             }
         }
         final_transcript = capitalize(final_transcript);

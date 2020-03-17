@@ -34,19 +34,49 @@ Render.run(render);
 var runner = Runner.create();
 Runner.run(runner, engine);
 
-// Add body from SVG
-var addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
-    // assuming 'data' is an SVG object with paths
+// Add body from String
+var addBodyFromString = function(word='HEY', indent=0){
 
-    var vertexSets = [];
+    let svg = stringToSVG(word); // convert string to SVG object 
+    var vertexSets = [];         // initialize list of vertex sets
     
     // in case you wany to color differnet letters differently -
     //var color = Common.choose(['white', 'white', 'white', ...]);
 
-    $(data).find('path').each(function(i, path) {
-        let points = Svg.pathToVertices(path, 50, i*2500)
+    /*
+    $(svg).find('path').each(function(i, path) {
+        let points = Svg.pathToVertices(path, 50, i*2500);
         vertexSets.push(points);
     });
+    */
+    
+    // -------------- alternative approach ------------------------
+    // -------------- get vertices directly from strings ----------
+    /**
+     * For each letter in word:
+     *      - Get its points from pre-made dictionary.
+     *      - For each point:
+     *          Copy it and indent its x value according to the index
+*                          (x += index * some_magic_number).
+     *      - Append the points to list of vertex sets.
+     */
+    
+    console.time("my new approach");
+
+    for (let i=0; i<word.length; i++){
+        let letter = word[i];
+        let points = [];
+        for (let point of letterToVertixSet[letter]){
+            let indented_point = {x: point.x + i*2500, y: point.y};
+            points.push(indented_point);
+        }
+        vertexSets.push(points);
+    }
+
+    console.timeEnd("my new approach");
+     
+    // ------------------------------------------------------------
+    // ------------------------------------------------------------
 
     // create body
     var body = Bodies.fromVertices(50 + indent, 80, vertexSets, {
@@ -65,7 +95,7 @@ var addBodyFromSVG = function(data=stringToSVG('*'), indent=0){
     World.add(world, body);
 }
 
-addBodyFromSVG(); // add a '*' into the world
+//addBodyFromString(); // add a '*' into the world
 
 World.add(world, [
     //top
