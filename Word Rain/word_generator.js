@@ -100,9 +100,9 @@ var addBodyFromString = function(word='HELLO', indent=0){
     // create body
     var body = Bodies.fromVertices(50 + indent, 80, vertexSets, {
         render: {
-            fillStyle: 'white',
+            //fillStyle: 'white',
             strokeStyle: 'white',
-            lineWidth: 1
+            lineWidth: 0.5
         },
         restitution: 0.98
     }, true);
