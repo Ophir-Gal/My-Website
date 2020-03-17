@@ -5,7 +5,9 @@ var recognizing = false;
 var ignore_onend = false;
 var start_timestamp;
 
-var last_sentence = null; // to not create the same sentence
+var getCurrentTime = _ => new Date().getTime(); // to not create the same sentence
+var lastTime = getCurrentTime(); // to not create the same sentence
+
 
 if (!('webkitSpeechRecognition' in window)) {
     upgrade();
@@ -57,21 +59,40 @@ if (!('webkitSpeechRecognition' in window)) {
         for (var i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
                 final_transcript += event.results[i][0].transcript;
-                // -----------------------MY_CODE_START------------------------
-                let sentence = event.results[i][0].transcript.trim().split(' ');
-                console.log(sentence);
-                let last_indent = 0;
-                // randomize initial indent
-                last_indent += Math.floor(Math.random() * 200 + 50);
-                // add all words in sentence
-                for (let i=0; i<sentence.length; i++){
-                    let word = sentence[i].toUpperCase();
-                    last_indent += word.length * 25 + 35;
-                    addBodyFromString(word, last_indent); 
+                if (getCurrentTime() - lastTime > 300){
+                    lastTime = new Number(getCurrentTime());
+                    let sentence = event.results[i][0].transcript.trim();
+                    last_sentence = sentence;
+                    let sentence_array = sentence.split(' ');
+                    let last_indent = 0;
+                    // randomize initial indent
+                    last_indent += Math.floor(Math.random() * 200 + 50);
+                    // add all words in sentence
+                    for (let i=0; i<sentence_array.length; i++){
+                        let word = sentence_array[i].toUpperCase();
+                        last_indent += word.length * 25 + 35;
+                        addBodyFromString(word, last_indent); 
+                    }
                 }
                 // ------------------------MY_CODE_END-------------------------
             } else {
                 interim_transcript += event.results[i][0].transcript;
+                // -----------------------MY_CODE_START------------------------
+                if (getCurrentTime() - lastTime > 300){
+                    lastTime = new Number(getCurrentTime());
+                    let sentence = event.results[i][0].transcript.trim();
+                    let sentence_array = sentence.split(' ');
+                    let last_indent = 0;
+                    // randomize initial indent
+                    last_indent += Math.floor(Math.random() * 200 + 50);
+                    // add all words in sentence
+                    for (let i=0; i<sentence_array.length; i++){
+                        let word = sentence_array[i].toUpperCase();
+                        last_indent += word.length * 25 + 35;
+                        addBodyFromString(word, last_indent); 
+                    }
+                }
+                // ------------------------MY_CODE_END-------------------------
             }
         }
         final_transcript = capitalize(final_transcript);

@@ -15,7 +15,7 @@ var engine = Engine.create(),
     world = engine.world;
 
 // change the gravity
-world.gravity.scale = 0.002;
+world.gravity.scale = 0.01;
 
 // create renderer
 var render = Render.create({
@@ -35,20 +35,22 @@ var runner = Runner.create();
 Runner.run(runner, engine);
 
 // Add body from String
-var addBodyFromString = function(word='HEY', indent=0){
+var addBodyFromString = function(word='HELLO', indent=0){
 
-    let svg = stringToSVG(word); // convert string to SVG object 
-    var vertexSets = [];         // initialize list of vertex sets
+    //let svg = stringToSVG(word); // convert string to SVG object 
+    var vertexSets = [];           // initialize empty list of vertex sets
     
     // in case you wany to color differnet letters differently -
     //var color = Common.choose(['white', 'white', 'white', ...]);
 
+    // ---- Original approach to creating 2D objects --------------
     /*
     $(svg).find('path').each(function(i, path) {
         let points = Svg.pathToVertices(path, 50, i*2500);
         vertexSets.push(points);
     });
     */
+   // -------------------------------------------------------------
     
     // -------------- alternative approach ------------------------
     // -------------- get vertices directly from strings ----------
@@ -57,24 +59,25 @@ var addBodyFromString = function(word='HEY', indent=0){
      *      - Get its points from pre-made dictionary.
      *      - For each point:
      *          Copy it and indent its x value according to the index
-*                          (x += index * some_magic_number).
+     *                          (x += index * some_magic_number).
      *      - Append the points to list of vertex sets.
      */
     
-    console.time("my new approach");
-
     for (let i=0; i<word.length; i++){
         let letter = word[i];
         let points = [];
+        
+        if (letter < 'A' || letter > 'Z'){
+            letter = '*';
+        }
+
         for (let point of letterToVertixSet[letter]){
-            let indented_point = {x: point.x + i*2500, y: point.y};
+            let indented_point = {x: point.x + i*2000, y: point.y};
             points.push(indented_point);
         }
         vertexSets.push(points);
     }
 
-    console.timeEnd("my new approach");
-     
     // ------------------------------------------------------------
     // ------------------------------------------------------------
 
@@ -95,16 +98,17 @@ var addBodyFromString = function(word='HEY', indent=0){
     World.add(world, body);
 }
 
-//addBodyFromString(); // add a '*' into the world
+addBodyFromString('HELLO');
+addBodyFromString('WORLD');
 
 World.add(world, [
     //top
     Bodies.rectangle(render.options.width/2, render.options.height*0.02,
                      render.options.width*2, 75, { isStatic: true }), 
     //bottom
-    Bodies.rectangle(render.options.width/2, render.options.height*1.1, 
+    /*Bodies.rectangle(render.options.width/2, render.options.height*1.1, 
                      render.options.width*2, 75,
-                     { isStatic: true }),
+                     { isStatic: true }),*/
     // right
     Bodies.rectangle(render.options.width-25, 300, 50, 600, { isStatic: true }),
     // left
