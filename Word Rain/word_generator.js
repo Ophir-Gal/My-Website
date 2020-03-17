@@ -14,6 +14,9 @@ var Engine = Matter.Engine,
 const MAX_BODIES = 10;
 const FLOOR_ID = 42;
 
+const colors = ['#003f5c','#2f4b7c','#665191','#a05195',
+                '#d45087','#f95d6a','#ff7c43','#ffa600'];
+
 // create engine
 var engine = Engine.create(),
     world = engine.world;
@@ -88,7 +91,7 @@ var addBodyFromString = function(word='HELLO', indent=0){
         }
 
         for (let point of letterToVertixSet[letter]){
-            let indented_point = {x: point.x + i*2200, y: point.y};
+            let indented_point = {x: point.x + i*2300, y: point.y};
             points.push(indented_point);
         }
         vertexSets.push(points);
@@ -97,14 +100,16 @@ var addBodyFromString = function(word='HELLO', indent=0){
     // ------------------------------------------------------------
     // ------------------------------------------------------------
 
+    let word_color = colors[Math.floor(Math.random() * 8)]; // random color
+
     // create body
     var body = Bodies.fromVertices(50 + indent, 80, vertexSets, {
         render: {
-            //fillStyle: 'white',
-            strokeStyle: 'white',
-            lineWidth: 0.5
+            fillStyle: word_color,
+            strokeStyle: word_color,
+            lineWidth: 1
         },
-        restitution: 0.98
+        restitution: 0.999
     }, true);
 
     // shrink its size
