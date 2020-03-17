@@ -2,6 +2,7 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Common = Matter.Common,
+    Composite = Matter.Composite;
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse,
     World = Matter.World,
@@ -10,12 +11,15 @@ var Engine = Matter.Engine,
     Bodies = Matter.Bodies,
     Body = Matter.Body;
 
+const MAX_BODIES = 10;
+const FLOOR_ID = 42;
+
 // create engine
 var engine = Engine.create(),
     world = engine.world;
 
 // change the gravity
-world.gravity.scale = 0.01;
+//world.gravity.scale = 0.001; // default is 0.001
 
 // create renderer
 var render = Render.create({
@@ -36,6 +40,18 @@ Runner.run(runner, engine);
 
 // Add body from String
 var addBodyFromString = function(word='HELLO', indent=0){
+
+    // remove some older bodies if reached max
+    let all_bodies = Composite.allBodies(world);
+    if (all_bodies.length > MAX_BODIES){
+        for (let i=0; i<=10; i++){
+            let some_idx = 0;
+            if (all_bodies[0].id === FLOOR_ID){
+                some_idx += 1;
+            }
+            World.remove(world, all_bodies[some_idx]);
+        }
+    }
 
     //let svg = stringToSVG(word); // convert string to SVG object 
     var vertexSets = [];           // initialize empty list of vertex sets
@@ -72,7 +88,7 @@ var addBodyFromString = function(word='HELLO', indent=0){
         }
 
         for (let point of letterToVertixSet[letter]){
-            let indented_point = {x: point.x + i*2000, y: point.y};
+            let indented_point = {x: point.x + i*2200, y: point.y};
             points.push(indented_point);
         }
         vertexSets.push(points);
@@ -99,20 +115,20 @@ var addBodyFromString = function(word='HELLO', indent=0){
 }
 
 addBodyFromString('HELLO');
-addBodyFromString('WORLD');
 
+// add walls, floor, and ceiling
 World.add(world, [
     //top
-    Bodies.rectangle(render.options.width/2, render.options.height*0.02,
-                     render.options.width*2, 75, { isStatic: true }), 
+    //Bodies.rectangle(render.options.width/2, render.options.height*0.02,
+    //                 render.options.width*2, 75, { isStatic: true }), 
     //bottom
-    /*Bodies.rectangle(render.options.width/2, render.options.height*1.1, 
+    Bodies.rectangle(render.options.width/2, render.options.height*1.1, 
                      render.options.width*2, 75,
-                     { isStatic: true }),*/
+                     { isStatic: true, id: FLOOR_ID, restitution: 0.98})
     // right
-    Bodies.rectangle(render.options.width-25, 300, 50, 600, { isStatic: true }),
+    //Bodies.rectangle(render.options.width-25, 300, 50, 600, { isStatic: true }),
     // left
-    Bodies.rectangle(-110-25, 300, 50, 600, { isStatic: true })
+    //Bodies.rectangle(-110-25, 300, 50, 600, { isStatic: true })
 ]);
 
 // add mouse control

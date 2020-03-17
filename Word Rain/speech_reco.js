@@ -7,6 +7,7 @@ var start_timestamp;
 
 var getCurrentTime = _ => new Date().getTime(); // to not create the same sentence
 var lastTime = getCurrentTime(); // to not create the same sentence
+const MAX_TIME_DIFFERENCE = 800; // max milliseconds between each 2D word generation
 
 
 if (!('webkitSpeechRecognition' in window)) {
@@ -53,47 +54,34 @@ if (!('webkitSpeechRecognition' in window)) {
         }
 
         // ----------------------MY_CODE_START-------------------------
-        final_transcript = ''; // erase what's been said
+        final_transcript = ''; // erase what's been said from the top bar
         // ----------------------MY_CODE_END---------------------------
 
         for (var i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
                 final_transcript += event.results[i][0].transcript;
-                if (getCurrentTime() - lastTime > 300){
-                    lastTime = new Number(getCurrentTime());
-                    let sentence = event.results[i][0].transcript.trim();
-                    last_sentence = sentence;
-                    let sentence_array = sentence.split(' ');
-                    let last_indent = 0;
-                    // randomize initial indent
-                    last_indent += Math.floor(Math.random() * 200 + 50);
-                    // add all words in sentence
-                    for (let i=0; i<sentence_array.length; i++){
-                        let word = sentence_array[i].toUpperCase();
-                        last_indent += word.length * 25 + 35;
-                        addBodyFromString(word, last_indent); 
-                    }
-                }
-                // ------------------------MY_CODE_END-------------------------
-            } else {
+            } else{
                 interim_transcript += event.results[i][0].transcript;
-                // -----------------------MY_CODE_START------------------------
-                if (getCurrentTime() - lastTime > 300){
-                    lastTime = new Number(getCurrentTime());
-                    let sentence = event.results[i][0].transcript.trim();
-                    let sentence_array = sentence.split(' ');
-                    let last_indent = 0;
-                    // randomize initial indent
-                    last_indent += Math.floor(Math.random() * 200 + 50);
-                    // add all words in sentence
-                    for (let i=0; i<sentence_array.length; i++){
-                        let word = sentence_array[i].toUpperCase();
-                        last_indent += word.length * 25 + 35;
-                        addBodyFromString(word, last_indent); 
-                    }
-                }
-                // ------------------------MY_CODE_END-------------------------
             }
+            
+            // -----------------------MY_CODE_START------------------------
+            if (event.results[i].isFinal ||
+                getCurrentTime() - lastTime > MAX_TIME_DIFFERENCE){
+                lastTime = getCurrentTime();
+                let sentence = event.results[i][0].transcript.trim();
+                let sentence_array = sentence.split(' ');
+                let last_indent = -200;
+                // randomize initial indent
+                last_indent += Math.floor(Math.random() * 400);
+                // add all words in sentence
+                for (let i=0; i<sentence_array.length; i++){
+                    let word = sentence_array[i].toUpperCase();
+                    last_indent += word.length * 25 + 35;
+                    addBodyFromString(word, last_indent); 
+                }
+            }
+            // ------------------------MY_CODE_END-------------------------
+            
         }
         final_transcript = capitalize(final_transcript);
         final_span.innerHTML = linebreak(final_transcript);
