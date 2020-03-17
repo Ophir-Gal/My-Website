@@ -43,19 +43,38 @@ var addBodyFromString = function(word='HEY', indent=0){
     // in case you wany to color differnet letters differently -
     //var color = Common.choose(['white', 'white', 'white', ...]);
 
+    /*
     $(svg).find('path').each(function(i, path) {
         let points = Svg.pathToVertices(path, 50, i*2500);
         vertexSets.push(points);
     });
+    */
     
     // -------------- alternative approach ------------------------
     // -------------- get vertices directly from strings ----------
     /**
-     * For each letter in word
-     *      get its points from pre-made dictionary
-     *      indent x value of all of its points by index * some_magic_number
-     *      append the points to list of vertex sets
-     */            
+     * For each letter in word:
+     *      - Get its points from pre-made dictionary.
+     *      - For each point:
+     *          Copy it and indent its x value according to the index
+*                          (x += index * some_magic_number).
+     *      - Append the points to list of vertex sets.
+     */
+    
+    console.time("my new approach");
+
+    for (let i=0; i<word.length; i++){
+        let letter = word[i];
+        let points = [];
+        for (let point of letterToVertixSet[letter]){
+            let indented_point = {x: point.x + i*2500, y: point.y};
+            points.push(indented_point);
+        }
+        vertexSets.push(points);
+    }
+
+    console.timeEnd("my new approach");
+     
     // ------------------------------------------------------------
     // ------------------------------------------------------------
 
@@ -76,7 +95,7 @@ var addBodyFromString = function(word='HEY', indent=0){
     World.add(world, body);
 }
 
-addBodyFromSVG(); // add a '*' into the world
+//addBodyFromString(); // add a '*' into the world
 
 World.add(world, [
     //top
