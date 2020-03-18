@@ -50,9 +50,13 @@
     $(document).ready(function(){
       $("#hide").click(function(){
         $("#options").hide();
+        let results = document.getElementById('results');
+        results.style.top = '100px';
       });
       $("#show").click(function(){
         $("#options").show();
+        let results = document.getElementById('results');
+        results.style.top = '510px';
       });
     });
     $("#options").hide();
