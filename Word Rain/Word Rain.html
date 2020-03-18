@@ -51,7 +51,7 @@
       $("#hide").click(function(){
         $("#options").hide();
         let results = document.getElementById('results');
-        results.style.top = '100px';
+        results.style.top = '90px';
       });
       $("#show").click(function(){
         $("#options").show();
@@ -59,7 +59,6 @@
         results.style.top = '510px';
       });
     });
-    $("#options").hide();
   </script>
   <br>
   <div id="loading_msg">
@@ -73,5 +72,10 @@
   <script type="text/javascript" src="abc_svgs.js"></script>
   <script type="text/javascript" src="word_generator.js"></script>
   <script type="text/javascript" src="speech_reco.js"></script>
+  <script> 
+    $("#options").hide();
+    let results = document.getElementById('results');
+    results.style.top = '90px';
+  </script>
 </body>
 </html>
