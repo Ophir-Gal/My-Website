@@ -86,6 +86,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
     recognition.onend = function() {
         recognizing = false;
+        location.reload();
     };
 
     recognition.onresult = function(event) {
