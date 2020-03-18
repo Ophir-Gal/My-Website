@@ -20,7 +20,44 @@
     <span class="interim" id="interim_span"></span>
   </span>
   <br>
-
+  <button id="show">Show Options</button>
+  <button id="hide">Hide Options</button>
+  <div id="options"><br>Try the following voice commands:
+    <ul>
+      <li>Large words</li>
+      <li>Small words</li>
+      <li>More bouncy</li>
+      <li>Less bouncy</li>
+      <li>Change colors</li>
+      <li>Reset colors</li>
+      <li>Zero gravity</li>
+      <li>Normal gravity</li>
+      <li>Strong gravity</li>
+      <li>Less responsive</li>
+      <li>More responsive</li>
+      <li>Reset responsiveness</li>
+      <li>Reset everything</li>
+      <li>Clear world</li>
+      <li>Random sizes</li>
+      <li>Equal sizes</li>
+      <li>Start exploding</li>
+      <li>Stop exploding</li>
+    </ul>
+    </div>
+  <br>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#hide").click(function(){
+        $("#options").hide();
+      });
+      $("#show").click(function(){
+        $("#options").show();
+      });
+    });
+    $("#options").hide();
+  </script>
+  <br>
   <div id="loading_msg">
     Loading...
   </div>
@@ -34,5 +71,3 @@
   <script type="text/javascript" src="speech_reco.js"></script>
 </body>
 </html>
-
-<!-- TODO - add instructions for voice commands -->
