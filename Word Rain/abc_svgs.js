@@ -59,3 +59,8 @@ for (let letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'){
     let path = stringToSVG(letter).childNodes[1].childNodes[0];
     letterToVertixSet[letter] = Svg_abc.pathToVertices(path, SAMPLE_LENGTH)
 }
+
+// TODO - add the apostrophe character (')
+// TODO - add digit characters (1...9)
+// TODO - (optionial) improve capital "M"
+// TODO - (optionial) add lower case letters

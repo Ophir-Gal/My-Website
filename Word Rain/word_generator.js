@@ -11,13 +11,13 @@ var Engine = Matter.Engine,
     Bodies = Matter.Bodies,
     Body = Matter.Body;
 
-const MAX_WORDS = 15;
+const MAX_WORDS = 40;
 const FLOOR_ID = 42;
 const LETTER_INDENT = 2900;
-const NUM_WORDS_TO_REMOVE = 20;
+const NUM_WORDS_TO_REMOVE = 15;
 
-const colors = ['#004cff','#517dc9','#665191','#a05195',
-                '#d45087','#f95d6a','#ff7c43','#ffa600'];
+const default_colors = ['#004cff','#517dc9','#665191','#a05195', '#d45087',
+                        '#f95d6a','#ff7c43','#ffa600'];
 
 // create engine
 var engine = Engine.create(),
@@ -31,9 +31,9 @@ var render = Render.create({
     element: document.body,
     engine: engine,
     options: {
-        width: 960,//current_width,
-        height: 540,//current_height
-        wireframes: false // <-- important
+        width: 960,
+        height: 540,
+        wireframes: false // <-- must be false for coloring to work
     }
 });
 
@@ -44,12 +44,13 @@ var runner = Runner.create();
 Runner.run(runner, engine);
 
 // Add body from String
-var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01){
+var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01,
+                                 bounciness=0.4, colors=default_colors){
 
     // remove some older bodies if reached max
     let all_bodies = Composite.allBodies(world);
     if (all_bodies.length > MAX_WORDS){
-        for (let i=0; i<MAX_WORDS; i++){
+        for (let i=0; i<NUM_WORDS_TO_REMOVE; i++){
             let some_idx = 0;
             if (all_bodies[0].id === FLOOR_ID){
                 some_idx += 1;
@@ -116,7 +117,7 @@ var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01){
             strokeStyle: word_color,
             lineWidth: 1
         },
-        restitution: 0.4
+        restitution: bounciness
     }, true);
 
     // add it to the world
@@ -147,7 +148,7 @@ var mouse = Mouse.create(render.canvas),
         constraint: {
             stiffness: 0.1,
             render: {
-                visible: false
+                visible: true
             }
         }
     });
