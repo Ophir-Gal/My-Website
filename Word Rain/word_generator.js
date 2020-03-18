@@ -11,10 +11,11 @@ var Engine = Matter.Engine,
     Bodies = Matter.Bodies,
     Body = Matter.Body;
 
-const MAX_BODIES = 10;
+const MAX_BODIES = 50;
 const FLOOR_ID = 42;
+const LETTER_INDENT = 2900;
 
-const colors = ['#003f5c','#2f4b7c','#665191','#a05195',
+const colors = ['#004cff','#517dc9','#665191','#a05195',
                 '#d45087','#f95d6a','#ff7c43','#ffa600'];
 
 // create engine
@@ -42,7 +43,7 @@ var runner = Runner.create();
 Runner.run(runner, engine);
 
 // Add body from String
-var addBodyFromString = function(word='HELLO', indent=0){
+var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01){
 
     // remove some older bodies if reached max
     let all_bodies = Composite.allBodies(world);
@@ -55,24 +56,9 @@ var addBodyFromString = function(word='HELLO', indent=0){
             World.remove(world, all_bodies[some_idx]);
         }
     }
-
-    //let svg = stringToSVG(word); // convert string to SVG object 
-    var vertexSets = [];           // initialize empty list of vertex sets
     
-    // in case you wany to color differnet letters differently -
-    //var color = Common.choose(['white', 'white', 'white', ...]);
-
-    // ---- Original approach to creating 2D objects --------------
-    /*
-    $(svg).find('path').each(function(i, path) {
-        let points = Svg.pathToVertices(path, 50, i*2500);
-        vertexSets.push(points);
-    });
-    */
-   // -------------------------------------------------------------
-    
-    // -------------- alternative approach ------------------------
-    // -------------- get vertices directly from strings ----------
+    // --------- alternative approach to generating the word ----------
+    // -------------- get vertices directly from strings --------------
     /**
      * For each letter in word:
      *      - Get its points from pre-made dictionary.
@@ -82,41 +68,58 @@ var addBodyFromString = function(word='HELLO', indent=0){
      *      - Append the points to list of vertex sets.
      */
     
+    let word_points = [];
+    let letter_lengths = [];
+
     for (let i=0; i<word.length; i++){
         let letter = word[i];
-        let points = [];
         
         if (letter < 'A' || letter > 'Z'){
             letter = '*';
         }
 
         for (let point of letterToVertixSet[letter]){
-            let indented_point = {x: point.x + i*2300, y: point.y};
-            points.push(indented_point);
+            let indented_point = {x: point.x + i*LETTER_INDENT,
+                                  y: point.y};
+            word_points.push(indented_point);
         }
-        vertexSets.push(points);
+        let previous_length = i===0 ? 0 : letter_lengths[letter_lengths.length-1];
+        letter_lengths[i] = letterToVertixSet[letter].length + previous_length;
     }
 
+    // shrink word
+    word_points = Vertices.scale(word_points, word_size, word_size);
+
+    // PUT EACH LETTER'S POINTS IN SEPARATE ARRAY
+    let vertexSets = [];
+    for (let len_idx=0; len_idx<letter_lengths.length; len_idx++){
+        let letter_array = [];
+        let i = len_idx===0 ? 0 : letter_lengths[len_idx-1];
+        while (i < letter_lengths[len_idx]){
+            letter_array.push(word_points[i]);
+            i++;
+        }
+        vertexSets.push(letter_array);
+    }
+    
     // ------------------------------------------------------------
     // ------------------------------------------------------------
-
-    let word_color = colors[Math.floor(Math.random() * 8)]; // random color
-
-    // create body
-    var body = Bodies.fromVertices(50 + indent, 80, vertexSets, {
+    
+    // choose random color for this word
+    let word_color = Common.choose(colors);
+    
+    // create word body
+    let word_body = Bodies.fromVertices(50 + indent, 80, vertexSets, {
         render: {
             fillStyle: word_color,
             strokeStyle: word_color,
             lineWidth: 1
         },
-        restitution: 0.999
+        restitution: 0.4
     }, true);
 
-    // shrink its size
-    Body.scale(body, .01, .01);
-    
     // add it to the world
-    World.add(world, body);
+    World.add(world, word_body);
 }
 
 addBodyFromString('HELLO');
@@ -141,7 +144,7 @@ var mouse = Mouse.create(render.canvas),
     mouseConstraint = MouseConstraint.create(engine, {
         mouse: mouse,
         constraint: {
-            stiffness: 0.2,
+            stiffness: 0.1,
             render: {
                 visible: false
             }
