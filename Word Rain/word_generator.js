@@ -134,6 +134,7 @@ var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01,
 }
 
 addBodyFromString('HELLO');
+addBodyFromString('WORLD', indent=250);
 
 // add walls, floor, and ceiling
 World.add(world, [
