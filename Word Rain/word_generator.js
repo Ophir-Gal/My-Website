@@ -11,9 +11,10 @@ var Engine = Matter.Engine,
     Bodies = Matter.Bodies,
     Body = Matter.Body;
 
-const MAX_BODIES = 50;
+const MAX_WORDS = 15;
 const FLOOR_ID = 42;
 const LETTER_INDENT = 2900;
+const NUM_WORDS_TO_REMOVE = 20;
 
 const colors = ['#004cff','#517dc9','#665191','#a05195',
                 '#d45087','#f95d6a','#ff7c43','#ffa600'];
@@ -47,8 +48,8 @@ var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01){
 
     // remove some older bodies if reached max
     let all_bodies = Composite.allBodies(world);
-    if (all_bodies.length > MAX_BODIES){
-        for (let i=0; i<=10; i++){
+    if (all_bodies.length > MAX_WORDS){
+        for (let i=0; i<MAX_WORDS; i++){
             let some_idx = 0;
             if (all_bodies[0].id === FLOOR_ID){
                 some_idx += 1;
