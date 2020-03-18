@@ -216,14 +216,12 @@ function processVoiceCommands(sentence_array){
         }
     } else if (sentence_array.includes('MORE') &&
                sentence_array.includes('RESPONSIVE')){
-        if (min_time_difference > 50){
+        if (min_time_difference > 200){
             min_time_difference -= 200;
         }
     } else if (sentence_array.includes('RESET') &&
                sentence_array.includes('RESPONSIVENESS')){
-        if (min_time_difference > 50){
-            min_time_difference = 100;
-        }
+        min_time_difference = 600;
     }
     
     if ((sentence_array.includes('RESET') &&
