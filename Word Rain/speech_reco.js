@@ -8,6 +8,8 @@ var start_timestamp;
 var getCurrentTime = _ => new Date().getTime(); // to not create the same sentence
 var lastTime = getCurrentTime(); // to not create the same sentence
 const MAX_TIME_DIFFERENCE = 800; // max milliseconds between each 2D word generation
+var word_size = 0.01;
+var space_between_words = 35;
 
 
 if (!('webkitSpeechRecognition' in window)) {
@@ -68,16 +70,17 @@ if (!('webkitSpeechRecognition' in window)) {
             if (event.results[i].isFinal ||
                 getCurrentTime() - lastTime > MAX_TIME_DIFFERENCE){
                 lastTime = getCurrentTime();
-                let sentence = event.results[i][0].transcript.trim();
+                let sentence = event.results[i][0].transcript.trim().toUpperCase();
                 let sentence_array = sentence.split(' ');
                 let last_indent = -200;
+                processVoiceCommands(sentence_array);
                 // randomize initial indent
                 last_indent += Math.floor(Math.random() * 400);
                 // add all words in sentence
                 for (let i=0; i<sentence_array.length; i++){
-                    let word = sentence_array[i].toUpperCase();
-                    last_indent += word.length * 25 + 35;
-                    addBodyFromString(word, last_indent); 
+                    let word = sentence_array[i];
+                    last_indent += word.length * 25 + space_between_words;
+                    addBodyFromString(word, last_indent, word_size=word_size); 
                 }
             }
             // ------------------------MY_CODE_END-------------------------
@@ -113,6 +116,23 @@ function copyButton() {
     }
     copy_button.style.display = 'none';
     copy_info.style.display = 'inline-block';
+}
+
+function processVoiceCommands(sentence_array){
+    let sentence_dict = {};
+    for (let word of sentence_array){
+        sentence_dict[word] = null;
+    }
+
+    if ('CHANGE' in sentence_dict && 'SIZE' in sentence_dict){
+        if (word_size === 0.01){
+            word_size = 0.02;
+            space_between_words = 150;
+        } else{
+            word_size = 0.01;
+            space_between_words = 50;
+        }
+    }
 }
 
 recognition.start();

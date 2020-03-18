@@ -1,6 +1,7 @@
 const svg_open_tag = "<svg class=\"svg_word\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" xml:space=\"preserve\"> <g>";
 const svg_close_tag = "</g></svg>";
 const Svg_abc = Matter.Svg;
+const SAMPLE_LENGTH = 1000;
 
 const letterToPath = {
     'A': "<path d=\"M364 2393 c4 -10 208 -523 454 -1140 l447 -1123 245 0 245 0 423 1088 c232 598 431 1111 442 1140 l20 52 -244 0 -244 0 -93 -260 -94 -260 -411 -2 -411 -3 72 -190 72 -190 268 -3 c249 -2 267 -4 260 -20 -4 -9 -70 -190 -146 -402 -77 -211 -144 -390 -148 -398 -5 -8 -38 69 -91 210 -407 1095 -551 1481 -561 1500 -9 17 -30 18 -260 18 -235 0 -251 -1 -245 -17z\"/>",
@@ -56,5 +57,5 @@ const stringToSVG = function(word){
 const letterToVertixSet = {};
 for (let letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'){
     let path = stringToSVG(letter).childNodes[1].childNodes[0];
-    letterToVertixSet[letter] = Svg_abc.pathToVertices(path, 50)
+    letterToVertixSet[letter] = Svg_abc.pathToVertices(path, SAMPLE_LENGTH)
 }
