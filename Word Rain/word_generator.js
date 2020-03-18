@@ -2,6 +2,7 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Common = Matter.Common,
+    Events = Matter.Events,
     Composite = Matter.Composite;
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse,
@@ -23,8 +24,12 @@ const default_colors = ['#004cff','#517dc9','#665191','#a05195', '#d45087',
 var engine = Engine.create(),
     world = engine.world;
 
-// change the gravity
-//world.gravity.scale = 0.001; // default is 0.001
+// time-related variables
+var timeScaleTarget = 1,
+    counter = 0;
+
+// explosion variables 
+var explosionActivated = false;
 
 // create renderer
 var render = Render.create({
@@ -45,7 +50,8 @@ Runner.run(runner, engine);
 
 // Add body from String
 var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01,
-                                 bounciness=0.4, colors=default_colors){
+                                 bounciness=0.4, colors=default_colors,
+                                 randomSizesFlag=false){
 
     // remove some older bodies if reached max
     let all_bodies = Composite.allBodies(world);
@@ -89,7 +95,8 @@ var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01,
         letter_lengths[i] = letterToVertixSet[letter].length + previous_length;
     }
 
-    // shrink word
+    // change word size
+    word_size = randomSizesFlag ? Math.random()*0.04 + 0.01 : word_size;
     word_points = Vertices.scale(word_points, word_size, word_size);
 
     // PUT EACH LETTER'S POINTS IN SEPARATE ARRAY
@@ -117,7 +124,9 @@ var addBodyFromString = function(word='HELLO', indent=0, word_size=0.01,
             strokeStyle: word_color,
             lineWidth: 1
         },
-        restitution: bounciness
+        restitution: bounciness,
+        frictionAir: 0,
+        friction: 0.5
     }, true);
 
     // add it to the world
@@ -162,4 +171,48 @@ render.mouse = mouse;
 Render.lookAt(render, {
     min: { x: 0, y: 0 },
     max: { x: 800, y: 600 }
+});
+
+var explosion = function(engine) {
+    var bodies = Composite.allBodies(engine.world);
+
+    for (var i = 0; i < bodies.length; i++) {
+        var body = bodies[i];
+
+        if (!body.isStatic && body.position.y >= 500) {
+            var forceMagnitude = 0.05 * body.mass;
+
+            Body.applyForce(body, body.position, {
+                x: (forceMagnitude + Common.random() * forceMagnitude) * Common.choose([1, -1]), 
+                y: -forceMagnitude + Common.random() * -forceMagnitude
+            });
+        }
+    }
+};
+
+// time-based events
+Events.on(engine, 'afterUpdate', function(event) {
+    if (explosionActivated){
+        // tween the timescale for bullet time slow-mo
+        //engine.timing.timeScale += (timeScaleTarget - engine.timing.timeScale) * 0.05;
+
+        counter += 1;
+
+        // every 1.5 sec
+        if (counter >= 60 * 1.5) {
+
+            // flip the timescale
+            if (timeScaleTarget < 1) {
+                timeScaleTarget = 1;
+            } else {
+                timeScaleTarget = 0.05;
+            }
+
+            // create some random forces
+            explosion(engine);
+
+            // reset counter
+            counter = 0;
+        }
+    }
 });

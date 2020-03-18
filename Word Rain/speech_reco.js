@@ -7,10 +7,11 @@ var start_timestamp;
 
 var getCurrentTime = _ => new Date().getTime(); // to not create the same sentence
 var lastTime = getCurrentTime(); // to not create the same sentence
-const MAX_TIME_DIFFERENCE = 800; // max milliseconds between each 2D word generation
+var min_time_difference = 600; // max milliseconds between each 2D word generation
 var word_size = 0.01;
 var space_between_words = 35;
 var bounciness = 0.4;
+var randomSizesFlag = false;
 var colors = ['#004cff','#517dc9','#665191','#a05195', '#d45087',
               '#f95d6a','#ff7c43','#ffa600'];
 
@@ -84,11 +85,13 @@ if (!('webkitSpeechRecognition' in window)) {
     }
     };
 
+    // what to do when done recognizing
     recognition.onend = function() {
         recognizing = false;
         location.reload();
     };
 
+    // what to do when recognized words
     recognition.onresult = function(event) {
         var interim_transcript = '';
         if (typeof(event.results) == 'undefined') {
@@ -111,7 +114,7 @@ if (!('webkitSpeechRecognition' in window)) {
             
             // -----------------------MY_CODE_START------------------------
             if (event.results[i].isFinal ||
-                getCurrentTime() - lastTime > MAX_TIME_DIFFERENCE){
+                getCurrentTime() - lastTime > min_time_difference){
                 lastTime = getCurrentTime();
                 let sentence = event.results[i][0].transcript.trim().toUpperCase();
                 let sentence_array = sentence.split(' ');
@@ -124,7 +127,7 @@ if (!('webkitSpeechRecognition' in window)) {
                     let word = sentence_array[i];
                     last_indent += word.length * 25 + space_between_words;
                     addBodyFromString(word, last_indent, word_size, bounciness,
-                                      colors);
+                                      colors, randomSizesFlag);
                 }
             }
             // ------------------------MY_CODE_END-------------------------
@@ -170,31 +173,100 @@ function processVoiceCommands(sentence_array){
         sentence_array.includes('WORDS')){
         word_size = 0.02;
         space_between_words = 150;
-    }
-    if ((sentence_array.includes('SMALL') ||
+    } else if ((sentence_array.includes('SMALL') ||
          sentence_array.includes('SMALLER')) &&
         sentence_array.includes('WORDS')){
         word_size = 0.01;
         space_between_words = 50;
     }
+
     if (sentence_array.includes('MORE') &&
         sentence_array.includes('BOUNCY')){
         bounciness = 0.99;
-    }
-    if (sentence_array.includes('LESS') &&
+    } else if (sentence_array.includes('LESS') &&
         sentence_array.includes('BOUNCY')){
         bounciness = 0.4;
     }
+    
     if (sentence_array.includes('CHANGE') &&
         sentence_array.includes('COLORS')){
         let randIdx = Math.floor(Math.random() * all_colors.length);
         colors = all_colors.slice(randIdx, randIdx+colors.length);
-    }
-    if (sentence_array.includes('RESET') &&
+    } else if (sentence_array.includes('RESET') &&
         sentence_array.includes('COLORS')){
         colors = ['#004cff','#517dc9','#665191','#a05195', '#d45087',
                   '#f95d6a','#ff7c43','#ffa600'];
     }
+    
+    if (sentence_array.includes('ZERO') &&
+        sentence_array.includes('GRAVITY')){
+        world.gravity.scale = 0.00001;
+    } else if (sentence_array.includes('NORMAL') &&
+        sentence_array.includes('GRAVITY')){
+        world.gravity.scale = 0.001;
+    } else if (sentence_array.includes('STRONG') &&
+        sentence_array.includes('GRAVITY')){
+        world.gravity.scale = 0.01;
+    }
+
+    if (sentence_array.includes('LESS') &&
+        sentence_array.includes('RESPONSIVE')){
+        if (min_time_difference < 1000){
+            min_time_difference += 200;
+        }
+    } else if (sentence_array.includes('MORE') &&
+               sentence_array.includes('RESPONSIVE')){
+        if (min_time_difference > 50){
+            min_time_difference -= 200;
+        }
+    } else if (sentence_array.includes('RESET') &&
+               sentence_array.includes('RESPONSIVENESS')){
+        if (min_time_difference > 50){
+            min_time_difference = 100;
+        }
+    }
+    
+    if ((sentence_array.includes('RESET') &&
+        sentence_array.includes('EVERYTHING')) ||
+        sentence_array.includes('REFRESH')){
+        location.reload();
+    }
+
+    if (sentence_array.includes('CLEAR') &&
+        sentence_array.includes('WORLD')){
+        World.clear(world, true);
+    }
+
+    if (sentence_array.includes('START') &&
+        (sentence_array.includes('EXPLOSIONS') ||
+         sentence_array.includes('EXPLODING'))){
+        explosionActivated = true;
+    } else if (sentence_array.includes('STOP') &&
+               (sentence_array.includes('EXPLOSIONS') ||
+                sentence_array.includes('EXPLODING'))){
+        explosionActivated = false;
+    }
+
+    if (sentence_array.includes('EQUAL') &&
+        sentence_array.includes('SIZES')){
+        randomSizesFlag = false;
+        word_size = 0.01;
+        space_between_words = 50;
+    } else if (sentence_array.includes('RANDOM') &&
+               sentence_array.includes('SIZES')){
+        randomSizesFlag = true;
+        space_between_words = 200;
+    }
+
+    if (sentence_array.includes('START') &&
+        sentence_array.includes('SHRINKING')){
+        // start shrinkage
+    } else if (sentence_array.includes('STOP') &&
+               sentence_array.includes('SHRINKING')){
+        // stop shrinkage
+    }
 }
 
 recognition.start();
+
+// TODO - add command for START/STOP SHRINKAGE 
