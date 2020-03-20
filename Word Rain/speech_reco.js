@@ -4,6 +4,7 @@ var interim_span = document.getElementById('interim_span');
 var recognizing = false;
 var ignore_onend = false;
 var start_timestamp;
+var recognition;
 
 var getCurrentTime = _ => new Date().getTime(); // to not create the same sentence
 var lastTime = getCurrentTime(); // to not create the same sentence
@@ -58,12 +59,16 @@ const all_colors = ["#000000","#FFFF00","#1CE6FF","#FF34FF","#FF4A46",
 if (!('webkitSpeechRecognition' in window)) {
     upgrade();
 } else {
-    var recognition = new webkitSpeechRecognition();
+    startRecognition();
+}
+
+function startRecognition(){
+    recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
     
     recognition.onstart = function() {
-    recognizing = true;
+        recognizing = true;
     };
 
     recognition.onerror = function(event) {
@@ -88,7 +93,7 @@ if (!('webkitSpeechRecognition' in window)) {
     // what to do when done recognizing
     recognition.onend = function() {
         recognizing = false;
-        location.reload();
+        recognition.start();
     };
 
     // what to do when recognized words
@@ -140,8 +145,8 @@ if (!('webkitSpeechRecognition' in window)) {
 }
 
 function upgrade() {
-    start_button.style.visibility = 'hidden';
-    //showInfo('info_upgrade');
+    // display upgrade message
+    alert("This application requires Google Chrome 25 or later.")
 }
 
 var two_line = /\n\n/g;
@@ -153,16 +158,6 @@ function linebreak(s) {
 var first_char = /\S/;
 function capitalize(s) {
     return s.replace(first_char, function(m) { return m.toUpperCase(); });
-}
-
-
-function copyButton() {
-    if (recognizing) {
-    recognizing = false;
-    recognition.stop();
-    }
-    copy_button.style.display = 'none';
-    copy_info.style.display = 'inline-block';
 }
 
 function processVoiceCommands(sentence_array){
