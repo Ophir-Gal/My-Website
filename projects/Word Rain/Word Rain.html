@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Word Rain</title>
+  <meta name="author" content="Ophir Gal">
+  <meta name="description" content="It's raining words">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <span><strong>Word Rain</strong></span> <br>
+  <span id='instructinos'>&nbsp&nbsp&nbsp&nbsp - Say something!
+    Try dragging words with the mouse!</span><br>
+  <span id="results">
+    <span class="final" id="final_span"></span>
+    <span class="interim" id="interim_span"></span>
+  </span>
+  <br>
+  <button id="show">Show Options</button>
+  <button id="hide">Hide Options</button>
+  <div id="options" hidden><br>Try the following voice commands:
+    <ul>
+      <li>Large words</li>
+      <li>Small words</li>
+      <li>More bouncy</li>
+      <li>Less bouncy</li>
+      <li>Change colors</li>
+      <li>Reset colors</li>
+      <li>Zero gravity</li>
+      <li>Normal gravity</li>
+      <li>Strong gravity</li>
+      <li>Less responsive</li>
+      <li>More responsive</li>
+      <li>Reset responsiveness</li>
+      <li>Reset everything</li>
+      <li>Clear world</li>
+      <li>Random sizes</li>
+      <li>Equal sizes</li>
+      <li>Start exploding</li>
+      <li>Stop exploding</li>
+    </ul>
+    </div>
+  <br>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#hide").click(function(){
+        $("#options").hide();
+        let results = document.getElementById('results');
+        results.style.top = '90px';
+      });
+      $("#show").click(function(){
+        $("#options").show();
+        let results = document.getElementById('results');
+        results.style.top = '510px';
+      });
+    });
+  </script>
+  <br>
+  <div id="loading_msg">
+    Loading...
+  </div>
+
+  <script type="text/javascript" src="decomp.js"></script>
+  <script type="text/javascript" src="pathseg.js"></script>
+  <script type="text/javascript" src="matter.js"></script>
+  <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="abc_svgs.js"></script>
+  <script type="text/javascript" src="word_generator.js"></script>
+  <script type="text/javascript" src="speech_reco.js"></script>
+  <script> 
+    $("#options").hide();
+    let results = document.getElementById('results');
+    results.style.top = '90px';
+  </script>
+</body>
+</html>
