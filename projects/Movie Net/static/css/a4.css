@@ -1,0 +1,117 @@
+body {
+    margin: 0 auto;
+    width: 90%;
+}
+#viz {
+    width: 100%;
+}
+#mainTable, th, td {
+    border: 1px solid black;
+}
+#mainTable {
+    width: 100% !important;
+    border: 1px solid black;
+}
+#vizColumn {
+    width: 75% !important;
+}
+#formColumn {
+    padding: 25px; 
+}
+#btmTable, th, td {
+    border: 1px solid black;
+    min-width: 75%;
+    max-width: 75%;
+    text-align: center;
+}
+.p {
+    max-width: 600px;
+}
+.u_title::before {
+    content:"";
+    position: absolute;
+    border-bottom:1px solid black; /*use this to adjust underlin color and size*/
+    width:90%;  /*use this to adjust underline width*/
+    height:1.1em; /*use this to adjust underline position*/
+}
+#film-icon-g {
+    pointer-events: all;
+    z-index: -1;
+}
+.tooltip {
+    position: absolute;
+    min-width: 225px;
+    max-width: 300px;								
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+ul.tooltip {
+    list-style: inside;
+    padding: 5px;
+}
+.my-star-icon {
+    color: orange;
+    font-size: 30px !important;
+}
+#ratingStars {
+    font-size: 0px;
+}
+#numSimilarUsers {
+    width: 100%;
+}
+#selectedMovies { 
+    background-color: lightsteelblue;
+    height: 110px; 
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    text-align: left; 
+    list-style: inside;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    font-size: 10pt;
+    -moz-box-shadow:    inset 0 0 5px black;
+    -webkit-box-shadow: inset 0 0 5px black;
+    box-shadow:         inset 0 0 5px black;
+}
+
+ol#autocomplete-results, ul#autocomplete-results {
+    list-style: none;
+}
+#autocomplete-container {
+    width: 100%;
+    margin: auto;
+}
+input.typed {
+    padding: 4px;
+    -webkit-appearance: none;
+    width: 100%;
+}
+#username {
+    width: 70%;
+}
+#autocomplete-input:-webkit-placeholder {
+    color: grey;
+}
+#autocomplete-input::-moz-placeholder {
+    color: grey;
+}
+#autocomplete-results {
+    display: none;
+    width: 105.6%;
+    margin-top: -2px;
+    margin-left: -17.7%;
+    color: black;
+}
+#autocomplete-results li {
+    padding: 7px 15px;
+    text-align: left;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+#autocomplete-results li:hover {
+    background:rgba(105, 111, 118, 0.8);;
+}

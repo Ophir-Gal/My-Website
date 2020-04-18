@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>A4: Ophir Gal</title>
+  <script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
+  <link rel="stylesheet" type="text/css" href="./static/css/a4.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <h1>🎥 🎬 🎞️ Assignment 4: Implementing Interactions in D3.js 🎞️ 🎬 🎥</h1>
+  <i><h3>Created By: Ophir Gal</h3></i>
+  <h2 class="u_title">Visualization</h2>
+  <table id="mainTable">
+    <tr>
+      <td id="formColumn">
+        <!-- form for user inputs -->
+        <form action="javascript: submitForm()" onchange="submitForm()">
+          <label for="username">Name:</label>
+          <input id="username" class="typed" type="text" name="username" autofocus="true" placeholder="Jane">
+          <br><br>
+          <label for="vol">"Like" Threshold:</label><br>
+          <input type="range" id="likeThreshold" name="likeThreshold" min="0" max="5"
+          step="0.5" value="3.5" 
+          onmousemove="starSliderChange(Number(document.getElementById('likeThreshold').value))">
+          <br>
+          <span id="ratingStars">
+            <span class="fa fa-star my-star-icon"></span>
+            <span class="fa fa-star my-star-icon"></span>
+            <span class="fa fa-star my-star-icon"></span>
+            <span class="fa fa-star-half-full my-star-icon"></span>
+            <span class="fa fa-star-o my-star-icon"></span>
+          </span>
+          <br><br>
+          <label for="numSimilarUsers">Number of Most Similar Users to Show:
+            <span id="numUsersDisplay">10</span>
+          </label><br>
+          <input type="range" id="numSimilarUsers" name="numSimilarUsers" min="0" max="100"
+          step="1" value="10" onmousemove="displayNumUsers(document.getElementById('numSimilarUsers').value)">
+          <br><br>
+          <label for="movieTitle">Select a Movie:</label><br>
+          <span id="autocomplete-container">
+            <input id="autocomplete-movieInput" type="text" name="movieTitle" 
+             placeholder="Search by title..." class="typed" autocomplete="off"/>
+            <ul id="autocomplete-results">              
+            </ul>
+          </span>          
+          <div>
+            <p>Selected Movies</p>
+            <ul id="selectedMovies" name="selectedMovies">
+              <li class="selected-movie">Toy Story (1995)</li>
+              <li class="selected-movie">Shawshank Redemption, The (1994)</li>
+              <li class="selected-movie">Green Card (1990)</li>
+              <li class="selected-movie">Gone with the Wind (1939)</li>
+              <li class="selected-movie">Bad Boys (1995)</li>
+              <li class="selected-movie">Jumanji (1995)</li>
+            </ul>
+            <input type="submit" value="Clear Movie List"
+             onclick="document.getElementById('selectedMovies').innerHTML=''; 
+                      submitForm()">
+          </div> 
+        </form>
+      </td>
+      <td id="vizColumn">
+        <!-- svg where the graph will take place -->
+        <svg id="viz"></svg>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="p">
+    <p>
+      <h2 class="u_title">Quick How-To Guide</h2>
+      <ul>
+        <li>The parameters to the left of the visualization should be
+          self-explanatory.</li>
+        <li>You can select movies by typing a part of the name (at least 3
+          letters) and clicking on
+          a movie from the drop-down list.</li>
+        <li>The visualization reacts to changes applied to the
+          parameter widgets.</li>
+        <li>Once you are satisfied with the values, you can move on to
+          interact with the visualization itself.</li>
+        <li>If you hover over a node, you will see it lighting up in blue, and
+        the direct neighbors lighting up in green (this would have been more useful
+        had I chosen to show more links/connections in the graph, but I decided
+        it would be redundant).</li>
+        <li>If you hover over a link (the camera symbol), you will see a
+        tooltip with the list of movies liked by the associated nodes.</li>
+        <li>You can drag and drop nodes to change their position.</li>
+        <li>Lastly, the best feature of the visualization is being able to jump
+        from the user's network to a neighbor's network. This is done by
+        double clicking on a node.</li>
+      </ul>
+         
+    </p>
+    <p>
+      <h2 class="u_title">The Rationale for My Design</h2>
+      <h3>How I Chose My Particular Visual Encodings and Interaction
+      Techniques</h3>
+      I've given a lot of thought (over a couple of days) to how I could 
+      create an interactive visualization that's useful for me. I thought, 
+      since my family likes to watch a lot of movies, that it would be nice 
+      if I could create a tool that helps one find movies to watch, that's 
+      differnet than tools that already exist. I realized that there aren't 
+      really interactive tools out there that visualize the relationship 
+      between people with similar tastes in movies. I then came up with the 
+      idea to create a network chart to allow one to see movies that people 
+      with similar tastes like. I also wanted them to be able to explore the 
+      data set through the interaction, so I wanted nodes of the network to be 
+      clickable, draggable, and able to display more information. Based on that,
+      I defined my research question as: "how can I make it easier for people to 
+      find a movie to watch, based on what people with similar tastes like?"
+    </p>
+    <h3>The Alternatives I Considered and How I Arrived at My Ultimate Choice
+    </h3>
+    The other types of charts I've considered are: a chord diagram, an arc 
+    diagram, edge bundling, and a heat map. Like networks, these charts can 
+    also visualize relationships between data objects. Networks however, 
+    especially interactive ones, are not only more intuitive in many cases, but
+    they are also better suited for exploring the data via jumping from one 
+    relationship to the next.
+    <h2 class="u_title">Dataset</h2>
+    I chose the <strong>MovieLens Latest Dataset (the small version)</strong>. It contains 
+    100,000 ratings and 3,600 tag applications applied to 9,000 movies by 600 
+    users. It was last updated in September 2018.<br>
+
+
+    Permalink:
+    <a href="https://grouplens.org/datasets/movielens/latest/">
+      https://grouplens.org/datasets/movielens/latest/</a>
+  </div>
+  
+  <h2 class="u_title">An Overview of My Development Process</h2>
+  <table id="btmTable">
+    <tr>
+      <th>Component</th><th>Estimated Time Spent (hours)</th>
+    </tr>
+    <tr>
+      <td>Came up with design idea</td><td>6-8</td>  
+    </tr>
+    <tr>
+      <td>Searched for a public data set online</td><td>1</td>
+    </tr>
+    <tr>
+      <td>Learned to create an interactive network using D3</td><td>5</td>
+    </tr>
+    <tr>
+      <td>Processed data to fit with framework (parsed csv and joined data tables)</td><td>1</td>
+    </tr>
+    <tr>
+      <td>Developed code to create a network based on user's movie selection</td><td>2</td>
+    </tr>
+    <tr>
+      <td>Added visual encodings (marks, tooltips, colors)</td><td>6</td>
+    </tr>
+    <tr>
+      <td>Debugging...</td><td>8-12</td>
+    </tr>
+    <tr>
+      <td>Added basic form for user input</td><td>6-8</td>
+    </tr>
+    <tr>
+      <td>Added movie search auto-complete functionality</td><td>4</td>
+    </tr>
+    <tr>
+      <td>Integrated select/clear movies functionality into the visualization</td><td>4</td>
+    </tr>
+    <tr>
+      <td>Added functionality of jumping to a neighbor's network (by updating the
+      network dynamically)</td><td>4</td>
+    </tr>
+    <tr>
+      <td>Added a slider for displaying only the N most similar neighbors</td><td>4</td>
+    </tr>
+    <tr>
+      <td>Debugging...</td><td>4-8</td>
+    </tr>
+    <tr>
+      <th>Total </th><th> 55-67</th>
+    </tr>
+  </table>
+  <svg id="user-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="0px" height="0px">
+  <g id="user-icon-g" transform="scale(0.5)">
+    <path d="M 101.863281 90.117188 C 87.101562 86.714844 73.363281 83.734375 80.019531 71.1875 C 100.269531 33.007812 85.386719 12.585938 64 12.585938 C 42.191406 12.585938 27.675781 33.789062 47.980469 71.1875 C 54.835938 83.808594 40.582031 86.789062 26.136719 90.117188 C 11.386719 93.519531 12.519531 101.300781 12.519531 115.414062 L 115.480469 115.414062 C 115.480469 101.300781 116.613281 93.519531 101.863281 90.117188 Z M 101.863281 90.117188 "/>
+  </g>
+</svg>
+<svg id="film-icon" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+  <g id="film-icon-g" transform="scale(1.2)">
+    <!--<path d="M4 5v18h20v-18h-20zm4 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm10 12h-8v-6h8v6zm0-8h-8v-6h8v6zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm-1-6h-19v17h-2v-19h21v2z"/>-->
+    <path d="M4 11c-2.21 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm10 2c.702 0 1.373-.127 2-.35v6.35c0 1.104-.896 2-2 2h-10c-1.104 0-2-.896-2-2v-6.35c.627.223 1.298.35 2 .35 2.084 0 3.924-1.068 5-2.687 1.076 1.619 2.916 2.687 5 2.687zm4 1v4l6 3v-10l-6 3zm-4-11c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z"/>
+  </g>
+</svg>
+
+<!-- perhaps move the reference below to top of file if doesn't matter -->
+<script type="text/javascript" src="static/js/a4.js"></script>
+
+</body>
+</html>
