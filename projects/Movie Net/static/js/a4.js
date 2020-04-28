@@ -130,7 +130,7 @@ function submitForm(centerPerson=0){
   // Fetch data from the server and render visualization
   let dataPath = 'https://raw.githubusercontent.com/Ophir-Gal/My-Website/' +
                  'gh-pages/projects/Movie%20Net/data/ratingsData.json'
-  fetch(datapath).then(function(response) { 
+  fetch(dataPath).then(function(response) { 
     response.json()
     .then(dataDict => {
       let username = document.getElementById('username').value
