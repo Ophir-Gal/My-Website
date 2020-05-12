@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> More detailed information about the schools </title>
+  <script src="./static/js/d3.js"></script>
+  <link rel="stylesheet" type="text/css" href="./static/css/a2.css">
+  <script src="./static/js/createTable.js"></script>
+</head>
+
+<body>
+
+    <h1>College Report Card Information Page </h1>
+    <h2 id = "t1"></h2>
+    <div id="background" align=left class="bold">
+       More detailed information about the schools that you matched with.
+       Deciding which universities to apply to, and which to attend are two very difficult decisions for high school
+       seniors. This bar chart allows you to compare the schools that you have
+       chosen on the pervious page.
+       <br>
+       The dataset used can be found here:
+       <a
+       href="https://www.kaggle.com/sumithbhongale/american-university-data-ipeds-dataset/home">
+       https://www.kaggle.com/sumithbhongale/american-university-data-ipeds-dataset/home
+       </a>
+       <br>
+       <br>
+    </div>
+    <div id="background" align=center class="bold">
+          <h1> The below chart shows college enrollment data. </h1>
+
+
+
+
+    </div>
+    <div id="Instr" align=center class="bold">
+          <b> Select from the dropdown menu which university data you would like to explore.         </b> <br>
+    </div>
+   <div id="drop" align=center></div>
+   <div id="background" align=left class="bold">
+    <b>  Organize Data By: </b>
+   </div>
+   <button type="button" id = "but1_Chart1" align=left>Ascending Order</button>
+   <button type="button" id = "but2_Chart1" align=left>Descending Order</button>
+   <button type="button" id = "but3_Chart1" align=left>By College Name</button>
+   <div id="background" align=left class="bold">
+      <br>
+      <br>
+      <br>
+   </div>
+
+
+   <div class="hov" id = "hovOne">
+
+   </div>
+    <svg  class = "chart" id="chartOne" width="1200" height="1200" align = center></svg>
+
+    <script src="./static/js/bar_chart.js"></script>
+
+    <h2 id = "t1">College Report Card Information Page</h2>
+    <div id="background" align=center class="bold">
+          <h1> The below chart shows college expense data. </h1>
+
+
+
+
+    </div>
+    <div id="Instr" align=center class="bold">
+          <b> Select from the dropdown menu which university data you would like to explore.         </b> <br>
+
+    </div>
+   <div id="drop2" align=center></div>
+   <div id="background" align=left class="bold">
+    <b>  Organize Data By: </b>
+   </div>
+   <button type="button" id = "but" align=left>Ascending Order</button>
+   <button type="button" id = "but2" align=left>Descending Order</button>
+   <button type="button" id = "but3" align=left>By College Name</button>
+   <div id="background" align=left class="bold">
+      <br>
+      <br>
+      <br>
+   </div>
+
+
+   <div class="hov" id = "hovTwo">
+
+   </div>
+    <svg class = "chart" id = "chartTwo" width="1200" height="1200" align = center></svg>
+
+    <script src="./static/js/bar_chart.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

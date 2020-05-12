@@ -1,0 +1,177 @@
+/* On mouse hover, lighten state color */
+path:hover {
+	fill-opacity: .7;
+}
+
+/* Style for Custom Tooltip */
+div.tooltip {
+ 	position: absolute;
+	text-align: center;
+	width: 60px;
+	height: auto;
+	padding: 2px;
+	font: 12px sans-serif;
+	background: white;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+}
+
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:800px;
+    top:350px;
+    font: 11px sans-serif;
+
+}
+
+.remove-button {
+    border-radius: 100%;
+    font-size: 12pt !important;
+}
+.remove-button:hover {
+    background: darkgray;
+    outline: none;
+}
+
+.dynamic-list {
+    background-color: rgb(185, 191, 255);
+    height: 60px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: left;
+    list-style: inside;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    font-size: 10pt;
+    -moz-box-shadow:    inset 0 0 5px black;
+    -webkit-box-shadow: inset 0 0 5px black;
+    box-shadow:         inset 0 0 5px black;
+}
+
+/* ====================================================================== */
+
+iframe {
+    width: 100%;
+    border: 0;
+}
+
+#barViz {
+    height: 140em;
+}
+
+#mapViz {
+    height: 55em;
+}
+
+/* ====================================================================== */
+
+body {
+    margin: 0 auto;
+    width: 90%;
+}
+#viz {
+    width: 100%;
+}
+#mainTable, th, td {
+    border: 1px solid black;
+}
+#mainTable {
+    width: 100% !important;
+    border: 1px solid black;
+}
+#vizColumn {
+    width: 75% !important;
+}
+#formColumn {
+    padding: 25px;
+    text-align: left;
+}
+#btmTable, th, td {
+    border: 1px solid black;
+    min-width: 75%;
+    max-width: 75%;
+    text-align: center;
+}
+.p {
+    max-width: 800px;
+}
+.u_title::before {
+    content:"";
+    position: absolute;
+    border-bottom:1px solid black; /*use this to adjust underlin color and size*/
+    width:90%;  /*use this to adjust underline width*/
+    height:1.1em; /*use this to adjust underline position*/
+}
+#film-icon-g {
+    pointer-events: all;
+    z-index: -1;
+}
+/*
+.tooltip {
+    position: absolute;
+    min-width: 225px;
+    max-width: 300px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+ul.tooltip {
+    list-style: inside;
+    padding: 5px;
+}
+*/
+
+.my-star-icon {
+    color: orange;
+    font-size: 30px !important;
+}
+#ratingStars {
+    font-size: 0px;
+}
+#numSimilarUsers {
+    width: 100%;
+}
+
+ol#autocomplete-results, ul#autocomplete-results {
+    list-style: none;
+}
+#autocomplete-container {
+    width: 100%;
+    margin: auto;
+}
+input.typed {
+    padding: 4px;
+    -webkit-appearance: none;
+    width: 100%;
+}
+#username {
+    width: 70%;
+}
+#autocomplete-input:-webkit-placeholder {
+    color: grey;
+}
+#autocomplete-input::-moz-placeholder {
+    color: grey;
+}
+#autocomplete-results {
+    display: none;
+    width: 105.6%;
+    margin-top: -2px;
+    margin-left: -17.7%;
+    color: black;
+}
+#autocomplete-results li {
+    padding: 7px 15px;
+    text-align: left;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+#autocomplete-results li:hover {
+    background:rgba(105, 111, 118, 0.8);;
+}

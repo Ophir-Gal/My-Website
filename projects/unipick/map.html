@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Unipick</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./static/css/map.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <table id="mainTable">
+    <tr>
+      <td id="formColumn">
+        <h3 style="margin: 0">Filters</h3>
+        <!-- form for user inputs -->
+        <form action="javascript: submitForm()" onchange="submitForm()">
+          <!-- <div class="filter">
+            <label for="filtersList">Select Filter Category:</label>
+            <div class="filter">
+              <select id="filtersList">
+                  <option value="States">State Selection</option>  
+                  <option value="Admission">Admission</option>
+                  <option value="Pricing">Pricing</option>
+                  <option value="SAT Scores">SAT Scores</option>
+                  <option value="Degrees Offered">Degrees Offered</option>
+              </select>
+            </div>  
+          </div> -->
+          <div class="filter">
+            <label for="minPercentAdmit">Min. percent admitted:
+              <span id="minPercentAdmitSpan">20</span>
+            </label>
+            <input type="range" id="minPercentAdmit" name="minPercentAdmit"
+            min="0" max="100" step="1" value="20"
+            onmousemove="displayNum('minPercentAdmit', 'minPercentAdmitSpan')">
+          </div>
+          <div class="filter">
+            <label for="maxPercentAdmit">Max. percent admitted:
+              <span id="maxPercentAdmitSpan">80</span>
+            </label>
+            <input type="range" id="maxPercentAdmit" name="maxPercentAdmit"
+            min="0" max="100" step="1" value="80"
+            onmousemove="displayNum('maxPercentAdmit', 'maxPercentAdmitSpan')">
+          </div>
+          <div class="filter">
+            <label for="maxPriceInState">Max. total price in-state:
+              <span id="maxPriceInStateSpan">80000</span>
+            </label>
+            <input type="range" id="maxPriceInState" name="maxPriceInState"
+            min="0" max="100000" step="1000" value="80000"
+            onmousemove="displayNum('maxPriceInState', 'maxPriceInStateSpan')">
+          </div>
+          <div class="filter">
+            <label for="maxPriceOutState">Max. total price out-of-state:
+              <span id="maxPriceOutStateSpan">80000</span>
+            </label>
+            <input type="range" id="maxPriceOutState" name="maxPriceOutState"
+            min="0" max="100000" step="1000" value="80000"
+            onmousemove="displayNum('maxPriceOutState', 'maxPriceOutStateSpan')">
+          </div>
+          <div class="filter">
+            <label for="minSatReading">Min. SAT Rdng. 75th percentile:
+              <span id="minSatReadingSpan">500</span>
+            </label>
+            <input type="range" id="minSatReading" name="minSatReading"
+            min="0" max="800" step="10" value="500"
+            onmousemove="displayNum('minSatReading', 'minSatReadingSpan')">
+          </div>
+          <div class="filter">
+            <label for="minSatMath">Min. SAT Math 75th percentile:
+              <span id="minSatMathSpan">500</span>
+            </label>
+            <input type="range" id="minSatMath" name="minSatMath"
+            min="0" max="800" step="10" value="500"
+            onmousemove="displayNum('minSatMath', 'minSatMathSpan')">
+          </div>
+          <div class="filter">
+            <input type="checkbox" id="masterDegree" name="masterDegree">
+            <label for="masterDegree">Offers Master's Degree</label><br>
+          </div>
+          <div class="filter">
+            <input type="checkbox" id="doctorDegree" name="doctorDegree">
+            <label for="doctorDegree">Offers Doctor's Degree</label><br>
+          </div>
+          <div class="filter">
+            <span for="states" display="inline">Select states:</span>
+            <input id="stateInput" list="stateList" name="state">
+            <datalist id="stateList">
+                <option value="Alabama">
+                <option value="Alaska">
+                <option value="Arizona">
+                <option value="Arkansas">
+                <option value="California">
+                <option value="Colorado">
+                <option value="Connecticut">
+                <option value="Delaware">
+                <option value="District of Columbia">
+                <option value="Florida">
+                <option value="Georgia">
+                <option value="Hawaii">
+                <option value="Idaho">
+                <option value="Illinois">
+                <option value="Indiana">
+                <option value="Iowa">
+                <option value="Kansas">
+                <option value="Kentucky">
+                <option value="Louisiana">
+                <option value="Maine">
+                <option value="Montana">
+                <option value="Nebraska">
+                <option value="Nevada">
+                <option value="New Hampshire">
+                <option value="New Jersey">
+                <option value="New Mexico">
+                <option value="New York">
+                <option value="North Carolina">
+                <option value="North Dakota">
+                <option value="Ohio">
+                <option value="Oklahoma">
+                <option value="Oregon">
+                <option value="Maryland">
+                <option value="Massachusetts">
+                <option value="Michigan">
+                <option value="Minnesota">
+                <option value="Mississippi">
+                <option value="Missouri">
+                <option value="Pennsylvania">
+                <option value="Rhode Island">
+                <option value="South Carolina">
+                <option value="South Dakota">
+                <option value="Tennessee">
+                <option value="Texas">
+                <option value="Utah">
+                <option value="Vermont">
+                <option value="Virginia">
+                <option value="Washington">
+                <option value="West Virginia">
+                <option value="Wisconsin">
+                <option value="Wyoming">
+            </datalist>
+            <input type="submit" onclick="selectState()">       
+          </div>
+          <div class="filter selectionListDiv">
+              <span>Selected States</span>
+              <ul id="selectedStates" name="selectedStates" class="dynamic-list">
+              </ul>
+              <input class="clearButton" type="submit" value="Clear State List"
+              onclick="document.getElementById('selectedStates').innerHTML=''; 
+                        submitForm()">
+          </div>
+          <div class="filter selectionListDiv">
+            <span>Selected Schools</span>
+            <ul id="selectedSchools" name="selectedSchools"
+               class="dynamic-list"
+               style="background-color: rgb(139, 116, 189);">
+            </ul>
+            <input class="clearButton" type="submit" value="Clear School List"
+             onclick="document.getElementById('selectedSchools').innerHTML=''; 
+                      submitForm()">
+          </div>  
+          <p style="text-align: center;">
+          <input type="submit" value="Compare Schools!" 
+            style="font-weight: bold; font-size: 14pt;" 
+            onclick="compareSchools()">
+          </p>
+        </form>
+      </td>
+      <td id="vizColumn">
+        <!-- svg where the visualization will take place -->
+        <svg id="viz"></svg>
+      </td>
+    </tr>
+  </table>
+  <svg id="school-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="0px" height="0px">
+    <g id="school-icon-g" transform="scale(0.02)">
+      <path d="M969.6,313L535.2,163.6c-27.1-9.8-21.4-9.9-48.2-0.1L50,311.6c-26.9,9.7-26.7,25.6,0.4,35.4l103.8,35.2c-46,44.5-49,90.9-49.6,144.6c-17.8,6.8-30.4,24.1-30.4,44.3c0,18.5,10.6,34.6,26.1,42.4C93,668,71.9,730.4,10,804.2c30.6,23.7,46.4,31.6,70.1,39.5c86.6-37.2,76-136,69.3-234.3c11.9-8.6,19.6-22.6,19.6-38.4c0-17-8.9-31.8-22.2-40.2c1.5-52.6,13-99.7,52.4-130.2c0.3-0.8,1.2-1.5,2.9-2.2l298.6-120.7c11.1-4.4,23.7,0.9,28.1,12l0.4,1c4.4,11.1-0.9,23.6-12,28.1L264.8,419.7l225.8,76.6c27.1,9.8,21.4,9.9,48.3,0.2L970,348.3C996.8,338.6,996.7,322.8,969.6,313z M490,553.6L216.6,461v69.7c14.3,13.1,22.2,31.9,22.2,52.8c0,18.8-6.6,35.8-17.6,48.6c3.6,10.9,9.9,21.6,18.9,25c159.1,87.9,379,87,555.8-8.9c13.1-10.9,23.3-24.5,23.3-37.5V457.1l-280.8,96.7C511.6,563.5,517,563.5,490,553.6z"/>
+    </g>
+  </svg>
+  
+<!-- perhaps move the reference below to top of file if doesn't matter -->
+<script type="text/javascript" src="static/js/map.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Unipick</title>
+  <link rel="stylesheet" type="text/css" href="./static/css/main_page.css">
+</head>
+
+<body>
+  <h1><em>Intro to Data Visualization: Final Project</em></h1>
+  <h1><em>Unipick: A Utility for Selecting an Institution for an Undergraduate Career</em></h1>
+  <i><h3>Created by: Ophir Gal & I'Shea Boyd</h3></i>
+  <div class="p">
+    <p>
+      <h2 class="u_title">Quick How-To Guide</h2>
+      <ol>
+        <li>Filter the schools using the widgets under the "Filters" section.</li>
+        <li>Select schools of interest by directly clicking on the
+        corresponding graduation cap symbol on the map.</li>
+        <li>You can zoom by scrolling or pan by clicking and draging.</li>
+        <li>If you wish to deselect a certain state or school, click the
+        "x" button next to it inside the list.</li>
+        <li>When you are ready to compare the schools you have selected, click
+           "Compare Schools!"</li>
+        <li>When displayed the two bar charts use them to compare enrollement and cost of attendance for the schools you selected. </li>
+      </ol>
+    </p>
+  </div>
+  <h2 class="u_title">Visualization</h2>
+  <p style="text-align: center;">
+    <input type="submit" value="Switch Visualization"
+      style="font-weight: bold; font-size: 14pt;"
+      onclick="switchViz()">
+  </p>
+  <iframe src="map.html" frameborder="0" scrolling="no" id="mapViz"></iframe>
+  <iframe src="Bar chart html.html" frameborder="0" scrolling="no"
+  id="barViz"></iframe>
+  <script type="text/javascript" src="./static/js/main_page.js"></script>
+</body>
+</html>

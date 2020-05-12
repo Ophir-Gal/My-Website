@@ -1,0 +1,15 @@
+{
+  "name": "cmsc498o-a2",
+  "version": "1.0.0",
+  "description": "Setup code for CMSC498O Assignment A2",
+  "main": "index.js",
+  "author": "Prof. Leilani Battle",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "start-server": "node server.js"
+  }
+}
