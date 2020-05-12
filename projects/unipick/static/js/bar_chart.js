@@ -21,8 +21,7 @@ function getData(input_Array) {
   //clear the canvas
   d3.selectAll("svg > *").remove();
 
-  d3.json('https://raw.githubusercontent.com/Ophir-Gal/My-Website/gh-pages/' +
-  'projects/unipick/data/IPEDS_data_extended.json').then(function(data){
+  d3.json("http://localhost:8080/").then(function(data){
     renderVisualization(data.ipeds_data, input_Array);
   });
 
@@ -32,8 +31,7 @@ function getData(input_Array) {
     var data = [];
     for(var i = 0; i < 10; i++) {
       data.push({a:rand(),b:rand()});
-      d3.json('https://raw.githubusercontent.com/Ophir-Gal/My-Website/gh-pages/' +
-      'projects/unipick/data/IPEDS_data_extended.json').then(function(data) {
+      d3.json("http://localhost:8080/").then(function(data) {
         //console.log(data[0]);
       });
     }
@@ -732,7 +730,9 @@ function college_expense_bar_chart(parsed_elemets_tuples, width, height){
 
 //update order for chart 1
 function update_order(parsed_elemets_tuples, order, selection){
-
+  var margin = {top: 50, right: 50, bottom: 50, left: 100};
+  var width = window.innerWidth - margin.left - margin.right;
+  var height = 750 - margin.top - margin.bottom + 15;
 switch (order) {
   case "ascending":
       //put the state names in ascending order
@@ -1059,7 +1059,10 @@ switch (order) {
 
 //update order for chart 2
 function update_order_two(parsed_elemets_tuples, order, selection){
-
+  var margin = {top: 50, right: 50, bottom: 50, left: 100};
+  var width = window.innerWidth - margin.left - margin.right;
+  var height = 750 - margin.top - margin.bottom + 15;
+  
 switch (order) {
   case "ascending":
       //put the state names in ascending order
