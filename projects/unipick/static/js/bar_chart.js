@@ -21,7 +21,8 @@ function getData(input_Array) {
   //clear the canvas
   d3.selectAll("svg > *").remove();
 
-  d3.json("http://localhost:8080/").then(function(data){
+  d3.json('https://raw.githubusercontent.com/Ophir-Gal/My-Website/gh-pages/' +
+  'projects/unipick/data/IPEDS_data_extended.json').then(function(data){
     renderVisualization(data.ipeds_data, input_Array);
   });
 
@@ -31,7 +32,8 @@ function getData(input_Array) {
     var data = [];
     for(var i = 0; i < 10; i++) {
       data.push({a:rand(),b:rand()});
-      d3.json("http://localhost:8080/").then(function(data) {
+      d3.json('https://raw.githubusercontent.com/Ophir-Gal/My-Website/gh-pages/' +
+      'projects/unipick/data/IPEDS_data_extended.json').then(function(data) {
         //console.log(data[0]);
       });
     }

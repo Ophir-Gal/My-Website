@@ -21,7 +21,8 @@ submitForm()  // Submit form to immediately generate viz upon webpage load
 
 function submitForm(centerPerson=0){
   // Fetch data from the server and render visualization
-  fetch('http://localhost:8080/').then(function(response) { 
+  fetch('https://raw.githubusercontent.com/Ophir-Gal/My-Website/gh-pages/' +
+  'projects/unipick/data/IPEDS_data_extended.json').then(function(response) { 
     response.json()
     .then(jsonData => {
       let filters = getFilters();
