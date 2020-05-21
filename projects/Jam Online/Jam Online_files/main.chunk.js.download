@@ -1,0 +1,4298 @@
+(this["webpackJsonppiano-task"] = this["webpackJsonppiano-task"] || []).push([["main"],{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/App.css":
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/App.css ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "html, body { \n    height: 100%; \n    width: 100%; \n    margin: 0; \n    overflow: hidden;\n}\n\n.centered {\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    text-align: center;\n    padding: 20px;\n    background-color: white;    \n}\n\n.words-backdrop { \n    color: rgb(44, 44, 44);\n    background-color: rgba(255, 255, 255, 0.7);\n    padding: 6px 6px;\n}\n\n.label-words-backdrop { \n    color: rgb(44, 44, 44);\n    background-color: rgba(255, 255, 255, 0.7);\n    padding: 1px 3px;\n}\n\n.icons { \n    position: relative;\n    z-index: 5;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ChatRoom/ChatRoom.css":
+/*!**************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/ChatRoom/ChatRoom.css ***!
+  \**************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".clearfix::after {\n\tcontent: \"\";\n\tdisplay: block;\n\tclear: both;\n}\n\n.chatApp__loaderWrapper {\n\tmargin: 80px auto;\n\ttext-align: center;\n}\n\n.chatApp__loaderText {\n\tcolor: #4870df;\n\tfont-weight: bold;\n}\n\n.chatApp__loader,\n.chatApp__loader::before,\n.chatApp__loader::after {\n\tborder-radius: 1em;\n\twidth: 1em;\n\theight: 1em;\n\tanimation-fill-mode: both;\n\tanimation: loading 1.8s infinite ease-in-out;\n}\n\n.chatApp__loader {\n\tmargin: auto;\n\tcolor: #4870df;\n\tfont-size: 12px;\n\tposition: relative;\n\tanimation-delay: -0.16s;\n}\n\n.chatApp__loader::before,\n.chatApp__loader::after {\n\tcontent: '';\n\tposition: absolute;\n\ttop: 0;\n}\n\n.chatApp__loader::before {\n\tleft: -1.5em;\n\tanimation-delay: -0.32s;\n}\n\n.chatApp__loader::after {\n\tleft: 1.5em;\n}\n\n.chatApp__room {\n\tpadding: 2em 2em 0em 0em;\n\twidth: 25vw;\n    flex-wrap: nowrap;\n    flex-direction: column;\n\tanimation: fadeChatApp 0.6s ease-in-out;\n\tanimation-fill-mode: forwards;\n\tfont-family: 'Quicksand', sans-serif;\n\tletter-spacing: -0.23px;\n}\n\n.chatApp__conv {\n\tflex-grow: 1;\n\tflex-shrink: 1;\n\tflex-basis: 0;\n\tfloat: left;\n\tmargin: 0 0 0 2.5rem;\n\tbox-shadow: 0 35px 20px -30px rgba(0,0,0,0.1);\n\twidth: calc(100% - 20px);\n}\n\n.chatApp__convTitle {\n\tdisplay: inline-block;\n\tmargin: 0 0 2rem 0;\n\tfont-size: 18px;\n\tfont-weight: bold;\n\tcolor: rgb(44, 44, 44);\n\t/*text-transform: uppercase;*/\n\tposition: relative;\n\tbackground-color: rgba(255, 255, 255, 0.9);\n    padding: 8px 15px;\n}\n\n.chatApp__convTitle::after {\n\tcontent: '';\n\tposition: absolute;\n\tbackground-color: #4870df;\n\twidth: 100%;\n\theight: 2px;\n\tborder-radius: 30px;\n\tleft: 0;\n\tright: 0;\n\tbottom: -16px;\n}\n\n.chatApp__convTimeline {\n\tdisplay: flex;\n\theight: 400px;\n\tpadding: 1rem;\n\tborder-top-left-radius: 8px;\n\tborder-top-right-radius: 8px;\n\tbackground-color: #fff;\n\tflex-direction: column-reverse;\n\toverflow-y: auto;\n}\n\n.chatApp__convMessageItem {\n\tpadding: 1rem 0 0 0;\n\topacity: 0;\n\ttransition: all 0.15s ease-in-out;\n\tanimation: fadeNewMessage 0.5s;\n\tanimation-fill-mode: forwards;\n}\n\n.chatApp__convMessageAvatar {\n\twidth: 40px;\n\theight: 40px;\n\tborder-radius: 40px;\n\timage-rendering: -webkit-optimize-contrast;\n\t-webkit-touch-callout: none;\n\t-webkit-user-select: none;\n\tuser-select: none;\n}\n\n.chatApp__convMessageValue {\n\tposition: relative;\n\tmax-width: 50%;\n\tmin-height: 40px;\n\tpadding: 0.75rem;\n\tborder-radius: 4px;\n\tfont-size: 14px;\n\tline-height: 18px;\n\tfont-weight: bold;\n\tbox-shadow: 0px 10px 10px -8px rgba(0,0,0,0.08);\n\tbox-sizing: border-box;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n}\n\n.chatApp__convMessageItem--left .chatApp__convMessageAvatar {\n\tfloat: left;\n}\n\n.chatApp__convMessageItem--left .chatApp__convMessageValue {\n\tfloat: left;\n\ttext-align: left;\n\tmargin: 0 0 0 1rem;\n\tcolor: #fff;\n\tbackground-color: #4870df;\n}\n\n.chatApp__convMessageItem--left .chatApp__convMessageValue::before {\n\tcontent: '';\n\tposition: absolute;\n\ttop: 14px;\n\tleft: -8px;\n\twidth: 0;\n\theight: 0;\n\tborder-style: solid;\n\tborder-width: 6px 10px 6px 0;\n\tborder-color: transparent #4870df transparent transparent;\n}\n\n.chatApp__convMessageItem--right .chatApp__convMessageAvatar {\n\tfloat: right;\n}\n\n.chatApp__convMessageItem--right .chatApp__convMessageValue {\n\tfloat: right;\n\ttext-align: right;\n\tmargin: 0 1rem 0 0;\n\tbackground-color: #fafafa;\n}\n\n.chatApp__convMessageItem--right .chatApp__convMessageValue::after {\n\tcontent: '';\n\tposition: absolute;\n\ttop: 14px;\n\tright: -8px;\n\twidth: 0;\n\theight: 0;\n\tborder-style: solid;\n\tborder-width: 6px 0 6px 10px;\n\tborder-color: transparent transparent transparent #fafafa;\n}\n\n.chatApp__convMessageItem--left .chatApp__convMessageValue a {\n\tcolor: #91ffb1;\n}\n\n.chatApp__convMessageItem--left .chatApp__convMessageValue a:hover,\n.chatApp__convMessageItem--left .chatApp__convMessageValue a:focus {\n\tcolor: #75ff9e;\n}\n\n.chatApp__convMessageItem--right .chatApp__convMessageValue a {\n\tcolor: #09f;\n}\n\n.chatApp__convMessageItem--right .chatApp__convMessageValue a:hover,\n.chatApp__convMessageItem--right .chatApp__convMessageValue a:focus {\n\tcolor: #007dd1;\n}\n\n.chatApp__convSendMessage {\n\tposition: relative;\n\tborder-bottom-left-radius: 8px;\n\tborder-bottom-right-radius: 8px;\n\tbackground-color: #fff;\n}\n\n.chatApp__convSendMessage {\n\tpadding: 1rem;\n}\n\n.chatApp__convInput {\n\tfloat: left;\n\theight: 40px;\n\tborder: none;\n\tpadding: 0.5rem 1rem;\n\tborder-radius: 40px;\n\tmargin: 0 0.5rem 0 0;\n\twidth: calc(100% - 52px);\n\tbackground-color: #dedfed;\n\tbox-shadow: inset 0 0 0 2px #dedfed;\n\tfont-size: 14px;\n\tfont-family: 'Quicksand', sans-serif;\n\tfont-weight: bold;\n\ttransition: 0.15s all ease-in-out;\n\tbox-sizing: border-box;\n}\n\n.chatApp__convInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n\tcolor: #b1b1b1;\n\topacity: 1;\n}\n\n.chatApp__convInput:-ms-input-placeholder { /* Internet Explorer 10-11 */\n\tcolor: #b1b1b1;\n}\n\n.chatApp__convInput::-ms-input-placeholder { /* Microsoft Edge */\n\tcolor: #b1b1b1;\n}\n\n.chatApp__convInput:focus, .chatApp__convInput:active {\n\tbox-shadow: inset 0 0 0 2px #7690d6;\n}\n\n.chatApp__convInput:focus {\n\toutline: none;\n}\n\n.chatApp__convButton {\n\tfloat: right;\n\tposition: relative;\n\twidth: 40px;\n\theight: 40px;\n\tcursor: pointer;\n\tpadding: 8px;\n\tborder-radius: 30px;\n\tcolor: #fff;\n\tbackground-color: #4870df;\n\ttext-align: center;\n\tbox-shadow: 0px 14px 10px -8px rgba(0,0,0,0.2);\n\ttransition: 0.15s all ease-in-out;\n\tbox-sizing: border-box;\n\t-webkit-user-select: none;\n\tuser-select: none;\n}\n\n.chatApp__convButton:hover {\n\tbackground-color: #3c559c;\n}\n\n.chatApp__convButton i {\n\tposition: relative;\n\ttop: 50%;\n\ttransform: translateY(-50%);\n\tpadding: 0 0 0 1px;\n\tfont-size: 22px;\n}\n\n.chatApp__convButton--loading {\n\tcursor: wait;\n\tbackground-color: #4870df;\n}\n\n.chatApp__convButton--loading:hover {\n\tbackground-color: #4870df;\n}\n\n.chatApp__convButton--loading::before, .chatApp__convButton--loading::after {\n\tcontent: '';\n\tposition: absolute;\n\tz-index: 1;\n\tdisplay: block;\n\tleft: 0;\n\tright: 0;\n\ttop: 50%;\n\ttransform: translateY(-50%);\n\twidth: 8px;\n\theight: 8px;\n\tmargin: auto;\n\tborder-radius: 40px;\n\tbackground-color: #fff;\n}\n\n.chatApp__convButton--loading::after {\n\tanimation: loadSendMessage 1.5s;\n\tanimation-fill-mode: forwards;\n\tanimation-iteration-count: infinite;\n}\n\n.chatApp__convButton--loading i {\n\tdisplay: none;\n}\n\n.chatApp__convSendMessage--typing .chatApp__convTyping {\n\tdisplay: block;\n}\n\n.chatApp__convTyping {\n\tposition: absolute;\n\ttop: 0;\n\tfont-size: 10px;\n\tfont-weight: bold;\n}\n\n.chatApp__convTypingDot {\n\tposition: relative;\n\tleft: 4px;\n\tdisplay: inline-block;\n\twidth: 2px;\n\theight: 2px;\n\tbackground-color: #606060;\n\tanimation: typingMessage 1.5s;\n\tanimation-fill-mode: forwards;\n\tanimation-iteration-count: infinite;\n\tanimation-timing-function: ease-in-out;\n}\n\n.chatApp__convTypingDot::before, .chatApp__convTypingDot::after {\n\tcontent: '';\n\tposition: absolute;\n\tdisplay: inline-block;\n\twidth: 2px;\n\theight: 2px;\n\tbackground-color: #606060;\n\tanimation: typingMessage 1.5s;\n\tanimation-fill-mode: forwards;\n\tanimation-iteration-count: infinite;\n\tanimation-timing-function: ease-in-out;\n}\n\n.chatApp__convTypingDot::before {\n\tleft: 4px;\n\tanimation-delay: 0.5s;\n}\n\n.chatApp__convTypingDot::after {\n\tleft: 8px;\n\tanimation-delay: 1s;\n}\n\n@media screen and (max-width:768px) {\n\t.chatApp__room { flex-wrap: wrap; padding: 2rem 1rem; }\n\t.chatApp__conv { flex-basis: 100%; min-width: auto; width: 100%; margin: 0; }\n\t.chatApp__conv:first-of-type { margin: 0 0 4rem 0; }\n}\n\n@keyframes loading {\n\t0%, 80%, 100% { box-shadow: 0 1em 0 -1.3em; }\n\t40% { box-shadow: 0 1em 0 0; }\n}\n\n@keyframes fadeChatApp {\n\t0% { opacity: 0; transform: translateY(1rem); }\n\t100% { opacity: 1; transform: translateY(0px); }\n}\n\n@keyframes fadeNewMessage {\n\t0% { opacity: 0; transform: translateY(1rem); }\n\t100% { opacity: 1; transform: translateY(0px); }\n}\n\n@keyframes loadSendMessage {\n\t0% { opacity: 1; width: 4px; height: 4px; }\n\t100% { opacity: 0; width: 100%; height: 100%; }\n}\n\n@keyframes typingMessage {\n\t0% { background-color: #606060; }\n\t50% { background-color: #fff; }\n\t60% { background-color: #606060; }\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/Piano/PianoApp.css":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/Piano/PianoApp.css ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".bg-yellow {\n  background-color: #f8e8d5;\n}\n.MuiDrawer-paper {\n  background-color: rgba(0,0,0,0) !important;\n  border: 0;\n}\n\n.container { \n  overflow: hidden;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ProgressBar/ProgressBar.css":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/ProgressBar/ProgressBar.css ***!
+  \********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "#myProgress {\n    position: relative;\n    width: 40%;\n    height: 30px;\n    background-color: #ddd;\n    border-radius: 50px;\n    border: 1px solid #333;\n    display: inline-block;\n    vertical-align: middle\n  }\n  \n  #myBar {\n    position: absolute;\n    width: 10%;\n    height: 100%;\n    background-color: #4CAF50;\n    border-radius: inherit;\n    /*transition: width .2s ease-in;*/\n  }\n  \n  #label {\n    text-align: center;\n    line-height: 30px;\n    color: white;\n  }\n.progress-bar {\n    position: relative;\n    height: 20px;\n    width: 350px;\n    border-radius: 50px;\n    border: 1px solid #333;\n  }\n  \n  .filler {\n    background: #1DA598;\n    height: 100%;\n    border-radius: inherit;\n    transition: width .2s ease-in;\n  }", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/index.css ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./src/App.css":
+/*!*********************!*\
+  !*** ./src/App.css ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./App.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/App.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./App.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/App.css", function() {
+		var newContent = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./App.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/App.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/App.js":
+/*!********************!*\
+  !*** ./src/App.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _InstrumentSelection_InstrumentSelection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InstrumentSelection/InstrumentSelection.js */ "./src/InstrumentSelection/InstrumentSelection.js");
+/* harmony import */ var _InfoPage_InfoPage_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./InfoPage/InfoPage.js */ "./src/InfoPage/InfoPage.js");
+/* harmony import */ var _Visualization_Visualization_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Visualization/Visualization.js */ "./src/Visualization/Visualization.js");
+/* harmony import */ var _Bar_Bar_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Bar/Bar.js */ "./src/Bar/Bar.js");
+/* harmony import */ var _PianoDrawer_PianoDrawer_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PianoDrawer/PianoDrawer.js */ "./src/PianoDrawer/PianoDrawer.js");
+/* harmony import */ var _ChatDrawer_ChatDrawer_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ChatDrawer/ChatDrawer.js */ "./src/ChatDrawer/ChatDrawer.js");
+/* harmony import */ var _Piano_LivePlayBack_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Piano/LivePlayBack.js */ "./src/Piano/LivePlayBack.js");
+/* harmony import */ var _Piano_LiveLoop_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Piano/LiveLoop.js */ "./src/Piano/LiveLoop.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_10__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\App.js";
+
+
+
+
+
+
+
+
+
+
+ // import firebase!
+// webkitAudioContext fallback needed to support Safari
+
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const soundfontHostname = 'https://d1pzp51pvbm36p.cloudfront.net';
+
+class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super(); // Get user count
+
+    this.handleOpenInfo = () => {
+      this.setState({
+        showInfo: true
+      });
+    };
+
+    this.handleCloseInfo = () => {
+      this.setState({
+        showInfo: false
+      });
+    };
+
+    this.handleClickPiano = () => {
+      this.setState({
+        showPiano: !this.state.showPiano
+      });
+    };
+
+    this.handleBarChange = () => {
+      this.setState({
+        showBar: !this.state.showBar
+      });
+    };
+
+    this.handleIsRecording = isRecording => {
+      var d = new Date();
+      this.setState({
+        isRecording: isRecording,
+        startTime: d.getTime()
+      });
+    };
+
+    this.handleTempStr = toAppend => {
+      if (toAppend === -1) {
+        this.setState({
+          tempStr: ""
+        });
+      } else if (toAppend === -2) {
+        return this.state.tempStr;
+      } else {
+        this.setState({
+          tempStr: this.state.tempStr + toAppend
+        });
+      }
+    };
+
+    this.handleChatChange = () => {
+      this.setState({
+        showChat: !this.state.showChat
+      });
+    };
+
+    this.handleCloseChat = () => {
+      this.setState({
+        showChat: false
+      });
+    };
+
+    this.handleUsernameSubmit = username => {
+      this.setState({
+        username: username,
+        usernameSet: true
+      });
+    };
+
+    this.handleMutePressed = () => {
+      this.setState({
+        isMutePressed: !this.state.isMutePressed
+      });
+    };
+
+    let userCount = 0;
+    firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref('/presence/').once('value', snap => {
+      userCount = snap.numChildren() - 1;
+    });
+    this.state = {
+      instrumentSelected: false,
+      instrument: "",
+      showInfo: false,
+      showPiano: false,
+      showBar: false,
+      showChat: false,
+      userRef: null,
+      userHash: null,
+      allUsersRef: firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref("/presence/"),
+      usernameSet: false,
+      username: "",
+      userCount: userCount,
+      userID: Math.floor(Math.random() * 10000),
+      isRecording: false,
+      startTime: 0,
+      tempStr: "",
+      isMutePressed: false
+    };
+    this.dbRef = firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref();
+  } // Set up user's entry on database
+
+
+  componentWillMount() {
+    var listRef = firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref("/presence/");
+    var userRef = listRef.push(); // create a user
+    // update our state
+
+    this.setState({
+      userRef: userRef,
+      allUsersRef: listRef,
+      userHash: userRef.key
+    }); // Add ourselves to presence list when online.
+
+    var presenceRef = firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref("/.info/connected");
+    presenceRef.on("value", function (snap) {
+      if (snap.val()) {
+        // Remove ourselves when we disconnect.
+        userRef.onDisconnect().remove(); // create array of midi notes (prev and current values)
+        // in user's entry in database
+
+        userRef.child('midi').set(Array(128).fill({
+          'prev_value': 0,
+          'value': 0
+        }));
+      }
+    }); // Set event handler for our userCount
+
+    listRef.on('value', snap => {
+      this.setState({
+        userCount: snap.numChildren() - 1
+      });
+    });
+  }
+
+  handleInstrumentClick(instrument) {
+    this.setState({
+      instrumentSelected: true,
+      instrument: instrument
+    }); // Set user's instrument on their database entry
+
+    this.state.userRef.child('instrument').set(instrument);
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "App",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 165,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InstrumentSelection_InstrumentSelection_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      open: !this.state.instrumentSelected,
+      onClick: instrument => this.handleInstrumentClick(instrument),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 167,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InfoPage_InfoPage_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      open: this.state.showInfo,
+      onOpen: this.handleOpenInfo,
+      onClose: this.handleCloseInfo,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 172,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visualization_Visualization_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      openInfo: this.handleOpenInfo,
+      handleBarChange: this.handleBarChange,
+      handleChatChange: this.handleChatChange,
+      userCount: this.state.userCount,
+      audioContext: audioContext,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 178,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDrawer_ChatDrawer_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      showChat: this.state.showChat,
+      handleCloseChat: this.handleCloseChat,
+      username: this.state.username,
+      usernameSet: this.state.usernameSet,
+      handleUsernameSubmit: this.handleUsernameSubmit,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 186,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PianoDrawer_PianoDrawer_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      instrument: this.state.instrument,
+      showPiano: this.state.showBar,
+      userID: this.state.userID,
+      userRef: this.state.userRef,
+      isRecording: this.state.isRecording,
+      startTime: this.state.startTime,
+      tempStrFun: this.handleTempStr,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 194,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bar_Bar_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      className: "toolbar",
+      handleClickPiano: this.handleClickPiano,
+      showBar: this.state.showBar,
+      handleBarChange: this.handleBarChange,
+      isRecordingFun: this.handleIsRecording,
+      tempStrFun: this.handleTempStr,
+      tempStr: this.state.tempStr,
+      userID: this.state.userID,
+      audioContext: audioContext,
+      instrument: this.state.instrument,
+      isMutePressed: this.state.isMutePressed,
+      handleMutePressed: this.handleMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 204,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_LivePlayBack_js__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      audioContext: audioContext,
+      instrumentName: 'acoustic_grand_piano',
+      hostname: soundfontHostname,
+      userHash: this.state.userHash,
+      allUsersRef: this.state.allUsersRef,
+      isMutePressed: this.state.isMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 219,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_LivePlayBack_js__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      audioContext: audioContext,
+      instrumentName: 'cello',
+      hostname: soundfontHostname,
+      userHash: this.state.userHash,
+      allUsersRef: this.state.allUsersRef,
+      isMutePressed: this.state.isMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 227,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_LivePlayBack_js__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      audioContext: audioContext,
+      instrumentName: 'trumpet',
+      hostname: soundfontHostname,
+      userHash: this.state.userHash,
+      allUsersRef: this.state.allUsersRef,
+      isMutePressed: this.state.isMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 235,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_LivePlayBack_js__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      audioContext: audioContext,
+      instrumentName: 'acoustic_guitar_nylon',
+      hostname: soundfontHostname,
+      userHash: this.state.userHash,
+      allUsersRef: this.state.allUsersRef,
+      isMutePressed: this.state.isMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 243,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_LivePlayBack_js__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      audioContext: audioContext,
+      instrumentName: 'xylophone',
+      hostname: soundfontHostname,
+      userHash: this.state.userHash,
+      allUsersRef: this.state.allUsersRef,
+      isMutePressed: this.state.isMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 251,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_LiveLoop_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      audioContext: audioContext,
+      isMutePressed: this.state.isMutePressed,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 260,
+        columnNumber: 9
+      }
+    }));
+  }
+
+} //hello
+
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/Bar/Bar.js":
+/*!************************!*\
+  !*** ./src/Bar/Bar.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Bar; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ProgressBar_ProgressBarContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ProgressBar/ProgressBarContainer */ "./src/ProgressBar/ProgressBarContainer.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_icons_KeyboardArrowDown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/KeyboardArrowDown */ "./node_modules/@material-ui/icons/KeyboardArrowDown.js");
+/* harmony import */ var _material_ui_icons_KeyboardArrowDown__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_KeyboardArrowDown__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/Delete */ "./node_modules/@material-ui/icons/Delete.js");
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_icons_Mic__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/Mic */ "./node_modules/@material-ui/icons/Mic.js");
+/* harmony import */ var _material_ui_icons_Mic__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Mic__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_icons_PlayArrow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/PlayArrow */ "./node_modules/@material-ui/icons/PlayArrow.js");
+/* harmony import */ var _material_ui_icons_PlayArrow__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_PlayArrow__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_icons_Send__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Send */ "./node_modules/@material-ui/icons/Send.js");
+/* harmony import */ var _material_ui_icons_Send__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Send__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_icons_VolumeOff__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/VolumeOff */ "./node_modules/@material-ui/icons/VolumeOff.js");
+/* harmony import */ var _material_ui_icons_VolumeOff__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_VolumeOff__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_icons_VolumeUp__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/VolumeUp */ "./node_modules/@material-ui/icons/VolumeUp.js");
+/* harmony import */ var _material_ui_icons_VolumeUp__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_VolumeUp__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! soundfont-player */ "./node_modules/soundfont-player/lib/index.js");
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(soundfont_player__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Bar\\Bar.js";
+
+
+
+
+
+
+
+
+
+
+
+
+ // import firebase!
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
+  root: {
+    justifyContent: "center",
+    width: "100%"
+  },
+  wrapper: {
+    width: "100%"
+  },
+  closeDrop: {
+    marginLeft: "-.5vw"
+  },
+  appBar: {
+    top: 'auto',
+    bottom: 0,
+    background: "white",
+    color: "black"
+  },
+  centerButtons: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "100%"
+  },
+  button: {
+    margin: "0px 25px",
+    display: "inline-block",
+    verticalAlign: "middle"
+  }
+}));
+function Bar(props) {
+  const classes = useStyles();
+  const [hasRecording, setHasRecording] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+  const [useProgressBar, setUseProgressBar] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+  var isRecordingFlag = false;
+  var uploaded = false;
+
+  const handleDelete = () => {
+    setHasRecording(prev => !prev); // if in the middle of recording, stop recording b4 delete
+    // logic to delete local recording
+
+    setUseProgressBar(false); // stop progress bar
+
+    isRecordingFlag = false;
+    props.tempStrFun(-1); //resets the recording variable back in app.js to be empty
+
+    Bar.recording = "";
+    uploaded = false;
+  };
+
+  const handleRecordHelper = () => {
+    setUseProgressBar(true); // start progress bar
+
+    isRecordingFlag = !isRecordingFlag;
+    props.isRecordingFun(isRecordingFlag);
+
+    if (!isRecordingFlag) {
+      Bar.recording = props.tempStrFun(-2);
+      props.tempStrFun(-1);
+    }
+  };
+
+  const handleRecord = () => {
+    // logic to record
+    setHasRecording(prev => !prev);
+    handleRecordHelper();
+    setTimeout(handleRecordHelper, 4100); //4 seconds to record
+
+    setTimeout(() => {
+      if (!isRecordingFlag) {
+        setUseProgressBar(false); // end progress bar
+      }
+    }, 5000);
+  };
+
+  const _convertStringRecToArray = r => {
+    let melody = [];
+    let rec = r.split("\n").map(line => line.split(","));
+
+    for (let note of rec) {
+      melody.push({
+        time: parseFloat(note[0]) / 1000,
+        note: parseInt(note[1]),
+        duration: parseFloat(note[2]) / 1000
+      });
+    }
+
+    return melody;
+  };
+
+  const playRecording = () => {
+    setTimeout(() => {
+      setUseProgressBar(true); // start progress bar after waiting a bit for recording fetch
+    }, 1000); // logic to listen to recording
+    // make sure people cant play the recording while ur still recording it
+
+    if (!isRecordingFlag) {
+      // The first step is always create an instrument:
+      soundfont_player__WEBPACK_IMPORTED_MODULE_11___default.a.instrument(props.audioContext, props.instrument).then(function (instrument) {
+        // Or schedule events at a given time
+        instrument.schedule(props.audioContext.currentTime, _convertStringRecToArray(Bar.recording));
+      });
+      setTimeout(() => {
+        if (!isRecordingFlag) {
+          setUseProgressBar(false);
+        }
+      }, 8000); // wait 5 seconds before resetting progress bar
+    }
+  };
+
+  const removeUpload = ref => {
+    ref.remove();
+  };
+
+  const handleUpload = () => {
+    // logic to listen to handle upload click
+    // make sure people cant upload an empty recording
+    if (Bar.recording !== "" && !uploaded) {
+      //counting current number of children
+      firebase__WEBPACK_IMPORTED_MODULE_12__["database"]().ref("recs").once("value").then(function (snapshot) {
+        var max = -1;
+        var min = 100000000;
+        var numRecs = 0;
+        snapshot.forEach(function (childSnapshot) {
+          //increment recs
+          numRecs++;
+          var currKey = parseInt(childSnapshot.key); //check min
+
+          if (currKey < min) {
+            min = currKey;
+          } //check max
+
+
+          if (currKey > max) {
+            max = currKey;
+          }
+        }); //what to do if there are already 5 recordings
+
+        if (numRecs >= 5) {
+          //delete oldest
+          removeUpload(firebase__WEBPACK_IMPORTED_MODULE_12__["database"]().ref("recs").child(min));
+        } //add new recording
+
+
+        var newKey = max + 1;
+        var newRecRef = firebase__WEBPACK_IMPORTED_MODULE_12__["database"]().ref("recs").child(newKey);
+        newRecRef.set(props.instrument + "\n" + Bar.recording);
+        uploaded = true;
+        alert("Recording uploaded!"); //8 seconds until auto removed
+        // setTimeout(function(){ removeUpload(newRecRef);}, 8000);
+      }); //upload to user's database ref (ALL RECORDINGS)
+      // var tempRef = firebase.database().ref("recs").push();
+      // tempRef.set(Bar.recording);
+      // uploaded = true;
+      //playback for 10 seconds on database before removal
+      // setTimeout(function(){ removeUpload(tempRef);}, 10000);
+    } else {
+      alert("Already uploaded this recording! If you want to upload again, delete and re-record.");
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 200,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.wrapper,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 201,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Slide"], {
+    direction: "up",
+    in: props.showBar,
+    mountOnEnter: true,
+    unmountOnExit: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 202,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["AppBar"], {
+    className: classes.appBar,
+    position: "fixed",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 203,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Toolbar"], {
+    className: classes.toolbar,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 204,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Tooltip"], {
+    title: "Close Toolbar",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 205,
+      columnNumber: 29
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["IconButton"], {
+    edge: "start",
+    className: classes.closeDrop,
+    onClick: props.handleBarChange,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206,
+      columnNumber: 33
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardArrowDown__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 37
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.centerButtons,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 211,
+      columnNumber: 29
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Tooltip"], {
+    title: "Delete Recording",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 212,
+      columnNumber: 33
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.button,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    variant: "contained",
+    size: "large",
+    onClick: handleDelete,
+    disabled: !hasRecording,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 214,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 220,
+      columnNumber: 41
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Tooltip"], {
+    title: "Record",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 225,
+      columnNumber: 33
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.button,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 226,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    variant: "contained",
+    size: "large",
+    onClick: handleRecord,
+    disabled: hasRecording,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 227,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Mic__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 233,
+      columnNumber: 41
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Tooltip"], {
+    title: "Playback",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 238,
+      columnNumber: 33
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.button,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 239,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    variant: "contained",
+    size: "large",
+    onClick: playRecording,
+    disabled: !hasRecording,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 240,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_PlayArrow__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 246,
+      columnNumber: 41
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProgressBar_ProgressBarContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    useProgressBar: useProgressBar,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 251,
+      columnNumber: 33
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Tooltip"], {
+    title: "Upload",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 253,
+      columnNumber: 33
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.button,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 254,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    variant: "contained",
+    size: "large",
+    onClick: handleUpload,
+    disabled: !hasRecording,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Send__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 261,
+      columnNumber: 41
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Tooltip"], {
+    title: props.isMutePressed ? "Unmute All" : "Mute All",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 266,
+      columnNumber: 33
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.button,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 270,
+      columnNumber: 37
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    variant: "contained",
+    size: "large",
+    onClick: props.handleMutePressed,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 271,
+      columnNumber: 37
+    }
+  }, props.isMutePressed ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_VolumeUp__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 276,
+      columnNumber: 64
+    }
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_VolumeOff__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 276,
+      columnNumber: 82
+    }
+  }))))))))));
+}
+
+/***/ }),
+
+/***/ "./src/ChatDrawer/ChatDrawer.js":
+/*!**************************************!*\
+  !*** ./src/ChatDrawer/ChatDrawer.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _UsernameModal_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UsernameModal.js */ "./src/ChatDrawer/UsernameModal.js");
+/* harmony import */ var _ChatRoom_ChatRoom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ChatRoom/ChatRoom.js */ "./src/ChatRoom/ChatRoom.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatDrawer\\ChatDrawer.js";
+
+
+
+
+
+class Chat extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+    this.state = {
+      messages: []
+    };
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Drawer"], {
+      className: "drawer",
+      variant: "persistent",
+      anchor: "right",
+      open: this.props.showChat,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 17
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UsernameModal_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      open: !this.props.usernameSet && this.props.showChat,
+      handleChange: username => this.props.handleUsernameSubmit(username),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 21
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "app__list chat",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
+        columnNumber: 21
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatRoom_ChatRoom_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      username: this.props.username,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 25
+      }
+    }))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Chat);
+
+/***/ }),
+
+/***/ "./src/ChatDrawer/UsernameModal.js":
+/*!*****************************************!*\
+  !*** ./src/ChatDrawer/UsernameModal.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatDrawer\\UsernameModal.js";
+
+
+
+class UsernameModal extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: false
+    };
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Modal"], {
+      open: this.props.open,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 17
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "centered",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 21
+      }
+    }, "Please enter a username for yourself! (Hit Enter to submit) ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 85
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["FormControl"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 25
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+      required: true,
+      label: "Username",
+      error: this.state.error,
+      helperText: this.state.error ? "Username cannot be empty." : null,
+      onKeyPress: e => {
+        if (e.target.value === "") {
+          this.setState({
+            error: true
+          });
+        } else if (e.key === 'Enter') {
+          this.props.handleChange(e.target.value);
+        } else {
+          this.setState({
+            error: false
+          });
+        }
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 29
+      }
+    })))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UsernameModal);
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatComponents/ChatBox.js":
+/*!************************************************!*\
+  !*** ./src/ChatRoom/ChatComponents/ChatBox.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChatBox; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ChatRoom.css */ "./src/ChatRoom/ChatRoom.css");
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ChatTitle_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatTitle.js */ "./src/ChatRoom/ChatComponents/ChatTitle.js");
+/* harmony import */ var _MessageList_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MessageList.js */ "./src/ChatRoom/ChatComponents/MessageList.js");
+/* harmony import */ var _ChatInputMessage_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChatInputMessage.js */ "./src/ChatRoom/ChatComponents/ChatInputMessage.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatRoom\\ChatComponents\\ChatBox.js";
+
+
+
+
+
+class ChatBox extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      isLoading: false
+    };
+    this.sendMessageLoading = this.sendMessageLoading.bind(this);
+  }
+  /* catch the sendMessage signal and update the loading state then continues the sending instruction */
+
+
+  sendMessageLoading(sender, senderAvatar, message) {
+    this.setState({
+      isLoading: true
+    });
+    this.props.sendMessage(sender, senderAvatar, message);
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      });
+    }, 400);
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__conv",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 4
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatTitle_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      owner: this.props.owner,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 5
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageList_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      owner: this.props.owner,
+      messages: this.props.messages,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 5
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__convSendMessage clearfix",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36,
+        columnNumber: 5
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatInputMessage_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      isLoading: this.state.isLoading,
+      owner: this.props.owner,
+      ownerAvatar: this.props.ownerAvatar,
+      sendMessage: this.props.sendMessage,
+      sendMessageLoading: this.sendMessageLoading,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
+        columnNumber: 6
+      }
+    })));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatComponents/ChatInputMessage.js":
+/*!*********************************************************!*\
+  !*** ./src/ChatRoom/ChatComponents/ChatInputMessage.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChatInputMessage; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ChatRoom.css */ "./src/ChatRoom/ChatRoom.css");
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatRoom\\ChatComponents\\ChatInputMessage.js";
+
+
+class ChatInputMessage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props, context) {
+    super(props, context);
+    this.handleSendMessage = this.handleSendMessage.bind(this);
+  }
+
+  handleSendMessage(event) {
+    event.preventDefault();
+    /* Disable sendMessage if the message is empty */
+
+    if (this.messageInput.value.length > 0) {
+      this.props.sendMessageLoading(this.ownerInput.value, this.ownerAvatarInput.value, this.messageInput.value);
+      /* Reset input after send*/
+
+      this.messageInput.value = '';
+    }
+  }
+
+  render() {
+    /* If the chatbox state is loading, loading class for display */
+    var loadingClass = this.props.isLoading ? 'chatApp__convButton--loading' : '';
+    let sendButtonIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "material-icons",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 24
+      }
+    }, "send");
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      onSubmit: this.handleSendMessage,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 4
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "hidden",
+      ref: owner => this.ownerInput = owner,
+      value: this.props.owner,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 5
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "hidden",
+      ref: ownerAvatar => this.ownerAvatarInput = ownerAvatar,
+      value: this.props.ownerAvatar,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 5
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
+      ref: message => this.messageInput = message,
+      className: "chatApp__convInput",
+      placeholder: "Text message",
+      tabIndex: "0",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
+        columnNumber: 5
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: 'chatApp__convButton ' + loadingClass,
+      onClick: this.handleSendMessage,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44,
+        columnNumber: 17
+      }
+    }, sendButtonIcon));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatComponents/ChatTitle.js":
+/*!**************************************************!*\
+  !*** ./src/ChatRoom/ChatComponents/ChatTitle.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChatTitle; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ChatRoom.css */ "./src/ChatRoom/ChatRoom.css");
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatRoom\\ChatComponents\\ChatTitle.js";
+
+
+class ChatTitle extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__convTitle",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 4
+      }
+    }, "Chat");
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatComponents/MessageItem.js":
+/*!****************************************************!*\
+  !*** ./src/ChatRoom/ChatComponents/MessageItem.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MessageItem; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ChatRoom.css */ "./src/ChatRoom/ChatRoom.css");
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatRoom\\ChatComponents\\MessageItem.js";
+
+
+class MessageItem extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    /* message position formatting - right if I'm the author */
+    let messagePosition = this.props.owner === this.props.sender ? 'chatApp__convMessageItem--right' : 'chatApp__convMessageItem--left';
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__convMessageItem " + messagePosition + " clearfix",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: this.props.senderAvatar,
+      alt: this.props.sender,
+      className: "chatApp__convMessageAvatar",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 17
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__convMessageValue",
+      dangerouslySetInnerHTML: {
+        __html: this.props.message
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 17
+      }
+    }));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatComponents/MessageList.js":
+/*!****************************************************!*\
+  !*** ./src/ChatRoom/ChatComponents/MessageList.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MessageList; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ChatRoom.css */ "./src/ChatRoom/ChatRoom.css");
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _MessageItem_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MessageItem.js */ "./src/ChatRoom/ChatComponents/MessageItem.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatRoom\\ChatComponents\\MessageList.js";
+
+
+
+class MessageList extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__convTimeline",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 4
+      }
+    }, this.props.messages.slice(0).reverse().map(messageItem => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageItem_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: messageItem.id,
+      owner: this.props.owner,
+      sender: messageItem.sender,
+      senderAvatar: messageItem.senderAvatar,
+      message: messageItem.sender + ":<br>" + messageItem.message,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 6
+      }
+    })));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatRoom.css":
+/*!***********************************!*\
+  !*** ./src/ChatRoom/ChatRoom.css ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./ChatRoom.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ChatRoom/ChatRoom.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./ChatRoom.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ChatRoom/ChatRoom.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./ChatRoom.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ChatRoom/ChatRoom.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/ChatRoom/ChatRoom.js":
+/*!**********************************!*\
+  !*** ./src/ChatRoom/ChatRoom.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChatRoom; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatRoom.css */ "./src/ChatRoom/ChatRoom.css");
+/* harmony import */ var _ChatRoom_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ChatRoom_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ChatComponents_ChatBox_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChatComponents/ChatBox.js */ "./src/ChatRoom/ChatComponents/ChatBox.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ChatRoom\\ChatRoom.js";
+
+
+
+
+/* detect url in a message and add a link tag */
+
+function detectURL(message) {
+  var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+  return message.replace(urlRegex, function (urlMatch) {
+    return '<a href="' + urlMatch + '">' + urlMatch + '</a>';
+  });
+}
+
+class ChatRoom extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      messages: []
+    };
+    this.sendMessage = this.sendMessage.bind(this);
+    this.username = this.props.username;
+  }
+
+  componentDidMount() {
+    this.dbRef = firebase__WEBPACK_IMPORTED_MODULE_2___default.a.database().ref();
+    this.msgsRef = this.dbRef.child('chat').child('messages'); // get 'messages' list from firebase
+
+    this.msgsRef.on('value', snap => {
+      let messageList = snap.val();
+      this.setState({
+        messages: messageList
+      });
+    });
+  }
+  /* adds a new message to the chatroom */
+
+
+  sendMessage(sender, senderAvatar, message) {
+    setTimeout(() => {
+      let messageFormat = detectURL(message);
+      let newMessageItem = {
+        id: this.state.messages.length + 1,
+        sender: sender,
+        senderAvatar: senderAvatar,
+        message: messageFormat
+      };
+      this.msgsRef.child(this.state.messages.length).set(newMessageItem);
+    }, 400);
+  }
+
+  render() {
+    let users = {};
+    let chatBoxes = [];
+    let messages = this.state.messages;
+    let sendMessage = this.sendMessage;
+    /* user details - can add as many users as desired */
+
+    users[0] = {
+      name: this.props.username,
+      avatar: 'https://api.adorable.io/avatars/285/' + this.props.username + '.png'
+    };
+    /* creation of a chatbox for each user present in the chatroom */
+
+    Object.keys(users).map(function (key) {
+      var user = users[key];
+      chatBoxes.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatComponents_ChatBox_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        className: "Form",
+        key: key,
+        owner: user.name,
+        ownerAvatar: user.avatar,
+        sendMessage: sendMessage,
+        messages: messages,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 68,
+          columnNumber: 5
+        }
+      }));
+    });
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chatApp__room",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78,
+        columnNumber: 4
+      }
+    }, chatBoxes);
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/InfoPage/InfoPage.js":
+/*!**********************************!*\
+  !*** ./src/InfoPage/InfoPage.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\InfoPage\\InfoPage.js";
+
+
+
+
+class InfoPage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
+      open: this.props.open,
+      onClose: this.props.onClose,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 17
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "centered",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 21
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 25
+      }
+    }, "Welcome! This site is designed for you to interact musically with others. Feel free to play along with the other people online and record a snippet to temporarily persist on the site. Since all recordings are temporary, feel free to keep recording and coming back for more! Each experience on this site is different from the rest."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 25
+      }
+    }, "What you see in the background is a visualization of the sounds that you and everyone else here have made together. Through this, we hope you have some fun and feel less alone while making music."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 25
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 29
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 32
+      }
+    }, "How to participate:"), " "), "Open the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 42
+      }
+    }, "toolbar"), " in the lower left-hand corner to get playing + recording! Once you press the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
+        columnNumber: 52
+      }
+    }, "'Record' button"), ", you will have four seconds to press your keyboard keys and create an audio snippet that you can then post to the site by pressing the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 46
+      }
+    }, "'send' button"), ". Press the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 78
+      }
+    }, "'play' button"), " to playback your recording. Not satisfied with it? Delete and re-record as many times as you want! Press ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35,
+        columnNumber: 39
+      }
+    }, "'mute'"), " to stop all the background noise (other users)."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      style: {
+        fontSize: "10pt"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
+        columnNumber: 25
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 29
+      }
+    }, "Developers:"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://github.com/pemani98",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 48
+      }
+    }, "Priya Emani"), ",", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://github.com/Ophir-Gal",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39,
+        columnNumber: 49
+      }
+    }, " Ophir Gal"), ",", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://github.com/shannenlm",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40,
+        columnNumber: 49
+      }
+    }, " Shannen Lam"), ",", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://github.com/simonson-13",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41,
+        columnNumber: 49
+      }
+    }, " Simon Liao"), ",", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://github.com/shivampatel623",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 49
+      }
+    }, " Shivam Patel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 110
+      }
+    }), "Initially created for ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43,
+        columnNumber: 51
+      }
+    }, "ARTT489M/CMSC498N: Digital Media, Performance, and Interactivity"), " at the University of Maryland, College Park"))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (InfoPage);
+
+/***/ }),
+
+/***/ "./src/InstrumentSelection/InstrumentSelection.js":
+/*!********************************************************!*\
+  !*** ./src/InstrumentSelection/InstrumentSelection.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\InstrumentSelection\\InstrumentSelection.js";
+
+
+
+
+class InstrumentSelection extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
+      open: this.props.open,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 17
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "centered",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 21
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 25
+      }
+    }, "Welcome! This site is all about playing music with others and seeing how what you make together can unify into something beautiful."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 25
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 25
+      }
+    }, "Open the toolbar below"), " to get started playing + recording, and ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 29
+      }
+    }, "click on the info button"), " to learn more about what you can do here."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 25
+      }
+    }, "But first, please choose an instrument:"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 72
+      }
+    }), "(This will be what you'll be playing in this \"virtual band\" experience.) ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 98
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      onClick: () => this.props.onClick("acoustic_grand_piano"),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 25
+      }
+    }, "Piano"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      onClick: () => this.props.onClick("cello"),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 25
+      }
+    }, "Cello"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      onClick: () => this.props.onClick("acoustic_guitar_nylon"),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 25
+      }
+    }, "Guitar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      onClick: () => this.props.onClick("trumpet"),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43,
+        columnNumber: 25
+      }
+    }, "Trumpet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      onClick: () => this.props.onClick("xylophone"),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 48,
+        columnNumber: 25
+      }
+    }, "Xylophone"))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (InstrumentSelection);
+
+/***/ }),
+
+/***/ "./src/Piano/DimensionsProvider.js":
+/*!*****************************************!*\
+  !*** ./src/Piano/DimensionsProvider.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dimensions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dimensions */ "./node_modules/react-dimensions/index.js");
+/* harmony import */ var react_dimensions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dimensions__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Piano\\DimensionsProvider.js";
+
+
+
+class DimensionsProvider extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 7
+      }
+    }, this.props.children({
+      containerWidth: this.props.containerWidth,
+      containerHeight: this.props.containerHeight
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (react_dimensions__WEBPACK_IMPORTED_MODULE_1___default()()(DimensionsProvider));
+
+/***/ }),
+
+/***/ "./src/Piano/InteractiveDemoFireBase.js":
+/*!**********************************************!*\
+  !*** ./src/Piano/InteractiveDemoFireBase.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_piano__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-piano */ "./node_modules/react-piano/dist/react-piano.esm.js");
+/* harmony import */ var _DimensionsProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DimensionsProvider */ "./src/Piano/DimensionsProvider.js");
+/* harmony import */ var _SoundfontProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SoundfontProvider */ "./src/Piano/SoundfontProvider.js");
+/* harmony import */ var _PianoConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PianoConfig */ "./src/Piano/PianoConfig.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Piano\\InteractiveDemoFireBase.js";
+
+
+
+
+
+ // import firebase!
+
+const properToShortName = {
+  'acoustic_grand_piano': 'piano',
+  'cello': 'cello',
+  'acoustic_guitar_nylon': 'guitar',
+  'trumpet': 'trumpet',
+  'xylophone': 'xylophone'
+};
+
+class InteractiveDemoFireBase extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+
+    this.onMIDISuccess = midi_data => {
+      // this is all our MIDI data
+      this.setState({
+        midiData: midi_data
+      });
+      var allInputs = this.state.midiData.inputs.values(); // loop over all available inputs and listen for any MIDI input
+
+      for (var input = allInputs.next(); input && !input.done; input = allInputs.next()) {
+        // when a MIDI value is received call the onMIDIMessage function
+        input.value.onmidimessage = this.gotMIDImessage;
+      }
+    };
+
+    this._removeActiveNote = (noteNum, arr) => {
+      for (let i = 0; i < this.activeNotes.length; i++) {
+        if (this.activeNotes[i] === noteNum) {
+          this.activeNotes.splice(i);
+          return;
+        }
+      }
+    };
+
+    this.gotMIDImessage = messageData => {
+      let midiNumber = messageData.data[1];
+
+      if (messageData.data[0] === 144) {
+        // handle pressing key
+        this.onPlayNoteInput(midiNumber, {
+          undefined
+        }); // handle note number
+
+        if (!this.activeNotes.includes(midiNumber)) {
+          this.activeNotes.push(midiNumber);
+        }
+      } else {
+        // handle releasing key
+        this.onStopNoteInput(midiNumber, {
+          undefined
+        });
+
+        this._removeActiveNote(midiNumber);
+      }
+    };
+
+    this.onMIDIFailure = () => {
+      console.warn("Not recognising MIDI controller");
+    };
+
+    this.onPlayNoteInput = (midiNumber, {
+      prevActiveNotes
+    }) => {
+      // Only broadcast if not currently recording
+      if (!this.props.isRecording) {
+        this.props.userRef.child('midi').child(midiNumber).once('value', note => {
+          this.props.userRef.child('midi').child(midiNumber).set({
+            prev_value: note.val().value,
+            value: 1
+          });
+        });
+        this.dbLiveInstRef.child(midiNumber).set(1);
+      } //simon added
+
+
+      if (this.notes[midiNumber] === 0) {
+        var d = new Date();
+        this.notes[midiNumber] = d.getTime();
+      } //end: simon added
+
+    };
+
+    this.onStopNoteInput = (midiNumber, {
+      prevActiveNotes
+    }) => {
+      // Only broadcast if not currently recording
+      if (!this.props.isRecording) {
+        this.props.userRef.child('midi').child(midiNumber).once('value', note => {
+          this.props.userRef.child('midi').child(midiNumber).set({
+            prev_value: note.val().value,
+            value: 0
+          });
+        });
+        this.dbLiveInstRef.child(midiNumber).set(0);
+      } //Simon added
+
+
+      if (this.props.isRecording) {
+        var d = new Date();
+        var timePassed = this.notes[midiNumber] - this.props.startTime;
+        var note = midiNumber;
+        var duration = d.getTime() - this.notes[midiNumber];
+        var tempStr = "" + timePassed + "," + note + "," + duration + "\n";
+        this.props.tempStrFun(tempStr); //appending to other existing notes
+      }
+
+      this.notes[midiNumber] = 0; //reset start time for note
+      //end: Simon added
+    };
+
+    this.state = {
+      config: {
+        instrumentName: this.props.instrument,
+        noteRange: {
+          first: react_piano__WEBPACK_IMPORTED_MODULE_1__["MidiNumbers"].fromNote('c3'),
+          last: react_piano__WEBPACK_IMPORTED_MODULE_1__["MidiNumbers"].fromNote('f5')
+        },
+        keyboardShortcutOffset: 0
+      },
+      midiData: {}
+    };
+    this.dbRef = firebase__WEBPACK_IMPORTED_MODULE_5__["database"]().ref();
+    this.dbLiveInstRef = null;
+    this.activeNotes = [];
+    this.startTime = 0; // this.notes = [];
+
+    this.notes = new Array(127).fill(0);
+    this.tempStr = "";
+    this.idNum = this.props.userID;
+  }
+
+  componentDidUpdate() {
+    // update instrument when user picked it
+    let instName = this.props.instrument ? this.props.instrument : 'acoustic_grand_piano';
+    this.dbLiveInstRef = this.dbRef.child('live').child(properToShortName[instName]);
+  }
+
+  componentDidMount() {
+    // Try connecting to MIDI controller
+    if (navigator.requestMIDIAccess) {
+      navigator.requestMIDIAccess({
+        sysex: false
+      }).then(this.onMIDISuccess, this.onMIDIFailure);
+    } else {
+      console.warn("No MIDI support in your browser");
+    }
+  } // on success
+
+
+  render() {
+    const keyboardShortcuts = react_piano__WEBPACK_IMPORTED_MODULE_1__["KeyboardShortcuts"].create({
+      firstNote: this.state.config.noteRange.first + this.state.config.keyboardShortcutOffset,
+      lastNote: this.state.config.noteRange.last + this.state.config.keyboardShortcutOffset,
+      keyboardConfig: react_piano__WEBPACK_IMPORTED_MODULE_1__["KeyboardShortcuts"].HOME_ROW
+    });
+    return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SoundfontProvider__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      audioContext: this.props.audioContext,
+      instrumentName: this.props.instrument,
+      hostname: this.props.soundfontHostname,
+      render: ({
+        isLoading,
+        playNote,
+        stopNote,
+        stopAllNotes
+      }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 161,
+          columnNumber: 15
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-2",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 162,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DimensionsProvider__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 163,
+          columnNumber: 19
+        }
+      }, ({
+        containerWidth
+      }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_piano__WEBPACK_IMPORTED_MODULE_1__["Piano"], {
+        noteRange: this.state.config.noteRange,
+        keyboardShortcuts: keyboardShortcuts,
+        playNote: playNote,
+        stopNote: stopNote,
+        onPlayNoteInput: this.onPlayNoteInput,
+        onStopNoteInput: this.onStopNoteInput,
+        activeNotes: this.activeNotes,
+        disabled: isLoading,
+        width: containerWidth,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 165,
+          columnNumber: 23
+        }
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-2",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 179,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-8 offset-md-2",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 180,
+          columnNumber: 19
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "words-backdrop",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 181,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 181,
+          columnNumber: 54
+        }
+      }, "Selected Instrument: ", this.props.instrument)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PianoConfig__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        config: this.state.config,
+        setConfig: config => {
+          this.setState({
+            config: Object.assign({}, this.state.config, config)
+          });
+          stopAllNotes();
+        },
+        instrumentName: [this.state.config.instrumentName],
+        keyboardShortcuts: keyboardShortcuts,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 183,
+          columnNumber: 21
+        }
+      })))),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 156,
+        columnNumber: 8
+      }
+    })];
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (InteractiveDemoFireBase);
+
+/***/ }),
+
+/***/ "./src/Piano/LiveLoop.js":
+/*!*******************************!*\
+  !*** ./src/Piano/LiveLoop.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! soundfont-player */ "./node_modules/soundfont-player/lib/index.js");
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(soundfont_player__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_2__);
+
+
+ // importing firebase!!!
+
+class LiveLoop extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(_props) {
+    super(_props);
+
+    this._convertStringRecToArray = r => {
+      let melody = [];
+      let rec = r.split("\n").map(line => line.split(","));
+
+      for (let note of rec) {
+        melody.push({
+          time: parseFloat(note[0]) / 1000,
+          note: parseInt(note[1]),
+          duration: parseFloat(note[2]) / 1000
+        });
+      }
+
+      return melody;
+    };
+
+    this.playRecording = (rec, instrument) => {
+      var props = this.props;
+      var _convertStringRecToArray = this._convertStringRecToArray; // The first step is always create an instrument:
+
+      soundfont_player__WEBPACK_IMPORTED_MODULE_1___default.a.instrument(props.audioContext, instrument).then(function (instrument) {
+        // Or schedule events at a given time
+        instrument.schedule(props.audioContext.currentTime, _convertStringRecToArray(rec));
+      });
+    };
+
+    this.dbRef = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]().ref();
+    this.playbackRef = this.dbRef.child('live').child('playback');
+    this.recsRef = this.dbRef.child('recs');
+  }
+
+  componentDidMount() {
+    // Play all recordings in DB when playback is triggered
+    // AND given the mute button is not pressed
+    var isMutePressed = this.props.isMutePressed;
+    this.playbackRef.on('value', snap => {
+      if (snap.val() === 'true' && !isMutePressed) {
+        this.recsRef.once('value', snap => {
+          let recsDict = snap.val();
+
+          for (let key in recsDict) {
+            let inst_and_rec = recsDict[key];
+            let inst = inst_and_rec.split("\n")[0];
+            let rec = inst_and_rec.substr(inst.length);
+            this.playRecording(rec, inst);
+          }
+        });
+      }
+    });
+  }
+
+  render() {
+    return null;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (LiveLoop);
+
+/***/ }),
+
+/***/ "./src/Piano/LivePlayBack.js":
+/*!***********************************!*\
+  !*** ./src/Piano/LivePlayBack.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! soundfont-player */ "./node_modules/soundfont-player/lib/index.js");
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(soundfont_player__WEBPACK_IMPORTED_MODULE_2__);
+// See https://github.com/danigb/soundfont-player
+// for more documentation on prop options.
+
+
+
+
+class LivePlayBack extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+
+    this.loadInstrument = instrumentName => {
+      // Re-trigger loading state
+      this.setState({
+        instrument: null
+      });
+      soundfont_player__WEBPACK_IMPORTED_MODULE_2___default.a.instrument(this.props.audioContext, instrumentName, {
+        format: this.props.format,
+        soundfont: this.props.soundfont,
+        nameToUrl: (name, soundfont, format) => {
+          return `${this.props.hostname}/${soundfont}/${name}-${format}.js`;
+        }
+      }).then(instrument => {
+        this.setState({
+          instrument
+        });
+      });
+    };
+
+    this.playNote = midiNumber => {
+      if (this.state.instrument === null) {
+        return;
+      }
+
+      var isMutePressed = this.props.isMutePressed;
+
+      if (!isMutePressed) {
+        // if mute button is not pressed
+        this.resumeAudio().then(() => {
+          const audioNode = this.state.instrument.play(midiNumber);
+          this.setState({
+            activeAudioNodes: Object.assign({}, this.state.activeAudioNodes, {
+              [midiNumber]: audioNode
+            })
+          });
+        });
+      }
+    };
+
+    this.stopNote = midiNumber => {
+      this.resumeAudio().then(() => {
+        if (!this.state.activeAudioNodes[midiNumber]) {
+          return;
+        }
+
+        const audioNode = this.state.activeAudioNodes[midiNumber];
+        audioNode.stop();
+        this.setState({
+          activeAudioNodes: Object.assign({}, this.state.activeAudioNodes, {
+            [midiNumber]: null
+          })
+        });
+      });
+    };
+
+    this.resumeAudio = () => {
+      if (this.props.audioContext.state === 'suspended') {
+        return this.props.audioContext.resume();
+      } else {
+        return Promise.resolve();
+      }
+    };
+
+    this.stopAllNotes = () => {
+      this.props.audioContext.resume().then(() => {
+        const activeAudioNodes = Object.values(this.state.activeAudioNodes);
+        activeAudioNodes.forEach(node => {
+          if (node) {
+            node.stop();
+          }
+        });
+        this.setState({
+          activeAudioNodes: {}
+        });
+      });
+    };
+
+    this.state = {
+      activeAudioNodes: {},
+      instrument: null
+    };
+  }
+
+  componentDidMount() {
+    this.loadInstrument(this.props.instrumentName); // if a user was potentially added 
+
+    this.props.allUsersRef.on('child_added', (snap, prevKey) => {
+      // for each user currently online (or recently added)
+      //    attach an event handler to their midi array
+      //      if instrument is a match to current LiveLoop object's instrument
+      //      AND if not looking at self
+      let user_id = snap.key;
+      let user = snap.val();
+
+      if (user.instrument === this.props.instrumentName && user_id !== this.props.userHash) {
+        // attach an event handler to each note in their midi array 
+        for (let i = 0; i < 128; i++) {
+          this.props.allUsersRef.child(user_id).child('midi').child(i).on('value', noteSnap => {
+            if (noteSnap.val() == null) {
+              return;
+            }
+
+            if (noteSnap.val().value > 0 && noteSnap.val().prev_value === 0) {
+              this.playNote(i);
+            } else {
+              this.stopNote(i);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.instrumentName !== this.props.instrumentName) {
+      this.loadInstrument(this.props.instrumentName);
+    }
+
+    if (prevState.instrument !== this.state.instrument) {
+      if (!this.props.onLoad) {
+        return;
+      }
+
+      this.props.onLoad({
+        playNote: this.playNote,
+        stopNote: this.stopNote,
+        stopAllNotes: this.stopAllNotes
+      });
+    }
+  }
+
+  render() {
+    return this.props.render ? this.props.render({
+      isLoading: !this.state.instrument,
+      playNote: this.playNote,
+      stopNote: this.stopNote,
+      stopAllNotes: this.stopAllNotes
+    }) : null;
+  }
+
+}
+
+LivePlayBack.propTypes = {
+  instrumentName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  hostname: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  format: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOf(['mp3', 'ogg']),
+  soundfont: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOf(['MusyngKite', 'FluidR3_GM']),
+  audioContext: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.instanceOf(window.AudioContext),
+  onLoad: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  render: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+};
+LivePlayBack.defaultProps = {
+  format: 'mp3',
+  soundfont: 'MusyngKite',
+  instrumentName: 'acoustic_grand_piano'
+};
+/* harmony default export */ __webpack_exports__["default"] = (LivePlayBack);
+
+/***/ }),
+
+/***/ "./src/Piano/PianoApp.css":
+/*!********************************!*\
+  !*** ./src/Piano/PianoApp.css ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./PianoApp.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/Piano/PianoApp.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./PianoApp.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/Piano/PianoApp.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./PianoApp.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/Piano/PianoApp.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/Piano/PianoApp.js":
+/*!*******************************!*\
+  !*** ./src/Piano/PianoApp.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_piano_dist_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-piano/dist/styles.css */ "./node_modules/react-piano/dist/styles.css");
+/* harmony import */ var react_piano_dist_styles_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_piano_dist_styles_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _InteractiveDemoFireBase_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InteractiveDemoFireBase.js */ "./src/Piano/InteractiveDemoFireBase.js");
+/* harmony import */ var _PianoApp_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PianoApp.css */ "./src/Piano/PianoApp.css");
+/* harmony import */ var _PianoApp_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_PianoApp_css__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Piano\\PianoApp.js";
+
+
+
+
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const soundfontHostname = 'https://d1pzp51pvbm36p.cloudfront.net';
+
+class PianoApp extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "container",
+      style: {
+        color: "lightgray",
+        fontWeight: "bold"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "row mt-0",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col-md-8 offset-md-2",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InteractiveDemoFireBase_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      audioContext: audioContext,
+      soundfontHostname: soundfontHostname,
+      instrument: this.props.instrument,
+      showPiano: this.props.showPiano,
+      userID: this.props.userID,
+      isRecording: this.props.isRecording,
+      startTime: this.props.startTime,
+      tempStrFun: this.props.tempStrFun,
+      userRef: this.props.userRef,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 15
+      }
+    }))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PianoApp);
+
+/***/ }),
+
+/***/ "./src/Piano/PianoConfig.js":
+/*!**********************************!*\
+  !*** ./src/Piano/PianoConfig.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_piano__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-piano */ "./node_modules/react-piano/dist/react-piano.esm.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Piano\\PianoConfig.js";
+
+
+ // Controls range of notes
+
+class AutoblurSelect extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+
+    this.onChange = event => {
+      this.props.onChange(event);
+      this.selectRef.current.blur();
+    };
+
+    this.selectRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+  }
+
+  render() {
+    const {
+      children,
+      onChange,
+      ...otherProps
+    } = this.props;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", Object.assign({}, otherProps, {
+      onChange: this.onChange,
+      ref: this.selectRef,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 7
+      }
+    }), children);
+  }
+
+}
+
+function Label(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    className: "mb-1 text-muted",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 10
+    }
+  }, props.children);
+}
+
+class PianoConfig extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(...args) {
+    super(...args);
+
+    this.handleKeyDown = event => {
+      const numNotes = this.props.config.noteRange.last - this.props.config.noteRange.first + 1;
+      const minOffset = 0;
+      const maxOffset = numNotes - this.props.keyboardShortcuts.length;
+
+      if (event.key === 'ArrowLeft') {
+        const reducedOffset = this.props.config.keyboardShortcutOffset - 1;
+
+        if (reducedOffset >= minOffset) {
+          this.props.setConfig({
+            keyboardShortcutOffset: reducedOffset
+          });
+        }
+      } else if (event.key === 'ArrowRight') {
+        const increasedOffset = this.props.config.keyboardShortcutOffset + 1;
+
+        if (increasedOffset <= maxOffset) {
+          this.props.setConfig({
+            keyboardShortcutOffset: increasedOffset
+          });
+        }
+      }
+    };
+
+    this.onChangeFirstNote = event => {
+      this.props.setConfig({
+        noteRange: {
+          first: parseInt(event.target.value, 10),
+          last: this.props.config.noteRange.last
+        }
+      });
+    };
+
+    this.onChangeLastNote = event => {
+      this.props.setConfig({
+        noteRange: {
+          first: this.props.config.noteRange.first,
+          last: parseInt(event.target.value, 10)
+        }
+      });
+    };
+
+    this.onChangeInstrument = event => {
+      this.props.setConfig({
+        instrumentName: event.target.value
+      });
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  render() {
+    const midiNumbersToNotes = react_piano__WEBPACK_IMPORTED_MODULE_2__["MidiNumbers"].NATURAL_MIDI_NUMBERS.reduce((obj, midiNumber) => {
+      obj[midiNumber] = react_piano__WEBPACK_IMPORTED_MODULE_2__["MidiNumbers"].getAttributes(midiNumber).note;
+      return obj;
+    }, {});
+    const {
+      noteRange
+    } = this.props.config;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-row",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col-6",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 95,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Label, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 96,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "label-words-backdrop",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 96,
+        columnNumber: 18
+      }
+    }, "First note")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AutoblurSelect, {
+      className: "form-control",
+      onChange: this.onChangeFirstNote,
+      value: noteRange.first,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 97,
+        columnNumber: 11
+      }
+    }, react_piano__WEBPACK_IMPORTED_MODULE_2__["MidiNumbers"].NATURAL_MIDI_NUMBERS.map(midiNumber => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: midiNumber,
+      disabled: midiNumber >= noteRange.last,
+      key: midiNumber,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 103,
+        columnNumber: 15
+      }
+    }, midiNumbersToNotes[midiNumber])))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col-6",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 109,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Label, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 110,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "label-words-backdrop",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 110,
+        columnNumber: 18
+      }
+    }, "Last note")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AutoblurSelect, {
+      className: "form-control",
+      onChange: this.onChangeLastNote,
+      value: noteRange.last,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111,
+        columnNumber: 11
+      }
+    }, react_piano__WEBPACK_IMPORTED_MODULE_2__["MidiNumbers"].NATURAL_MIDI_NUMBERS.map(midiNumber => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: midiNumber,
+      disabled: midiNumber <= noteRange.first,
+      key: midiNumber,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117,
+        columnNumber: 15
+      }
+    }, midiNumbersToNotes[midiNumber])))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col mt-2",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 123,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "words-backdrop",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 124,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 125,
+        columnNumber: 13
+      }
+    }, "Use ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 126,
+        columnNumber: 19
+      }
+    }, "left arrow"), " and ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 126,
+        columnNumber: 51
+      }
+    }, "right arrow"), " to move the keyboard shortcuts around."))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PianoConfig);
+
+/***/ }),
+
+/***/ "./src/Piano/SoundfontProvider.js":
+/*!****************************************!*\
+  !*** ./src/Piano/SoundfontProvider.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! soundfont-player */ "./node_modules/soundfont-player/lib/index.js");
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(soundfont_player__WEBPACK_IMPORTED_MODULE_2__);
+// See https://github.com/danigb/soundfont-player
+// for more documentation on prop options.
+
+
+
+
+class SoundfontProvider extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+
+    this.onMIDISuccess = midi_data => {
+      // this is all our MIDI data
+      this.setState({
+        midiData: midi_data
+      });
+      var allInputs = this.state.midiData.inputs.values(); // loop over all available inputs and listen for any MIDI input
+
+      for (var input = allInputs.next(); input && !input.done; input = allInputs.next()) {
+        // when a MIDI value is received call the onMIDIMessage function
+        input.value.onmidimessage = this.gotMIDImessage;
+      }
+    };
+
+    this.gotMIDImessage = messageData => {
+      let midiNumber = messageData.data[1];
+
+      if (messageData.data[0] === 144) {
+        // handle pressing key
+        this.playNote(midiNumber);
+      } else {
+        // handle releasing key
+        this.stopNote(midiNumber);
+      }
+    };
+
+    this.onMIDIFailure = () => {
+      console.warn("Not recognising MIDI controller");
+    };
+
+    this.loadInstrument = instrumentName => {
+      // Re-trigger loading state
+      this.setState({
+        instrument: null
+      });
+      soundfont_player__WEBPACK_IMPORTED_MODULE_2___default.a.instrument(this.props.audioContext, instrumentName, {
+        format: this.props.format,
+        soundfont: this.props.soundfont,
+        nameToUrl: (name, soundfont, format) => {
+          return `${this.props.hostname}/${soundfont}/${name}-${format}.js`;
+        }
+      }).then(instrument => {
+        this.setState({
+          instrument
+        });
+      });
+    };
+
+    this.playNote = midiNumber => {
+      this.resumeAudio().then(() => {
+        const audioNode = this.state.instrument.play(midiNumber);
+        this.setState({
+          activeAudioNodes: Object.assign({}, this.state.activeAudioNodes, {
+            [midiNumber]: audioNode
+          })
+        });
+      });
+    };
+
+    this.stopNote = midiNumber => {
+      this.resumeAudio().then(() => {
+        if (!this.state.activeAudioNodes[midiNumber]) {
+          return;
+        }
+
+        const audioNode = this.state.activeAudioNodes[midiNumber];
+        audioNode.stop();
+        this.setState({
+          activeAudioNodes: Object.assign({}, this.state.activeAudioNodes, {
+            [midiNumber]: null
+          })
+        });
+      });
+    };
+
+    this.resumeAudio = () => {
+      if (this.props.audioContext.state === 'suspended') {
+        return this.props.audioContext.resume();
+      } else {
+        return Promise.resolve();
+      }
+    };
+
+    this.stopAllNotes = () => {
+      this.props.audioContext.resume().then(() => {
+        const activeAudioNodes = Object.values(this.state.activeAudioNodes);
+        activeAudioNodes.forEach(node => {
+          if (node) {
+            node.stop();
+          }
+        });
+        this.setState({
+          activeAudioNodes: {}
+        });
+      });
+    };
+
+    this.state = {
+      activeAudioNodes: {},
+      instrument: null,
+      midiData: {}
+    };
+  }
+
+  componentDidMount() {
+    this.loadInstrument(this.props.instrumentName); // Try connecting to MIDI controller
+
+    if (navigator.requestMIDIAccess) {
+      navigator.requestMIDIAccess({
+        sysex: false
+      }).then(this.onMIDISuccess, this.onMIDIFailure);
+    } else {
+      console.warn("No MIDI support in your browser");
+    }
+  } // on success of MIDI device
+
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.instrumentName !== this.props.instrumentName) {
+      this.loadInstrument(this.props.instrumentName);
+    }
+
+    if (prevState.instrument !== this.state.instrument) {
+      if (!this.props.onLoad) {
+        return;
+      }
+
+      this.props.onLoad({
+        playNote: this.playNote,
+        stopNote: this.stopNote,
+        stopAllNotes: this.stopAllNotes
+      });
+    }
+  }
+
+  render() {
+    return this.props.render ? this.props.render({
+      isLoading: !this.state.instrument,
+      playNote: this.playNote,
+      stopNote: this.stopNote,
+      stopAllNotes: this.stopAllNotes
+    }) : null;
+  }
+
+}
+
+SoundfontProvider.propTypes = {
+  instrumentName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  hostname: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  format: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOf(['mp3', 'ogg']),
+  soundfont: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOf(['MusyngKite', 'FluidR3_GM']),
+  audioContext: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.instanceOf(window.AudioContext),
+  onLoad: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  render: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+};
+SoundfontProvider.defaultProps = {
+  format: 'mp3',
+  soundfont: 'MusyngKite',
+  instrumentName: 'acoustic_grand_piano'
+};
+/* harmony default export */ __webpack_exports__["default"] = (SoundfontProvider);
+
+/***/ }),
+
+/***/ "./src/PianoDrawer/PianoDrawer.js":
+/*!****************************************!*\
+  !*** ./src/PianoDrawer/PianoDrawer.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PianoDrawer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Piano_PianoApp_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Piano/PianoApp.js */ "./src/Piano/PianoApp.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\PianoDrawer\\PianoDrawer.js";
+
+
+
+
+class PianoDrawer extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Drawer"], {
+      className: "drawer",
+      variant: "persistent",
+      anchor: "top",
+      open: this.props.showPiano,
+      style: {
+        position: "relative",
+        zIndex: "2"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Piano_PianoApp_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      instrument: this.props.instrument,
+      showPiano: this.props.showPiano,
+      userID: this.props.userID,
+      isRecording: this.props.isRecording,
+      startTime: this.props.startTime,
+      tempStrFun: this.props.tempStrFun,
+      userRef: this.props.userRef,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 17
+      }
+    }));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ProgressBar/ProgressBar.css":
+/*!*****************************************!*\
+  !*** ./src/ProgressBar/ProgressBar.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./ProgressBar.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ProgressBar/ProgressBar.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./ProgressBar.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ProgressBar/ProgressBar.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./ProgressBar.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/ProgressBar/ProgressBar.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/ProgressBar/ProgressBar.js":
+/*!****************************************!*\
+  !*** ./src/ProgressBar/ProgressBar.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ProgressBar; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ProgressBar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProgressBar.css */ "./src/ProgressBar/ProgressBar.css");
+/* harmony import */ var _ProgressBar_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ProgressBar_css__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ProgressBar\\ProgressBar.js";
+
+
+class ProgressBar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
+    this.state = {
+      progress: 0,
+      speed: 1,
+      color: "#ff0050"
+    };
+    this.frame = this.frame.bind(this);
+    this.green = this.green.bind(this);
+    this.red = this.red.bind(this);
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.frame(), 40);
+  }
+
+  frame() {
+    if (this.state.progress < 100) {
+      this.setState((prevState, props) => ({
+        progress: prevState.progress + this.state.speed,
+        color: "#" + this.red() + this.green() + "50"
+      }));
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  green() {
+    let progress = this.state.progress;
+    progress *= 2.55;
+    progress = Math.round(progress);
+    progress = progress.toString(16);
+    return progress;
+  }
+
+  red() {
+    let progress = this.state.progress;
+    progress *= 2.55;
+    progress = Math.round(progress);
+    progress = 255 - progress;
+    progress = progress.toString(16);
+    return progress;
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "myBar",
+      style: {
+        width: this.state.progress + "%",
+        backgroundColor: this.state.color
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 53,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "label",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 57,
+        columnNumber: 17
+      }
+    }, this.state.progress, "%"));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/ProgressBar/ProgressBarContainer.js":
+/*!*************************************************!*\
+  !*** ./src/ProgressBar/ProgressBarContainer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ProgressBarContainer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ProgressBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProgressBar */ "./src/ProgressBar/ProgressBar.js");
+/* harmony import */ var _ProgressBar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgressBar.css */ "./src/ProgressBar/ProgressBar.css");
+/* harmony import */ var _ProgressBar_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ProgressBar_css__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\ProgressBar\\ProgressBarContainer.js";
+
+
+
+class ProgressBarContainer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "myProgress",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 13
+      }
+    }, this.props.useProgressBar ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProgressBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 47
+      }
+    }) : null);
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/Visualization/DimensionsProvider.js":
+/*!*************************************************!*\
+  !*** ./src/Visualization/DimensionsProvider.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dimensions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dimensions */ "./node_modules/react-dimensions/index.js");
+/* harmony import */ var react_dimensions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dimensions__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Visualization\\DimensionsProvider.js";
+
+
+
+class DimensionsProvider extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 7
+      }
+    }, this.props.children({
+      containerWidth: this.props.containerWidth,
+      containerHeight: this.props.containerHeight
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (react_dimensions__WEBPACK_IMPORTED_MODULE_1___default()()(DimensionsProvider));
+
+/***/ }),
+
+/***/ "./src/Visualization/Visualization.js":
+/*!********************************************!*\
+  !*** ./src/Visualization/Visualization.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Visualization; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _material_ui_icons_HelpOutline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/icons/HelpOutline */ "./node_modules/@material-ui/icons/HelpOutline.js");
+/* harmony import */ var _material_ui_icons_HelpOutline__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_HelpOutline__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_icons_KeyboardArrowUp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/KeyboardArrowUp */ "./node_modules/@material-ui/icons/KeyboardArrowUp.js");
+/* harmony import */ var _material_ui_icons_KeyboardArrowUp__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_KeyboardArrowUp__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_icons_QuestionAnswer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/QuestionAnswer */ "./node_modules/@material-ui/icons/QuestionAnswer.js");
+/* harmony import */ var _material_ui_icons_QuestionAnswer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_QuestionAnswer__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _sketch_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sketch.js */ "./src/Visualization/sketch.js");
+/* harmony import */ var _DimensionsProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DimensionsProvider */ "./src/Visualization/DimensionsProvider.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_8__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Visualization\\Visualization.js";
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["makeStyles"])(theme => ({
+  root: {
+    position: "relative",
+    justifyContent: "center",
+    height: "100vh",
+    color: "white"
+  },
+  openDrop: {
+    position: "absolute",
+    left: "0",
+    bottom: "0"
+  },
+  openButton: {
+    background: "white"
+  }
+}));
+function Visualization(props) {
+  const classes = useStyles();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "icons",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
+    title: "Info",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
+    className: classes.openButton,
+    type: "button",
+    onClick: props.openInfo,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_HelpOutline__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 25
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 17
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
+    title: "Chat",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
+    className: classes.openButton,
+    type: "button",
+    onClick: props.handleChatChange,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_QuestionAnswer__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 25
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 17
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 23
+    }
+  }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "words-backdrop",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 30
+    }
+  }, "\xA0Users:\xA0", props.userCount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DimensionsProvider__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 13
+    }
+  }, ({
+    containerWidth,
+    containerHeight
+  }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sketch_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    width: containerWidth,
+    height: containerHeight,
+    userCount: props.userCount,
+    audioContext: props.audioContext,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 21
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.openDrop,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
+    title: "Open Toolbar",
+    arrow: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
+    className: classes.openButton,
+    onClick: props.handleBarChange,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardArrowUp__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 25
+    }
+  })))));
+}
+
+/***/ }),
+
+/***/ "./src/Visualization/sketch.js":
+/*!*************************************!*\
+  !*** ./src/Visualization/sketch.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sketch; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var p5__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! p5 */ "./node_modules/p5/lib/p5.js");
+/* harmony import */ var p5__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(p5__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var p5_lib_addons_p5_sound_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! p5/lib/addons/p5.sound.js */ "./node_modules/p5/lib/addons/p5.sound.js");
+/* harmony import */ var p5_lib_addons_p5_sound_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(p5_lib_addons_p5_sound_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! soundfont-player */ "./node_modules/soundfont-player/lib/index.js");
+/* harmony import */ var soundfont_player__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(soundfont_player__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\Visualization\\sketch.js";
+
+
+
+
+ // import firebase!
+
+class Sketch extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(_props) {
+    super(_props);
+
+    this.Sketch = p => {
+      var startValue = 0;
+      var stars = [];
+      var triangleNum = 0; // parseInt(this.props.userCount);  //var triangleNum = this.props.userCount;
+
+      var noiseAngleTimes = 5;
+      var transparency = 0;
+      var noiseScale = 0.006;
+      var rotVertexes = [];
+
+      let noiseProg = x => x; //var color = ["#C05021", "#FFBA08", "#20A440", "#2F7ED3", "#D79FE1"];
+      // var colrgb = [[192,80,33],[225,186,8],[32,164,64],[47,126,211],[215,159,225]];
+      //var serial;
+
+
+      var particles = [];
+      var a = 0;
+      var s = 0;
+      var count = 0;
+      var redrw = 0;
+      var pressed = false;
+      var elColor = 0; //colors
+      //var keyColors = ['#ffffff','#002366','#ffffff','#e6c200','#ffffff','#e6c200','#ffffff','#002366','#ffffff','#e6c200','#ffffff','#002366','#e6c200']
+
+      var keyColors = ['#e6c200', '#D2691E', '#50c878', '#002366', '#cd5832', '#ffea00', '#cc7000', '#66ff00', '#ffa500', '##ff8c00', '#51412D', '#fa5b3d', '#e6c200']; // c,c#,d,d#,  
+
+      let color1;
+      var color2; //(204, 51, 0);
+
+      var times = 0;
+      let c;
+      let changing;
+      var indexer;
+      let idx = 0;
+      let tt;
+
+      p.setup = () => {
+        let canvas = p.createCanvas(this.props.width, this.props.height);
+        tt = 0;
+        canvas.position(0, 0);
+        canvas.style('z-index', '-1'); //var star = new Star();
+        //p.colorMode(p.HSB,100);
+
+        color2 = p.color('#424242');
+        color1 = p.color('#c2c2cf');
+        elColor = 0;
+        p.noStroke();
+        this.livePianoRef.on('value', snap => {
+          this.pianoMidiNotes = snap.val();
+          noiseScale = this.pianoMidiNotes.reduce((total, num) => total + num) / 5000 + .0015;
+          transparency = this.pianoMidiNotes.reduce((total, num) => total + num) * 10;
+
+          if (noiseScale === 0) {
+            noiseScale = .0015;
+          }
+
+          if (transparency === 0) {
+            transparency = 0;
+          }
+        });
+        this.liveCelloRef.on('value', snap => {
+          this.celloMidiNotes = snap.val();
+          noiseScale = this.celloMidiNotes.reduce((total, num) => total + num) / 5000 + .0015;
+          transparency = this.celloMidiNotes.reduce((total, num) => total + num) * 12;
+
+          if (noiseScale === 0) {
+            noiseScale = .0015;
+          }
+
+          if (transparency === 0) {
+            transparency = 0;
+          }
+        });
+        this.liveTrumpetRef.on('value', snap => {
+          this.trumpetMidiNotes = snap.val();
+          noiseScale = this.trumpetMidiNotes.reduce((total, num) => total + num) / 5000 + .0015;
+          transparency = this.trumpetMidiNotes.reduce((total, num) => total + num) * 12;
+
+          if (noiseScale === 0) {
+            noiseScale = .0015;
+          }
+
+          if (transparency === 0) {
+            transparency = 0;
+          }
+        });
+        this.liveGuitarRef.on('value', snap => {
+          this.guitarMidiNotes = snap.val();
+          noiseScale = this.guitarMidiNotes.reduce((total, num) => total + num) / 5000 + .0015;
+          transparency = this.guitarMidiNotes.reduce((total, num) => total + num) * 12;
+
+          if (noiseScale === 0) {
+            noiseScale = .0015;
+          }
+
+          if (transparency === 0) {
+            transparency = 0;
+          }
+        });
+        this.liveXylophoneRef.on('value', snap => {
+          this.xylophoneMidiNotes = snap.val();
+          noiseScale = this.xylophoneMidiNotes.reduce((total, num) => total + num) / 5000 + .0015;
+          transparency = this.xylophoneMidiNotes.reduce((total, num) => total + num) * 12;
+
+          if (noiseScale === 0) {
+            noiseScale = .0015;
+          }
+
+          if (transparency === 0) {
+            transparency = 0;
+          }
+        });
+
+        for (let i = 0; i < 400; i++) {
+          stars[i] = new Star();
+        }
+
+        for (let i = 0; i < 10; i++) {
+          particles[i] = new Clickable();
+        } //p.colorMode(p.RGB, 255, 255, 255, 255)
+
+
+        p.strokeWeight(2);
+        p.strokeJoin(p.ROUND);
+        indexer = 0;
+        idx = 0;
+        rotVertexes = [new RotationVertex(1), new RotationVertex(1), new RotationVertex(-1)];
+        elColor = 0;
+        triangleNum = this.props.userCount;
+      };
+
+      p.draw = () => {
+        //triangleNum = this.props.userCount;
+        triangleNum = this.props.userCount;
+
+        if (indexer == 2) {
+          indexer = 0;
+          elColor = p.color(255);
+        } else {
+          indexer++;
+          elColor = p.color(keyColors[parseInt(Math.random(13) * 13)]);
+        }
+
+        setGradient(0, 0, p.width / 2, p.height, color2, color1, 'X');
+        setGradient(p.width / 2, 0, p.width / 2, p.height, color1, color2, 'X'); // for (var iter = 0; iter<=p.width; iter+=5){
+        //   p.fill((startValue+iter/30)%100,50,100);
+        //   p.rect(iter,0,5,p.height);
+        // }
+        // startValue+=0.1;
+        // startValue%=100;
+
+        for (let i = 0; i < stars.length; i++) {
+          stars[i].update();
+          stars[i].show();
+        }
+
+        for (let i = 0; i < transparency * 2 + 50; i++) {
+          stars[i].update();
+          stars[i].show();
+        }
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].drawNow();
+        } //p.push()
+
+
+        p.translate(p.width / 2, p.height / 2);
+
+        for (var i = 0; i < triangleNum; i++) {
+          drawTriangle(rotVertexes[0].getVector((i / triangleNum + p.frameCount * p.TWO_PI / 360 / 2) % 1), rotVertexes[1].getVector((i / triangleNum + p.frameCount * p.TWO_PI / 360 / 2) % 1), rotVertexes[2].getVector((i / triangleNum + p.frameCount * p.TWO_PI / 360 / 2) % 1), keyColors[idx % triangleNum]);
+          idx++;
+        } //p.pop()
+
+
+        for (let i = 0; i < rotVertexes.length; i++) {
+          rotVertexes[i].update(p.frameCount);
+        }
+
+        if (p.mouseIsPressed === true) {
+          if (inRange()) {
+            a = a + 0.04;
+            s = p.cos(a) * 2;
+            p.push();
+            p.translate(redrw.x - 2, redrw.y + 2);
+            p.fill(50);
+            p.circle(0, -3, 55);
+            p.fill(255); //var fc = p.frameCount
+
+            p.rotate(-1.6 + p.frameCount * .1); //p.frameCount*
+
+            p.triangle(2, 20, -16, -16, 20, -16); // var fc = p.frameCount
+            // while (p.frameCount < (fc + 3)){
+            //   p.rotate(p.frameCount); //p.frameCount*
+            // }
+            // p.translate(redrw.x+30, redrw.y-30);
+            // //applyMatrix(1 / step, 0, 0, 1 / step, 0, 0);
+            // p.scale(7);
+            // p.fill(51);
+            // p.triangle(0, 20, -20, -20, 20, -20);
+            //rect(30, 20, 50, 50);
+
+            if (p.mouseIsPressed === false) {
+              if (p.mouseIsPressed === true) {
+                p.pop();
+                pressed = false;
+                redrw = 0;
+                count = 0;
+              }
+            }
+          }
+        }
+      }; // If mouse was clicked
+
+
+      p.mouseClicked = () => {
+        if (inRange()) {
+          // Play Random recordin
+          this.recsRef.once('value', snap => {
+            let recsDict = snap.val();
+            let num_recs = Object.keys(recsDict).length;
+            let rand_num = Math.floor(Math.random() * num_recs);
+            let inst_and_rec = recsDict[Object.keys(recsDict)[rand_num]];
+            let inst = inst_and_rec.split("\n")[0];
+            let rec = inst_and_rec.substr(inst.length);
+            this.playRecording(rec, inst);
+          });
+        }
+      };
+
+      function inRange() {
+        for (let i = 0; i < 10; i++) {
+          if (p.mouseX >= particles[i].x - 20 && p.mouseX <= particles[i].x + 20 && p.mouseY >= particles[i].y - 20 && p.mouseY <= particles[i].y + 20) {
+            redrw = particles[i];
+            return true;
+          }
+        }
+      }
+
+      function drawTriangle(vec1, vec2, vec3, n, times) {
+        p.stroke(n);
+        let center = p5__WEBPACK_IMPORTED_MODULE_1___default.a.Vector.add(vec1, vec2);
+        center = p5__WEBPACK_IMPORTED_MODULE_1___default.a.Vector.add(center, vec3);
+        center.div(3);
+        let miniVec1 = p5__WEBPACK_IMPORTED_MODULE_1___default.a.Vector.add(vec1, center),
+            miniVec2 = p5__WEBPACK_IMPORTED_MODULE_1___default.a.Vector.add(vec2, center),
+            miniVec3 = p5__WEBPACK_IMPORTED_MODULE_1___default.a.Vector.add(vec3, center);
+        miniVec1.div(2);
+        miniVec2.div(2);
+        miniVec3.div(2);
+        let vecs = [vec1, vec2, vec3];
+        let miniVecs = [miniVec1, miniVec2, miniVec3];
+
+        for (let i = 0; i < 3; i++) {
+          p.beginShape();
+          p.vertex(miniVecs[i].x, miniVecs[i].y);
+          p.vertex(vecs[i].x, vecs[i].y);
+          p.vertex(vecs[(i + 1) % 3].x, vecs[(i + 1) % 3].y);
+          p.stroke(n);
+          p.strokeWeight(p.random(noiseProg / 20));
+          p.fill(255, 20); // p.stroke(colrgb[(n%5)][0],colrgb[(n%5)][1],colrgb[(n%5)][2])
+          // p.fill(colrgb[(n%5)][0],colrgb[(n%5)][1],colrgb[(n%5)][2], transparency)
+
+          p.endShape(p.CLOSE);
+        }
+
+        for (let i = 0; i < 3; i++) {
+          p.beginShape();
+          p.vertex(center.x, center.y);
+          p.vertex(miniVecs[i].x, miniVecs[i].y);
+          p.vertex(vecs[(i + 1) % 3].x, vecs[(i + 1) % 3].y);
+          p.stroke(n);
+          p.fill(0, 0, 0, 20); // p.stroke(colrgb[(n%5)][0],colrgb[(n%5)][1],colrgb[(n%5)][2])
+          // p.fill(colrgb[(n%5)][0],colrgb[(n%5)][1],colrgb[(n%5)][2], transparency)
+
+          p.endShape(p.CLOSE);
+        }
+
+        p.triangle(vec1.x, vec1.y, vec2.x, vec2.y, vec3.x, vec3.y);
+        p.fill(255, transparency);
+      }
+
+      function setGradient(x, y, w, h, c1, c2, axis) {
+        p.noFill();
+
+        if (axis == "Y") {
+          // Top to bottom gradient
+          for (let i = y; i <= y + h; i++) {
+            var inter = p.map(i, y, y + h, 0, 1);
+            var c = p.lerpColor(c1, c2, inter);
+            p.stroke(c);
+            p.line(x, i, x + w, i);
+          }
+        } else if (axis == "X") {
+          // Left to right gradient
+          for (let j = x; j <= x + w; j++) {
+            var inter2 = p.map(j, x, x + w, 0, 1);
+            var d = p.lerpColor(c1, c2, inter2);
+            p.stroke(d);
+            p.line(j, y, j, y + h);
+          }
+        }
+      }
+
+      class Star {
+        constructor() {
+          this.x = p.random(-p.width, p.width);
+          this.y = p.random(-p.height, p.height);
+          this.z = p.random(p.width);
+          this.pz = this.z;
+        }
+
+        update() {
+          this.z = this.z - transparency / 18 - 5;
+
+          if (this.z < 1) {
+            this.z = p.width;
+            this.x = p.random(-p.width, p.width);
+            this.y = p.random(-p.height, p.height);
+            this.pz = this.z;
+          }
+        }
+
+        star(x, y, radius1, radius2, npoints) {
+          var angle = p.TWO_PI / npoints;
+          var halfAngle = angle / 2.0;
+          p.beginShape();
+
+          for (let a = 0; a < p.TWO_PI; a += angle) {
+            let sx = x + p.cos(a) * radius2;
+            let sy = y + p.sin(a) * radius2;
+            p.vertex(sx, sy);
+            sx = x + p.cos(a + halfAngle) * radius1;
+            sy = y + p.sin(a + halfAngle) * radius1;
+            p.vertex(sx, sy);
+          }
+
+          p.endShape(p.CLOSE);
+        }
+
+        show() {
+          p.fill(elColor);
+          p.noStroke();
+          var sx = p.map(this.x / this.z, 0, 1, 0, p.width);
+          var sy = p.map(this.y / this.z, 0, 1, 0, p.height);
+          var r = p.map(this.z, 0, p.width, 8, 0);
+          this.star(sx, sy, r, r / 2, 10);
+          var px = p.map(this.x / this.pz, 0, 1, 0, p.width);
+          var py = p.map(this.y / this.pz, 0, 1, 0, p.height);
+          this.pz = this.z; //p.stroke(255);
+          //p.line(px, py, sx, sy);
+        }
+
+      }
+
+      class RotationVertex {
+        constructor(wise) {
+          this.seed = p.random(1000);
+          p.noiseSeed(this.seed);
+          this.center = p.createVector(0, 0);
+          this.radius = p.noise(0) * 400;
+          this.initAngle = p.noise(1000) * p.TWO_PI * noiseAngleTimes;
+          this.clockWise = wise;
+        }
+
+        update(tick) {
+          p.noiseSeed(this.seed);
+          this.radius = p.noise(tick * noiseScale) * 400;
+          this.initAngle = p.noise(1000 + tick * noiseScale) * p.TWO_PI * noiseAngleTimes;
+        }
+
+        getVector(rotRatio) {
+          let x = this.center.x + this.radius * p.cos(this.initAngle + this.clockWise * rotRatio * p.TWO_PI);
+          let y = this.center.y + this.radius * p.sin(this.initAngle + this.clockWise * rotRatio * p.TWO_PI);
+          return p.createVector(x, y);
+        }
+
+      }
+
+      class Clickable {
+        constructor() {
+          this.x = p.random(p.windowWidth);
+          this.y = p.random(p.windowHeight - 200);
+        }
+
+        drawNow() {
+          p.noStroke(); //,p.random(100)
+
+          p.push();
+          p.translate(this.x, this.y);
+          p.rotate(-1.6); //p.frameCount*
+
+          p.fill(50);
+          p.circle(0, -3, 60);
+          p.fill(255);
+          p.triangle(0, 18, -18, -18, 18, -18);
+          p.pop(); // frameRate(1);
+        }
+
+      }
+    };
+
+    this._convertStringRecToArray = r => {
+      let melody = [];
+      let rec = r.split("\n").map(line => line.split(","));
+
+      for (let note of rec) {
+        melody.push({
+          time: parseFloat(note[0]) / 1000,
+          note: parseInt(note[1]),
+          duration: parseFloat(note[2]) / 1000
+        });
+      }
+
+      return melody;
+    };
+
+    this.playRecording = (rec, instrument) => {
+      var props = this.props;
+      var _convertStringRecToArray = this._convertStringRecToArray; // The first step is always create an instrument:
+
+      soundfont_player__WEBPACK_IMPORTED_MODULE_3___default.a.instrument(props.audioContext, instrument).then(function (instrument) {
+        // Or schedule events at a given time
+        instrument.schedule(props.audioContext.currentTime, _convertStringRecToArray(rec));
+      });
+    };
+
+    this.myRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    this.dbRef = firebase__WEBPACK_IMPORTED_MODULE_4__["database"]().ref();
+    this.recsRef = this.dbRef.child('recs');
+    this.livePianoRef = this.dbRef.child('live').child('piano');
+    this.liveCelloRef = this.dbRef.child('live').child('cello');
+    this.liveTrumpetRef = this.dbRef.child('live').child('trumpet');
+    this.liveGuitarRef = this.dbRef.child('live').child('guitar');
+    this.liveXylophoneRef = this.dbRef.child('live').child('xylophone');
+    this.pianoMidiNotes = [0];
+    this.celloMidiNotes = [0];
+    this.trumpetMidiNotes = [0];
+    this.guitarMidiNotes = [0];
+    this.xylophoneMidiNotes = [0];
+  }
+
+  componentDidMount() {
+    this.myP5 = new p5__WEBPACK_IMPORTED_MODULE_1___default.a(this.Sketch, this.myRef.current);
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      ref: this.myRef,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 469,
+        columnNumber: 7
+      }
+    });
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css", function() {
+		var newContent = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/index.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "C:\\Users\\ophir\\Box Sync\\Spring 2020\\CMSC498N\\ongoing-music\\src\\index.js";
+
+
+
+ // Import, Configure, and Initialize Firebase
+
+ // importing firebase!!!
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjiORuncMb-6-T1lwLqH7C2vaNZJJ4rlg",
+  authDomain: "compstation-a6859.firebaseapp.com",
+  databaseURL: "https://compstation-a6859.firebaseio.com",
+  projectId: "compstation-a6859",
+  storageBucket: "compstation-a6859.appspot.com",
+  messagingSenderId: "905141170857",
+  appId: "1:905141170857:web:5981cdeaf1d13b159aefb8",
+  measurementId: "G-8WFBX5QRGW"
+};
+firebase__WEBPACK_IMPORTED_MODULE_4__["initializeApp"](firebaseConfig);
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 21,
+    columnNumber: 17
+  }
+}), document.getElementById('root'));
+
+/***/ }),
+
+/***/ 1:
+/*!**************************************************************************************************************!*\
+  !*** multi (webpack)/hot/dev-server.js ./node_modules/react-dev-utils/webpackHotDevClient.js ./src/index.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\ophir\Box Sync\Spring 2020\CMSC498N\ongoing-music\node_modules\webpack\hot\dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! C:\Users\ophir\Box Sync\Spring 2020\CMSC498N\ongoing-music\node_modules\react-dev-utils\webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! C:\Users\ophir\Box Sync\Spring 2020\CMSC498N\ongoing-music\src\index.js */"./src/index.js");
+
+
+/***/ })
+
+},[[1,"runtime-main",0]]]);
+//# sourceMappingURL=main.chunk.js.map

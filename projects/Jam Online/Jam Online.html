@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico">
+    <link rel="stylesheet" href="./Jam Online_files/bootstrap.min.css">
+    <link href="./Jam Online_files/icon" rel="stylesheet">
+    <script src="./Jam Online_files/p5.js.download"></script>
+    <script src="./Jam Online_files/p5.sound.js.download"></script>
+    <script>var activeNotes = [];</script>
+  <title>Jam Online</title><style type="text/css">body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+</style><style type="text/css">html, body { 
+    height: 100%; 
+    width: 100%; 
+    margin: 0; 
+    overflow: hidden;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    background-color: white;    
+}
+
+.words-backdrop { 
+    color: rgb(44, 44, 44);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 6px 6px;
+}
+
+.label-words-backdrop { 
+    color: rgb(44, 44, 44);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1px 3px;
+}
+
+.icons { 
+    position: relative;
+    z-index: 5;
+}
+</style><style type="text/css">#myProgress {
+    position: relative;
+    width: 40%;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50px;
+    border: 1px solid #333;
+    display: inline-block;
+    vertical-align: middle
+  }
+  
+  #myBar {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: inherit;
+    /*transition: width .2s ease-in;*/
+  }
+  
+  #label {
+    text-align: center;
+    line-height: 30px;
+    color: white;
+  }
+.progress-bar {
+    position: relative;
+    height: 20px;
+    width: 350px;
+    border-radius: 50px;
+    border: 1px solid #333;
+  }
+  
+  .filler {
+    background: #1DA598;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .2s ease-in;
+  }</style><style type="text/css">.ReactPiano__Keyboard {
+  /* Used for absolute positioning of .ReactPiano__Key--accidental elements */
+  position: relative;
+  /* Used to lay out .ReactPiano__Key--natural elements */
+  display: flex;
+}
+
+.ReactPiano__Key {
+  /* Used for flexbox layout of the child .ReactPiano__NoteLabelContainer elements */
+  display: flex;
+}
+
+/*
+ * Styles of accidental notes (flat or sharp)
+ */
+.ReactPiano__Key--accidental {
+  background: #555;
+  border: 1px solid #fff;
+  border-top: 1px solid transparent;
+  border-radius: 0 0 4px 4px;
+  cursor: pointer;
+  height: 66%;
+  /* Overlay on top of natural keys */
+  z-index: 1;
+  /* Use absolute positioning along with inline styles specified in JS to put keys in correct locations. */
+  position: absolute;
+  top: 0;
+}
+
+/*
+ * Styles of natural notes (white keys)
+ */
+.ReactPiano__Key--natural {
+  background: #f6f5f3;
+  border: 1px solid #888;
+  border-radius: 0 0 6px 6px;
+  cursor: pointer;
+  z-index: 0;
+  /*
+   * Uses flexbox with margin instead of absolute positioning to have more consistent margin rendering.
+   * This causes inline styles to be ignored.
+   */
+  flex: 1 1;
+  margin-right: 1px;
+}
+
+.ReactPiano__Key--natural:last-child {
+  /* Don't render extra margin on the last natural note */
+  margin-right: 0;
+}
+
+/*
+ * Styles of "active" or pressed-down keys
+ */
+.ReactPiano__Key--active {
+  background: #3ac8da;
+}
+
+.ReactPiano__Key--active.ReactPiano__Key--accidental {
+  border: 1px solid #fff;
+  border-top: 1px solid #3ac8da;
+  /* Slight height reduction for "pushed-down" effect */
+  height: 65%;
+}
+
+.ReactPiano__Key--active.ReactPiano__Key--natural {
+  border: 1px solid #3ac8da;
+  /* Slight height reduction for "pushed-down" effect */
+  height: 98%;
+}
+
+/*
+ * Styles for disabled state
+ */
+.ReactPiano__Key--disabled.ReactPiano__Key--accidental {
+  background: #ddd;
+  border: 1px solid #999;
+}
+
+.ReactPiano__Key--disabled.ReactPiano__Key--natural {
+  background: #eee;
+  border: 1px solid #aaa;
+}
+
+/*
+ * Styles for the note label inside a piano key
+ */
+.ReactPiano__NoteLabelContainer {
+  flex: 1 1;
+  /* Align children .ReactPiano__NoteLabel to the bottom of the key */
+  align-self: flex-end;
+}
+
+.ReactPiano__NoteLabel {
+  font-size: 12px;
+  text-align: center;
+  text-transform: capitalize;
+  /* Disable text selection */
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.ReactPiano__NoteLabel--accidental {
+  color: #f8e8d5;
+  margin-bottom: 3px;
+}
+
+.ReactPiano__NoteLabel--natural {
+  color: #888;
+  margin-bottom: 3px;
+}
+
+.ReactPiano__NoteLabel--natural.ReactPiano__NoteLabel--active {
+  color: #f8e8d5;
+}
+</style><style type="text/css">.bg-yellow {
+  background-color: #f8e8d5;
+}
+.MuiDrawer-paper {
+  background-color: rgba(0,0,0,0) !important;
+  border: 0;
+}
+
+.container { 
+  overflow: hidden;
+}</style><style type="text/css">.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.chatApp__loaderWrapper {
+	margin: 80px auto;
+	text-align: center;
+}
+
+.chatApp__loaderText {
+	color: #4870df;
+	font-weight: bold;
+}
+
+.chatApp__loader,
+.chatApp__loader::before,
+.chatApp__loader::after {
+	border-radius: 1em;
+	width: 1em;
+	height: 1em;
+	animation-fill-mode: both;
+	animation: loading 1.8s infinite ease-in-out;
+}
+
+.chatApp__loader {
+	margin: auto;
+	color: #4870df;
+	font-size: 12px;
+	position: relative;
+	animation-delay: -0.16s;
+}
+
+.chatApp__loader::before,
+.chatApp__loader::after {
+	content: '';
+	position: absolute;
+	top: 0;
+}
+
+.chatApp__loader::before {
+	left: -1.5em;
+	animation-delay: -0.32s;
+}
+
+.chatApp__loader::after {
+	left: 1.5em;
+}
+
+.chatApp__room {
+	padding: 2em 2em 0em 0em;
+	width: 25vw;
+    flex-wrap: nowrap;
+    flex-direction: column;
+	animation: fadeChatApp 0.6s ease-in-out;
+	animation-fill-mode: forwards;
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: -0.23px;
+}
+
+.chatApp__conv {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	float: left;
+	margin: 0 0 0 2.5rem;
+	box-shadow: 0 35px 20px -30px rgba(0,0,0,0.1);
+	width: calc(100% - 20px);
+}
+
+.chatApp__convTitle {
+	display: inline-block;
+	margin: 0 0 2rem 0;
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(44, 44, 44);
+	/*text-transform: uppercase;*/
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+}
+
+.chatApp__convTitle::after {
+	content: '';
+	position: absolute;
+	background-color: #4870df;
+	width: 100%;
+	height: 2px;
+	border-radius: 30px;
+	left: 0;
+	right: 0;
+	bottom: -16px;
+}
+
+.chatApp__convTimeline {
+	display: flex;
+	height: 400px;
+	padding: 1rem;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	background-color: #fff;
+	flex-direction: column-reverse;
+	overflow-y: auto;
+}
+
+.chatApp__convMessageItem {
+	padding: 1rem 0 0 0;
+	opacity: 0;
+	transition: all 0.15s ease-in-out;
+	animation: fadeNewMessage 0.5s;
+	animation-fill-mode: forwards;
+}
+
+.chatApp__convMessageAvatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	image-rendering: -webkit-optimize-contrast;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.chatApp__convMessageValue {
+	position: relative;
+	max-width: 50%;
+	min-height: 40px;
+	padding: 0.75rem;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: bold;
+	box-shadow: 0px 10px 10px -8px rgba(0,0,0,0.08);
+	box-sizing: border-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.chatApp__convMessageItem--left .chatApp__convMessageAvatar {
+	float: left;
+}
+
+.chatApp__convMessageItem--left .chatApp__convMessageValue {
+	float: left;
+	text-align: left;
+	margin: 0 0 0 1rem;
+	color: #fff;
+	background-color: #4870df;
+}
+
+.chatApp__convMessageItem--left .chatApp__convMessageValue::before {
+	content: '';
+	position: absolute;
+	top: 14px;
+	left: -8px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 6px 10px 6px 0;
+	border-color: transparent #4870df transparent transparent;
+}
+
+.chatApp__convMessageItem--right .chatApp__convMessageAvatar {
+	float: right;
+}
+
+.chatApp__convMessageItem--right .chatApp__convMessageValue {
+	float: right;
+	text-align: right;
+	margin: 0 1rem 0 0;
+	background-color: #fafafa;
+}
+
+.chatApp__convMessageItem--right .chatApp__convMessageValue::after {
+	content: '';
+	position: absolute;
+	top: 14px;
+	right: -8px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 6px 0 6px 10px;
+	border-color: transparent transparent transparent #fafafa;
+}
+
+.chatApp__convMessageItem--left .chatApp__convMessageValue a {
+	color: #91ffb1;
+}
+
+.chatApp__convMessageItem--left .chatApp__convMessageValue a:hover,
+.chatApp__convMessageItem--left .chatApp__convMessageValue a:focus {
+	color: #75ff9e;
+}
+
+.chatApp__convMessageItem--right .chatApp__convMessageValue a {
+	color: #09f;
+}
+
+.chatApp__convMessageItem--right .chatApp__convMessageValue a:hover,
+.chatApp__convMessageItem--right .chatApp__convMessageValue a:focus {
+	color: #007dd1;
+}
+
+.chatApp__convSendMessage {
+	position: relative;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: #fff;
+}
+
+.chatApp__convSendMessage {
+	padding: 1rem;
+}
+
+.chatApp__convInput {
+	float: left;
+	height: 40px;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 40px;
+	margin: 0 0.5rem 0 0;
+	width: calc(100% - 52px);
+	background-color: #dedfed;
+	box-shadow: inset 0 0 0 2px #dedfed;
+	font-size: 14px;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	transition: 0.15s all ease-in-out;
+	box-sizing: border-box;
+}
+
+.chatApp__convInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #b1b1b1;
+	opacity: 1;
+}
+
+.chatApp__convInput:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #b1b1b1;
+}
+
+.chatApp__convInput::-ms-input-placeholder { /* Microsoft Edge */
+	color: #b1b1b1;
+}
+
+.chatApp__convInput:focus, .chatApp__convInput:active {
+	box-shadow: inset 0 0 0 2px #7690d6;
+}
+
+.chatApp__convInput:focus {
+	outline: none;
+}
+
+.chatApp__convButton {
+	float: right;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 30px;
+	color: #fff;
+	background-color: #4870df;
+	text-align: center;
+	box-shadow: 0px 14px 10px -8px rgba(0,0,0,0.2);
+	transition: 0.15s all ease-in-out;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.chatApp__convButton:hover {
+	background-color: #3c559c;
+}
+
+.chatApp__convButton i {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 0 0 0 1px;
+	font-size: 22px;
+}
+
+.chatApp__convButton--loading {
+	cursor: wait;
+	background-color: #4870df;
+}
+
+.chatApp__convButton--loading:hover {
+	background-color: #4870df;
+}
+
+.chatApp__convButton--loading::before, .chatApp__convButton--loading::after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	display: block;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 8px;
+	height: 8px;
+	margin: auto;
+	border-radius: 40px;
+	background-color: #fff;
+}
+
+.chatApp__convButton--loading::after {
+	animation: loadSendMessage 1.5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+
+.chatApp__convButton--loading i {
+	display: none;
+}
+
+.chatApp__convSendMessage--typing .chatApp__convTyping {
+	display: block;
+}
+
+.chatApp__convTyping {
+	position: absolute;
+	top: 0;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.chatApp__convTypingDot {
+	position: relative;
+	left: 4px;
+	display: inline-block;
+	width: 2px;
+	height: 2px;
+	background-color: #606060;
+	animation: typingMessage 1.5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.chatApp__convTypingDot::before, .chatApp__convTypingDot::after {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	width: 2px;
+	height: 2px;
+	background-color: #606060;
+	animation: typingMessage 1.5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.chatApp__convTypingDot::before {
+	left: 4px;
+	animation-delay: 0.5s;
+}
+
+.chatApp__convTypingDot::after {
+	left: 8px;
+	animation-delay: 1s;
+}
+
+@media screen and (max-width:768px) {
+	.chatApp__room { flex-wrap: wrap; padding: 2rem 1rem; }
+	.chatApp__conv { flex-basis: 100%; min-width: auto; width: 100%; margin: 0; }
+	.chatApp__conv:first-of-type { margin: 0 0 4rem 0; }
+}
+
+@keyframes loading {
+	0%, 80%, 100% { box-shadow: 0 1em 0 -1.3em; }
+	40% { box-shadow: 0 1em 0 0; }
+}
+
+@keyframes fadeChatApp {
+	0% { opacity: 0; transform: translateY(1rem); }
+	100% { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes fadeNewMessage {
+	0% { opacity: 0; transform: translateY(1rem); }
+	100% { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes loadSendMessage {
+	0% { opacity: 1; width: 4px; height: 4px; }
+	100% { opacity: 0; width: 100%; height: 100%; }
+}
+
+@keyframes typingMessage {
+	0% { background-color: #606060; }
+	50% { background-color: #fff; }
+	60% { background-color: #606060; }
+}</style><style data-jss="" data-meta="MuiSvgIcon">
+.MuiSvgIcon-root {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary {
+  color: #3f51b5;
+}
+.MuiSvgIcon-colorSecondary {
+  color: #f50057;
+}
+.MuiSvgIcon-colorAction {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiSvgIcon-colorError {
+  color: #f44336;
+}
+.MuiSvgIcon-colorDisabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.MuiSvgIcon-fontSizeInherit {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 2.1875rem;
+}
+</style><style data-jss="" data-meta="MuiPaper">
+.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+</style><style data-jss="" data-meta="MuiTouchRipple">
+.MuiTouchRipple-root {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.MuiTouchRipple-ripple {
+  opacity: 0;
+  position: absolute;
+}
+.MuiTouchRipple-rippleVisible {
+  opacity: 0.3;
+  animation: MuiTouchRipple-keyframes-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+}
+.MuiTouchRipple-ripplePulsate {
+  animation-duration: 200ms;
+}
+.MuiTouchRipple-child {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 1;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.MuiTouchRipple-childLeaving {
+  opacity: 0;
+  animation: MuiTouchRipple-keyframes-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.MuiTouchRipple-childPulsate {
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: MuiTouchRipple-keyframes-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+}
+@-webkit-keyframes MuiTouchRipple-keyframes-enter {
+  0% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes MuiTouchRipple-keyframes-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes MuiTouchRipple-keyframes-pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style><style data-jss="" data-meta="MuiButtonBase">
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiButtonBase-root::-moz-focus-inner {
+  border-style: none;
+}
+.MuiButtonBase-root.Mui-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+</style><style data-jss="" data-meta="MuiIconButton">
+.MuiIconButton-root {
+  flex: 0 0 auto;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 12px;
+  overflow: visible;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 50%;
+}
+.MuiIconButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.MuiIconButton-root.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  background-color: transparent;
+}
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+.MuiIconButton-edgeStart {
+  margin-left: -12px;
+}
+.MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+  margin-left: -3px;
+}
+.MuiIconButton-edgeEnd {
+  margin-right: -12px;
+}
+.MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+  margin-right: -3px;
+}
+.MuiIconButton-colorInherit {
+  color: inherit;
+}
+.MuiIconButton-colorPrimary {
+  color: #3f51b5;
+}
+.MuiIconButton-colorPrimary:hover {
+  background-color: rgba(63, 81, 181, 0.04);
+}
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+.MuiIconButton-colorSecondary {
+  color: #f50057;
+}
+.MuiIconButton-colorSecondary:hover {
+  background-color: rgba(245, 0, 87, 0.04);
+}
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+.MuiIconButton-sizeSmall {
+  padding: 3px;
+  font-size: 1.125rem;
+}
+.MuiIconButton-label {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
+}
+</style><style data-jss="" data-meta="MuiDrawer">
+.MuiDrawer-docked {
+  flex: 0 0 auto;
+}
+.MuiDrawer-paper {
+  top: 0;
+  flex: 1 0 auto;
+  height: 100%;
+  display: flex;
+  outline: 0;
+  z-index: 1200;
+  position: fixed;
+  overflow-y: auto;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+.MuiDrawer-paperAnchorLeft {
+  left: 0;
+  right: auto;
+}
+.MuiDrawer-paperAnchorRight {
+  left: auto;
+  right: 0;
+}
+.MuiDrawer-paperAnchorTop {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: auto;
+  max-height: 100%;
+}
+.MuiDrawer-paperAnchorBottom {
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  max-height: 100%;
+}
+.MuiDrawer-paperAnchorDockedLeft {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiDrawer-paperAnchorDockedTop {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiDrawer-paperAnchorDockedRight {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiDrawer-paperAnchorDockedBottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+</style><style data-jss="" data-meta="MuiTooltip">
+.MuiTooltip-popper {
+  flip: false;
+  z-index: 1500;
+  pointer-events: none;
+}
+.MuiTooltip-popperInteractive {
+  pointer-events: auto;
+}
+.MuiTooltip-popperArrow[x-placement*="bottom"] .MuiTooltip-arrow {
+  top: 0;
+  flip: false;
+  left: 0;
+  width: 2em;
+  height: 1em;
+  margin-top: -0.95em;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.MuiTooltip-popperArrow[x-placement*="top"] .MuiTooltip-arrow {
+  flip: false;
+  left: 0;
+  width: 2em;
+  bottom: 0;
+  height: 1em;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: -0.95em;
+}
+.MuiTooltip-popperArrow[x-placement*="right"] .MuiTooltip-arrow {
+  flip: false;
+  left: 0;
+  width: 1em;
+  height: 2em;
+  margin-top: 4px;
+  margin-left: -0.95em;
+  margin-bottom: 4px;
+}
+.MuiTooltip-popperArrow[x-placement*="left"] .MuiTooltip-arrow {
+  flip: false;
+  right: 0;
+  width: 1em;
+  height: 2em;
+  margin-top: 4px;
+  margin-right: -0.95em;
+  margin-bottom: 4px;
+}
+.MuiTooltip-popperArrow[x-placement*="left"] .MuiTooltip-arrow::before {
+  flip: false;
+  border-color: transparent transparent transparent currentcolor;
+  border-width: 1em 0 1em 1em;
+}
+.MuiTooltip-popperArrow[x-placement*="right"] .MuiTooltip-arrow::before {
+  flip: false;
+  border-color: transparent currentcolor transparent transparent;
+  border-width: 1em 1em 1em 0;
+}
+.MuiTooltip-popperArrow[x-placement*="top"] .MuiTooltip-arrow::before {
+  flip: false;
+  border-color: currentcolor transparent transparent transparent;
+  border-width: 1em 1em 0 1em;
+}
+.MuiTooltip-popperArrow[x-placement*="bottom"] .MuiTooltip-arrow::before {
+  flip: false;
+  border-color: transparent transparent currentcolor transparent;
+  border-width: 0 1em 1em 1em;
+}
+.MuiTooltip-tooltip {
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.625rem;
+  max-width: 300px;
+  word-wrap: break-word;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.4em;
+  border-radius: 4px;
+  background-color: rgba(97, 97, 97, 0.9);
+}
+.MuiTooltip-tooltipArrow {
+  margin: 0;
+  position: relative;
+}
+.MuiTooltip-arrow {
+  color: rgba(97, 97, 97, 0.9);
+  position: absolute;
+  font-size: 6px;
+}
+.MuiTooltip-arrow::before {
+  width: 0;
+  height: 0;
+  margin: auto;
+  content: "";
+  display: block;
+  border-style: solid;
+}
+.MuiTooltip-touch {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.14286em;
+}
+.MuiTooltip-tooltipPlacementLeft {
+  margin: 0 24px ;
+  transform-origin: right center;
+}
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementLeft {
+    margin: 0 14px;
+  }
+}
+.MuiTooltip-tooltipPlacementRight {
+  margin: 0 24px;
+  transform-origin: left center;
+}
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementRight {
+    margin: 0 14px;
+  }
+}
+.MuiTooltip-tooltipPlacementTop {
+  margin: 24px 0;
+  transform-origin: center bottom;
+}
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementTop {
+    margin: 14px 0;
+  }
+}
+.MuiTooltip-tooltipPlacementBottom {
+  margin: 24px 0;
+  transform-origin: center top;
+}
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementBottom {
+    margin: 14px 0;
+  }
+}
+</style><style data-jss="" data-meta="makeStyles">
+.makeStyles-root-1 {
+  color: white;
+  height: 100vh;
+  position: relative;
+  justify-content: center;
+}
+.makeStyles-openDrop-2 {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+}
+.makeStyles-openButton-3 {
+  background: white;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.makeStyles-root-76 {
+  width: 100%;
+  justify-content: center;
+}
+.makeStyles-wrapper-77 {
+  width: 100%;
+}
+.makeStyles-closeDrop-78 {
+  margin-left: -.5vw;
+}
+.makeStyles-appBar-79 {
+  top: auto;
+  color: black;
+  bottom: 0;
+  background: white;
+}
+.makeStyles-centerButtons-80 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.makeStyles-button-81 {
+  margin: 0px 25px;
+  display: inline-block;
+  vertical-align: middle;
+}
+</style></head>    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    
+  
+  <body data-gr-c-s-loaded="true" style="">
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div class="App"><div></div><div></div><div class="makeStyles-root-1"><div class="icons"><button class="MuiButtonBase-root MuiIconButton-root makeStyles-openButton-3" tabindex="0" type="button" title="Info"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path></svg></span><span class="MuiTouchRipple-root"></span></button><br><button class="MuiButtonBase-root MuiIconButton-root makeStyles-openButton-3" tabindex="0" type="button" title="Chat"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path></svg></span><span class="MuiTouchRipple-root"></span></button><br><br> <span class="words-backdrop">&nbsp;Users:&nbsp;1</span></div><div style="width: 100%; height: 100%; padding: 0px; border: 0px;"><div><div><canvas id="defaultCanvas0" class="p5Canvas" width="3840" height="1851" style="width: 1280px; height: 617px; position: absolute; left: 0px; top: 0px; z-index: -1;"></canvas></div></div></div><div class="makeStyles-openDrop-2"><button class="MuiButtonBase-root MuiIconButton-root makeStyles-openButton-3" tabindex="0" type="button" title="Open Toolbar"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></span><span class="MuiTouchRipple-root"></span></button></div></div><div class="chat"><div class="MuiDrawer-root MuiDrawer-docked drawer"><div class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0" style="visibility: hidden; transform: translateX(1280px) translateX(-942px);"><div></div><div class="app__list chat"><div class="chatApp__room"><div class="chatApp__conv"><div class="chatApp__convTitle">Chat</div><div class="chatApp__convTimeline"><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>yeeep</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/_a onload=alert(1)_.png" alt="&lt;a onload=alert(1)&gt;" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue"><a onload="alert(1)">:<br>!!</a></div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/script_.png" alt="&lt;script&gt;alert(1)&lt;/script&gt;" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue"><script>alert(1)</script>:<br>?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/_alert(1)_.png" alt="&lt;alert(1)&gt;" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue"><alert(1)>:<br>asdf</alert(1)></div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Dan.png" alt="Dan" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Dan:<br>hi!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya.png" alt="Priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Priya:<br>heyooo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>whatzzzaaaaa</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Dude.png" alt="Dude" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Dude:<br>dude</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>You can use a midi controller by the way!!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>who's playing right now lol?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>yo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/thomas.png" alt="thomas" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">thomas:<br>let's go music</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Andrew.png" alt="Andrew" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Andrew:<br>yo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/hellooo.png" alt="hellooo" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">hellooo:<br>hey</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/test.png" alt="test" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">test:<br>test!!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya(1).png" alt="priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">priya:<br>who's here right now?!?!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya(1).png" alt="priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">priya:<br>heyo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>:)</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>me</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya.png" alt="Priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Priya:<br>who's playing?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya.png" alt="Priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Priya:<br>heyyy</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/simon.png" alt="simon" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">simon:<br>poooooooop</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>What up</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya.png" alt="Priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Priya:<br>I hear it!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>LoL!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>kgtgygjk</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>eeeasa</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>lol</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>gnight bud</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>noice</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>haha</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>';lkjhgfdsa</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>yeah XDDD</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>i like how it plays notes when u type in chat</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>:)</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>thanks</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>sounds like a plan! feel better</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>better than last week, going to sleep soon to finally get back on a good schedule</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>how u doin?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>i keep the tab open</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>lol awesome</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>*me</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>it mr</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>Who's playing right now?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>with chords: <a href="https://invidio.us/watch?v=BTENlbMHxtA">https://invidio.us/watch?v=BTENlbMHxtA</a></div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br><a href="https://invidio.us/watch?v=ow1QqW0jzTo">https://invidio.us/watch?v=ow1QqW0jzTo</a></div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>good news, the actual song is in the same key weve been playing</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>let me go listen to it real quick</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Will.png" alt="Will" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Will:<br>how does the next part work</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>noice! I don't actually know the whole thing</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>lol</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>YOoOOoOo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/simon(1).png" alt="Simon" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Simon:<br>testing testing</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Priya.png" alt="Priya" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Priya:<br>yo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/simon(1).png" alt="Simon" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Simon:<br>skrttttttt skrtttttt</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/hello.png" alt="hello" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">hello:<br>yppppp</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shivam.png" alt="shivam" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">shivam:<br>ooooooo</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/johanv.png" alt="johanv" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">johanv:<br>ayy didnt see the chat option earlier but this is great!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>Who's playing rn?</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>yeah , dude code pen is aweosome :)</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shannen.png" alt="shannen" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">shannen:<br>that's so cute</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>I made it generate a random avatar based on the username</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>yes</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shannen.png" alt="shannen" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">shannen:<br>SOOOO COOL </div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>haha</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>IT DOESSS</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shannen.png" alt="shannen" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">shannen:<br>IT WORKS</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>lol!!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shannen.png" alt="shannen" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">shannen:<br>WOW</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>YOOOO</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shannen.png" alt="shannen" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">shannen:<br>hellooooo??? </div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Claire.png" alt="Claire" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Claire:<br>Hey guys!!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/shannen(1).png" alt="Shannen" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Shannen:<br>Hey!</div></div><div class="chatApp__convMessageItem chatApp__convMessageItem--left clearfix"><img src="./Jam Online_files/Ophir.png" alt="Ophir" class="chatApp__convMessageAvatar"><div class="chatApp__convMessageValue">Ophir:<br>Hello 👋</div></div></div><div class="chatApp__convSendMessage clearfix"><form><input type="hidden" value=""><input type="hidden" value="https://api.adorable.io/avatars/285/.png"><input type="text" class="chatApp__convInput" placeholder="Text message" tabindex="0"><div class="chatApp__convButton "><i class="material-icons">send</i></div></form></div></div></div></div></div></div></div><div class="MuiDrawer-root MuiDrawer-docked drawer" style="position: relative; z-index: 2;"><div class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorTop MuiDrawer-paperAnchorDockedTop MuiPaper-elevation0" style="visibility: hidden; transform: translateY(-127px);"><div class="container" style="color: lightgray; font-weight: bold;"><div class="row mt-0"><div class="col-md-8 offset-md-2"><div><div class="mt-2"><div style="width: 100%; height: 100%; padding: 0px; border: 0px;"><div><div data-testid="container" style="width: 100%; height: 100%;"><div class="ReactPiano__Keyboard" style="width: 730px; height: 122.896px;"><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 0%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">a</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 3.05556%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">w</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 5.55556%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">s</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 10%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">e</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 11.1111%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">d</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 16.6667%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">f</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 19.4444%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">t</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 22.2222%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">g</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 26.1111%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">y</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 27.7778%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">h</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 32.5%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">u</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 33.3333%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">j</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 38.8889%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">k</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 41.9444%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">o</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 44.4444%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">l</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 48.8889%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--accidental">p</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 50%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">;</div></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 55.5556%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"><div class="ReactPiano__NoteLabel ReactPiano__NoteLabel--natural">'</div></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 58.3333%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 61.1111%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 65%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 66.6667%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 71.3889%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 72.2222%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 77.7778%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 80.8333%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 83.3333%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--accidental" style="left: 87.7778%; width: 3.61111%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 88.8889%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div><div class="ReactPiano__Key ReactPiano__Key--natural" style="left: 94.4444%; width: 5.55556%;"><div class="ReactPiano__NoteLabelContainer"></div></div></div></div></div></div></div><div class="row mt-2"><div class="col-md-8 offset-md-2"><span class="words-backdrop"><small>Selected Instrument: acoustic_grand_piano</small></span><div class="form-row"><div class="col-6"><small class="mb-1 text-muted"><span class="label-words-backdrop">First note</span></small><select class="form-control"><option value="12">C0</option><option value="14">D0</option><option value="16">E0</option><option value="17">F0</option><option value="19">G0</option><option value="21">A0</option><option value="23">B0</option><option value="24">C1</option><option value="26">D1</option><option value="28">E1</option><option value="29">F1</option><option value="31">G1</option><option value="33">A1</option><option value="35">B1</option><option value="36">C2</option><option value="38">D2</option><option value="40">E2</option><option value="41">F2</option><option value="43">G2</option><option value="45">A2</option><option value="47">B2</option><option value="48">C3</option><option value="50">D3</option><option value="52">E3</option><option value="53">F3</option><option value="55">G3</option><option value="57">A3</option><option value="59">B3</option><option value="60">C4</option><option value="62">D4</option><option value="64">E4</option><option value="65">F4</option><option value="67">G4</option><option value="69">A4</option><option value="71">B4</option><option value="72">C5</option><option value="74">D5</option><option value="76">E5</option><option value="77" disabled="">F5</option><option value="79" disabled="">G5</option><option value="81" disabled="">A5</option><option value="83" disabled="">B5</option><option value="84" disabled="">C6</option><option value="86" disabled="">D6</option><option value="88" disabled="">E6</option><option value="89" disabled="">F6</option><option value="91" disabled="">G6</option><option value="93" disabled="">A6</option><option value="95" disabled="">B6</option><option value="96" disabled="">C7</option><option value="98" disabled="">D7</option><option value="100" disabled="">E7</option><option value="101" disabled="">F7</option><option value="103" disabled="">G7</option><option value="105" disabled="">A7</option><option value="107" disabled="">B7</option><option value="108" disabled="">C8</option><option value="110" disabled="">D8</option><option value="112" disabled="">E8</option><option value="113" disabled="">F8</option><option value="115" disabled="">G8</option><option value="117" disabled="">A8</option><option value="119" disabled="">B8</option><option value="120" disabled="">C9</option><option value="122" disabled="">D9</option><option value="124" disabled="">E9</option><option value="125" disabled="">F9</option><option value="127" disabled="">G9</option></select></div><div class="col-6"><small class="mb-1 text-muted"><span class="label-words-backdrop">Last note</span></small><select class="form-control"><option value="12" disabled="">C0</option><option value="14" disabled="">D0</option><option value="16" disabled="">E0</option><option value="17" disabled="">F0</option><option value="19" disabled="">G0</option><option value="21" disabled="">A0</option><option value="23" disabled="">B0</option><option value="24" disabled="">C1</option><option value="26" disabled="">D1</option><option value="28" disabled="">E1</option><option value="29" disabled="">F1</option><option value="31" disabled="">G1</option><option value="33" disabled="">A1</option><option value="35" disabled="">B1</option><option value="36" disabled="">C2</option><option value="38" disabled="">D2</option><option value="40" disabled="">E2</option><option value="41" disabled="">F2</option><option value="43" disabled="">G2</option><option value="45" disabled="">A2</option><option value="47" disabled="">B2</option><option value="48" disabled="">C3</option><option value="50">D3</option><option value="52">E3</option><option value="53">F3</option><option value="55">G3</option><option value="57">A3</option><option value="59">B3</option><option value="60">C4</option><option value="62">D4</option><option value="64">E4</option><option value="65">F4</option><option value="67">G4</option><option value="69">A4</option><option value="71">B4</option><option value="72">C5</option><option value="74">D5</option><option value="76">E5</option><option value="77">F5</option><option value="79">G5</option><option value="81">A5</option><option value="83">B5</option><option value="84">C6</option><option value="86">D6</option><option value="88">E6</option><option value="89">F6</option><option value="91">G6</option><option value="93">A6</option><option value="95">B6</option><option value="96">C7</option><option value="98">D7</option><option value="100">E7</option><option value="101">F7</option><option value="103">G7</option><option value="105">A7</option><option value="107">B7</option><option value="108">C8</option><option value="110">D8</option><option value="112">E8</option><option value="113">F8</option><option value="115">G8</option><option value="117">A8</option><option value="119">B8</option><option value="120">C9</option><option value="122">D9</option><option value="124">E9</option><option value="125">F9</option><option value="127">G9</option></select></div><div class="col mt-2"><span class="words-backdrop"><small>Use <strong>left arrow</strong> and <strong>right arrow</strong> to move the keyboard shortcuts around.</small></span></div></div></div></div></div></div></div></div></div></div><div class="makeStyles-root-76"><div class="makeStyles-wrapper-77"></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./Jam Online_files/bundle.js.download"></script><script src="./Jam Online_files/0.chunk.js.download"></script><script src="./Jam Online_files/main.chunk.js.download"></script>
+
+</body></html>
