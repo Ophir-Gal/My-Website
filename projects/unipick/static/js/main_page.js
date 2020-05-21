@@ -20,3 +20,5 @@ function switchViz(){
         barViz.setAttribute('style', 'display: none');   
     }
 }
+
+switchViz(); // account for weird bug that switches to bar chart viz
