@@ -36,7 +36,7 @@
           <label for="numSimilarUsers">Number of Most Similar Users to Show:
             <span id="numUsersDisplay">5</span>
           </label><br>
-          <input type="range" id="numSimilarUsers" name="numSimilarUsers" min="0" max="10"
+          <input type="range" id="numSimilarUsers" name="numSimilarUsers" min="0" max="20"
           step="1" value="5" onmousemove="displayNumUsers(document.getElementById('numSimilarUsers').value)">
           <br><br>
           <label for="movieTitle">Select a Movie:</label><br>
@@ -82,6 +82,10 @@
       <ul>
         <li>The parameters to the left of the visualization should be
           self-explanatory.</li>
+        <li>The "person" icons represent users who rated movies.</li>
+        <li>The width of the connections (gray lines) between users reflect
+            the amount of mutually liked movies
+            (according to the specified like threshold).</li>
         <li>You can select movies by typing a part of the name (at least 3
           letters) and clicking on
           a movie from the drop-down list.</li>

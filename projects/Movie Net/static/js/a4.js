@@ -338,7 +338,7 @@ function renderNetworkViz(nodes, links, username) {
 
   // Define width and height for SVG/visualization
   var width = window.innerWidth/1.1 * 0.75
-  var height = window.innerHeight
+  var height = window.innerHeight*1.1
   
   // Select svg from DOM
   var svg = d3.select('svg')
@@ -350,8 +350,8 @@ function renderNetworkViz(nodes, links, username) {
   var linkForce = d3
     .forceLink()
     .id(function (link) { return link.id })
-    .strength((link) => 0.0001)
-    .distance((link) => 300)
+    .strength((link) => 0.001)
+    .distance((link) => 2000 / nodes.length)
   
   // Set up simulation
   var simulation = d3
