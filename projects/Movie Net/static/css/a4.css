@@ -38,15 +38,33 @@ body {
     pointer-events: all;
     z-index: -1;
 }
-.tooltip {
+/*.tooltip {
     position: absolute;
     min-width: 225px;
     max-width: 300px;								
     font: 12px sans-serif;		
     background: lightsteelblue;	
     border-radius: 8px;			
-    pointer-events: none;			
+    pointer-events: none;
+    overflow-x: hidden;
+    overflow-y: scroll;			
+    height: 100px;
+    z-index: 30;
+}*/
+
+div.tooltip {   
+    position: absolute;           
+    text-align: center;           
+    width: 60px;                  
+    height: auto;                 
+    padding: 5px;             
+    font: 12px sans-serif;        
+    background: lightsteelblue; 
+    border: 0px;      
+    border-radius: 8px;           
+    pointer-events: none;         
 }
+
 ul.tooltip {
     list-style: inside;
     padding: 5px;
@@ -61,14 +79,42 @@ ul.tooltip {
 #numSimilarUsers {
     width: 100%;
 }
+
+#selectedMoviesLabel {
+    margin-bottom: 0px;
+} 
+
 #selectedMovies { 
     background-color: lightsteelblue;
     height: 110px; 
     overflow-x: hidden; 
-    overflow-x: auto; 
+    overflow-y: auto; 
     text-align: left; 
     list-style: inside;
     padding: 10px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    font-size: 10pt;
+    -moz-box-shadow:    inset 0 0 5px black;
+    -webkit-box-shadow: inset 0 0 5px black;
+    box-shadow:         inset 0 0 5px black;
+}
+
+#mutualMoviesLabel {
+    margin-bottom: 0px;
+} 
+
+#mutualMovies { 
+    background-color: lightsteelblue;
+    height: 110px; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    text-align: left; 
+    list-style: inside;
+    padding: 10px;
+    margin-top: 2px;
     border-radius: 10px;
     box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     font-size: 10pt;

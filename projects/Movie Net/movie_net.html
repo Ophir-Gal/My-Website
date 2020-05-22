@@ -34,10 +34,10 @@
           </span>
           <br><br>
           <label for="numSimilarUsers">Number of Most Similar Users to Show:
-            <span id="numUsersDisplay">10</span>
+            <span id="numUsersDisplay">5</span>
           </label><br>
           <input type="range" id="numSimilarUsers" name="numSimilarUsers" min="0" max="100"
-          step="1" value="10" onmousemove="displayNumUsers(document.getElementById('numSimilarUsers').value)">
+          step="1" value="5" onmousemove="displayNumUsers(document.getElementById('numSimilarUsers').value)">
           <br><br>
           <label for="movieTitle">Select a Movie:</label><br>
           <span id="autocomplete-container">
@@ -47,7 +47,7 @@
             </ul>
           </span>          
           <div>
-            <p>Selected Movies</p>
+            <p id="selectedMoviesLabel">Selected Movies</p>
             <ul id="selectedMovies" name="selectedMovies">
               <li class="selected-movie">Toy Story (1995)</li>
               <li class="selected-movie">Shawshank Redemption, The (1994)</li>
@@ -59,6 +59,13 @@
             <input type="submit" value="Clear Movie List"
              onclick="document.getElementById('selectedMovies').innerHTML=''; 
                       submitForm()">
+          </div> 
+          <div>
+            <p id="mutualMoviesLabel">Mutual Movies</p>
+            <ul id="mutualMovies" name="mutualMovies">
+              <h3 style="text-align: center;">Click on any of the camera icons 
+              between two users to see a list of mutually liked movies!</h3>
+            </ul>
           </div> 
         </form>
       </td>

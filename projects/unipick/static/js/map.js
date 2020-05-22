@@ -273,7 +273,7 @@ function renderMapViz(schoolData, geoData, filters) {
     .append("use")
     .filter(d => doFiltering(d, filters))
     .attr("href", "#school-icon-g")
-    .attr("transform", "translate(-10,-10)")
+    .attr("transform", "translate 10,-10)")
     .attr("x", function(d) {
       return projection([d["Longitude location of institution"],
                          d["Latitude location of institution"]])[0];

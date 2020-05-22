@@ -70,6 +70,7 @@ function extractGraph(ratingData, username="User",
       nodes.push({"id": i})
     }
   } 
+
   console.log('finished with user:', username)
 
   return {"nodes":nodes, "links":links}
@@ -87,7 +88,7 @@ function keepBest_K_Neighbors(k, links, username) {
   }
 
   for (let i=0; i<k; i++) {
-    // find most similar neighbor (most shared movies) and store locally
+    // find most similar neighbor (most mutual movies) and store locally
     let bestNeighborId = undefined
     let bestLink = undefined
     let maxMovies = 0
@@ -112,6 +113,49 @@ function keepBest_K_Neighbors(k, links, username) {
   }
   
   return {"nodes":nodesToReturn, "links":linksToReturn}
+}
+
+function addNonCentralLinks(ratingData, graph, likeThreshold,
+                            idToTitle, username) {
+  let nodes = graph.nodes
+  let links = graph.links
+  let processedNodes = []
+  
+  // for each node in the provided graph
+  for (let node of nodes){
+
+    if (node.id === username) continue // skip central user
+
+    // get node's "liked" movies
+    let likedMovies = []
+    for (let d of ratingData) {
+      if(d["id"] === node.id && d["rating"] >= likeThreshold) {
+        likedMovies.push(d["movieId"])
+      }
+    }
+
+    // Go through rating data to form additional links for the graph 
+    for (let d of ratingData) {
+      if(d["id"] !== node.id
+         && d["id"] !== username
+         && (!processedNodes.includes(d["id"]))
+         && nodes.some(n => n.id === d["id"])
+         && d["rating"] >= likeThreshold 
+         && likedMovies.includes(d["movieId"])) {
+        let found = findUndirectedEdge(links, target=node.id, source=d["id"])
+        let movieTitle = idToTitle[String(d["movieId"])].title
+        if (found && (!found["movies"].includes(movieTitle))){
+          found["movies"].push(movieTitle) 
+        } else {
+          links.push({"target":node.id, "source":d["id"], "movies":[movieTitle]})
+        }
+      }
+    }
+    
+    processedNodes.push(node.id)
+  }
+  
+  return {"nodes":nodes, "links":links}
 }
 
 /*
@@ -149,6 +193,11 @@ function submitForm(centerPerson=0){
       nodesAndLinks = keepBest_K_Neighbors(numSimilarUsers, 
                                            nodesAndLinks.links,
                                            username)
+      nodesAndLinks = addNonCentralLinks(dataDict.ratingData, 
+                                         nodesAndLinks,
+                                         likeThreshold,
+                                         idToTitle,
+                                         username)              
       renderNetworkViz(nodesAndLinks.nodes, nodesAndLinks.links, username)
     })
     .catch(e => console.log(e))
@@ -203,8 +252,10 @@ function autocomplete(val) {
   var movies_returned = []
   for (let key in idToTitle) {
     let movieTitle = idToTitle[key].title
-    // if matches movie title 
-    if (movieTitle.toLowerCase().includes(val.toLowerCase())) { 
+    let selectedMovies = document.getElementById('selectedMovies')
+    // if matches movie title AND not already selected
+    if (movieTitle.toLowerCase().includes(val.toLowerCase())
+        && (!selectedMovies.innerHTML.includes(movieTitle))) { 
       movies_returned.push(movieTitle)
     }
   }
@@ -287,7 +338,7 @@ function renderNetworkViz(nodes, links, username) {
 
   // Define width and height for SVG/visualization
   var width = window.innerWidth/1.1 * 0.75
-  var height = window.innerHeight/1.15
+  var height = window.innerHeight
   
   // Select svg from DOM
   var svg = d3.select('svg')
@@ -299,7 +350,8 @@ function renderNetworkViz(nodes, links, username) {
   var linkForce = d3
     .forceLink()
     .id(function (link) { return link.id })
-    .strength(function (link) { return (0.001 * nodes.length) })
+    .strength((link) => 0.0001)
+    .distance((link) => 300)
   
   // Set up simulation
   var simulation = d3
@@ -315,7 +367,9 @@ function renderNetworkViz(nodes, links, username) {
     .data(links)
     .enter().append("line")
       .attr("pathLength", "10")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", link => {
+        let max_len = links.reduce((result, link) => Math.max(result, link.movies.length), 0)
+        return (link.movies.length/(max_len/1.8))**4 + 3})
       .attr("stroke", "rgba(50, 50, 50, 0.2)")
   
   // Create Node Elements (Person Shapes)
@@ -401,6 +455,7 @@ function renderNetworkViz(nodes, links, username) {
   .attr("class", "tooltip")
   .style("opacity", 0)
 
+  /*
   function mouseOverLink(link) {
     let person1 = link.source.id === username ? username : "person " + link.source.id
     let person2 = link.target.id === username ? username : "person " + link.target.id
@@ -410,6 +465,45 @@ function renderNetworkViz(nodes, links, username) {
       <li>${link.movies.join("</li><li>")}</li></ul>`)
       .style("left", d3.event.pageX + "px")
       .style("top", d3.event.pageY + "px")
+  }
+  */
+
+  function hoverOverLink(link) {
+    let linkOfInterest = l => l.source.id == link.source.id && 
+                              l.target.id == link.target.id
+    linkLabels.style('fill', l => 
+      linkOfInterest(l) ? 'white' : 'black')
+    linkLabels.style('stroke-width', l => 
+      linkOfInterest(l) ? '3' : '0')
+    linkLabels.style('stroke', l => 
+      linkOfInterest(l) ? 'black' : 'black')
+
+    // let person1 = link.source.id === username ? username : "person " + link.source.id
+    // let person2 = link.target.id === username ? username : "person " + link.target.id
+    tooltip
+      .style("opacity", 1)
+      .html(`<span class='tooltip'><strong>${link.movies.length}</strong> mutual movies</span>`)
+      .style("left", d3.event.pageX + 10 + "px")
+      .style("top", d3.event.pageY + 10 + "px")
+  }
+
+  function mouseDownLink(link) {
+    let linkOfInterest = l => l.source.id == link.source.id && 
+                              l.target.id == link.target.id
+    linkLabels.style('fill', l => 
+      linkOfInterest(l) ? 'blue' : 'black')
+    linkLabels.style('stroke-width', l => 
+      linkOfInterest(l) ? '5' : '0')
+    linkLabels.style('stroke', l => 
+      linkOfInterest(l) ? 'blue' : 'black')
+  }
+
+  function clickLink(link) {
+    let person1 = link.source.id === username ? username : "person " + link.source.id
+    let person2 = link.target.id === username ? username : "person " + link.target.id
+    document.querySelector('#mutualMovies').innerHTML = 
+      //`<ul><strong>Movies liked by ${person1} and ${person2}:</strong>
+      `<li>${link.movies.join("</li><li>")}</li></ul>`;
   }
 
   function mouseOutLink(link) {
@@ -426,8 +520,17 @@ function renderNetworkViz(nodes, links, username) {
     .enter().append("use")
       .attr("href", "#film-icon-g")
       .attr("transform", "translate(-10,-10)")
-      .on('mouseout', mouseOutLink)
-      .on('mouseover', mouseOverLink)
+      //.on('mouseout', mouseOutLink)
+      //.on('mouseover', mouseOverLink)
+      .on('click', clickLink)
+      .on('mouseover', hoverOverLink)
+      .on('mouseup', hoverOverLink)
+      .on('mousedown', mouseDownLink)
+      .on("mouseout", (link) => { 
+        linkLabels.style('fill', 'black')
+        linkLabels.style('stroke-width', '0')
+        mouseOutLink(link)
+      })
   
 
   // Define what happens at every tick of the simulation's internal timer
