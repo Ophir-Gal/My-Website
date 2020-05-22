@@ -36,7 +36,7 @@
           <label for="numSimilarUsers">Number of Most Similar Users to Show:
             <span id="numUsersDisplay">5</span>
           </label><br>
-          <input type="range" id="numSimilarUsers" name="numSimilarUsers" min="0" max="100"
+          <input type="range" id="numSimilarUsers" name="numSimilarUsers" min="0" max="10"
           step="1" value="5" onmousemove="displayNumUsers(document.getElementById('numSimilarUsers').value)">
           <br><br>
           <label for="movieTitle">Select a Movie:</label><br>
@@ -90,15 +90,16 @@
         <li>Once you are satisfied with the values, you can move on to
           interact with the visualization itself.</li>
         <li>If you hover over a node, you will see it lighting up in blue, and
-        the direct neighbors lighting up in green (this would have been more useful
-        had I chosen to show more links/connections in the graph, but I decided
-        it would be redundant).</li>
+        the direct neighbors lighting up in green.</li>
         <li>If you hover over a link (the camera symbol), you will see a
-        tooltip with the list of movies liked by the associated nodes.</li>
+        tooltip with the number of movies liked by the two associated nodes.</li>
+        <li>If you click on a link (the camera symbol), you will see the list
+          of movies liked by the two associated nodes displayed
+          in the "Mutual Movies" panel at the bottom left.</li>
         <li>You can drag and drop nodes to change their position.</li>
-        <li>Lastly, the best feature of the visualization is being able to jump
-        from the user's network to a neighbor's network. This is done by
-        double clicking on a node.</li>
+        <li>Lastly, an interesting feature of the visualization is being able
+          to jump from the user's network to a neighbor's network.
+          This is done by double clicking on a node.</li>
       </ul>
          
     </p>
