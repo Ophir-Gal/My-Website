@@ -19,7 +19,7 @@ body {
 
 .projectThumbnail:hover {
   opacity: 1;
-  animation: shake 0.7s;
+  animation: shake 1.2s;
   animation-iteration-count: infinite;
   box-shadow: 0px 0px 20px 0.5px #000;
 }

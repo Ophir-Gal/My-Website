@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Canvas Recording Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Exercise, HTML, CSS, JavaScript">
+        <meta name="author" content="Ophir Gal">
+
+        <!-- below are some external css files I used -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!---------------------------------------------->
+
+        <link rel="stylesheet" href="recorder.css">
+        <script src="recorder.js"></script>
+    </head>
+
+    <body onload="main()">
+        <!-- Top Heading -->
+        <div class="w3-center">
+            <h1 class="w3-tag highlighted-bg w3-round">🤩 Ophir's Super Awesome Drawing
+            Application 3000 🤩</h1>
+        </div>
+
+        <!-- Main Section -->
+        <div class="w3-center">
+            <div class="w3-cell-row">
+                <div class="w3-container w3-cell helpSection">
+                    <h3>Super Awesome Help Section 3000</h3>
+                    <ul style="display:inline-block">
+                        <li>To draw on the canvas, click and drag with your mouse</li>
+                        <li>To start recording, click <mark>🔴 Start Recording</mark></li>
+                        <li>To stop recording, click <mark>⬛ Stop Recording</mark></li>
+                        <li>To play back a loaded recording, click <mark>▶ Play</mark></li>
+                        <li>To pause the playback, click <mark><b>❚❚</b> Pause</mark></li>
+                        <li>To edit a recording, start recording</mark> when playing/paused</li>
+                        <li>To save, click <mark>💾 Save Recording</mark> and type in a name</li>
+                        <li>To load a recording, click <mark>📤 Retrieve Saved Recording</mark></li>
+                        <li>To download as a PNG image, click <mark>📥 Download Image</mark></li>
+                        <li>To set the brush color, use the <mark>🎨 Drawing Color</mark> menu</li>
+                        <li>To get a blank canvas, click <mark>❌ Clear Screen</mark></li>
+                        <li>Use the slider to change playback speed</li>
+                    </ul>
+                    <hr>
+                    <table>
+                        <td id="recStopPlayCol">
+                            <button type="button" id="recStopButton">🔴 Start Recording</button>
+                            <button type="button" id="playPauseButton">▶ Play</button>
+                        </td>
+                        <td id="slider">
+                            <span>Playback Speed</span>
+                            <datalist id="ticks">
+                                <option value="0.5" label="0.5X">
+                                <option value="1.0" label="1X">
+                                <option value="1.5" label="1.5X">
+                                <option value="2.0" label="2X">
+                            </datalist>
+                            <input type="range" id="speed" name="speed"
+                            value="1.0" min="0.5" max="2.0" step="0.5">
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="w3-container w3-cell canvasSection">
+                    <canvas class="w3-container w3-cell box-shadow-3d" id="canvas" width="600" height="350">
+                        Your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <table>
+                        <tr>
+                            <td id="stateCol">
+                                <fieldset id="stateFieldset">
+                                    <legend><b>State</b></legend>
+                                    <span id="state">stopped</span>
+                                </fieldset>
+                            </td>
+                            <td>
+                                <button type="button" id="clearButton">❌ Clear Screen</button>
+                                <button type="button" id="colorButton"><label for="colorSelect">🎨 Drawing Color:&nbsp;</label>
+                                    <input type="color" id="colorSelect" name="colorSelect" value="#0000ff">
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="w3-center">
+                <hr>
+                <button type="button" id="saveButton">💾 Save Recording</button>
+                <button type="button" id="retrieveButton">📤 Retrieve Saved Recording</button>
+                <a href="" id="downLink" download><button type="button"
+                id="downButton">📥 Download Image</button></a>
+                <h6><i>Created by: Ophir Gal</i></h6>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+#canvas {
+    /* box-shadow:0 0 10px black; */
+    background-image: url('canvas_pat.png');
+    background-repeat: repeat;
+    padding: 0px !important;
+}
+
+h1 {
+    text-shadow: 2px 2px grey;
+    box-shadow:0 0 20px blueviolet;
+    margin: 20px;
+}
+
+h3 {
+    text-shadow: 1px 1px 3px gray;
+    font-weight: bold;
+    margin-bottom: auto;
+}
+
+hr {
+    margin: 5px
+}
+
+.helpSection ul {
+    text-align: left;
+}
+
+mark {
+    background-color: rgb(0,0,0,0.15);
+}
+
+button {
+    margin: 5px 5px 5px 5px;
+}
+
+#colorButton, #clearButton {
+    margin: 20px 5px 10px 5px;;
+}
+
+#downButton {
+    text-decoration: none;
+}
+
+.box-shadow-3d{
+    box-shadow: 1px 1px 0px #999,
+                2px 2px 0px #999,
+                3px 3px 0px #999,
+                4px 4px 0px #999,
+                5px 5px 0px #999,
+                6px 6px 0px #999,
+                7px 7px 0px #999,
+                8px 8px 0px #999,
+                9px 9px 0px #999,
+                10px 10px 0px #999;                
+}
+
+table {
+    width: 100%;
+}
+
+#recStopPlayCol {
+    width: 100%;
+}
+
+#stateCol {
+    width: 150px;
+}
+
+fieldset#stateFieldset {
+    margin-top: 5px;
+    padding: 0px 0px 0px 0px;
+    box-shadow: inset 0 0 5px gray;
+    position: relative;
+    height: 50px;
+    
+}
+
+fieldset legend {
+    margin: 0px;
+    text-shadow: -1px -1px 2px white,
+                1px -1px 2px white,
+                -1px 1px 2px white,
+                1px 1px 2px white;
+}
+
+#state {
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+    padding-bottom: 5px;
+}
+
+#slider {
+    display: inline-block;
+    width: 160px;
+}
+
+#slider input {
+    display:inline-block;
+}
+
+#slider * {
+    display: inline-block;
+    position: relative;
+}
+
+#slider option {
+    display:inline-block; 
+    margin:0px 10px 0px 5px;
+}
+
+#ticks {
+    font-size: 8pt;
+}
+
+b {
+    font-weight: bold;
+}
+
+.flickering {
+    animation: 1s flicker ease infinite;
+    position:absolute;
+    left: 7%;
+    top: 5%;
+}
+
+@keyframes flicker {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+  
