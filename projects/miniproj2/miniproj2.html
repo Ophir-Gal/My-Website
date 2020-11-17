@@ -9,8 +9,9 @@
         body {
         background-color: transparent;
         margin: 0 auto;
-        width: 80%;
+        width: 60%;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+        font-size: large;
     }
     #mainTable, th, td {
         border: 1px solid black;
@@ -38,22 +39,110 @@
     <h1>CMSC818B Mini-Project 2, UMD, Fall ’20</h1>
     <i><h3>Ophir Gal</h3></i>
     <hr>
-    <p>This mini-project will be based on the paper &quot;Using Soft Actor-Critic for Low
-    -Level
-    UAV Control&quot; available on ArXiv at 
+    <p>This mini-project was originally meant to be based on the paper 
+        &quot;Using Soft Actor-Critic for Low-Level
+    UAV Control&quot; (available on ArXiv at 
     <a href="https://arxiv.org/abs/2010.02293">
         https://arxiv.org/abs/2010.02293
-    </a>. I will be using the code available at 
+    </a>). My plan was to use the code available at 
     <a href="https://github.com/larocs/SAC_uav">
         https://github.com/larocs/SAC_uav
-    </a>&nbsp;to reproduce some result as a first step, but mainly to use the 
+    </a>&nbsp;to reproduce some result as a first step, and then to use the 
     existing implementation under some new scenarios not in the paper.
+    <br><br>
+    Unfortunately, I've had to go through a few days of long hours trying to 
+    debug the errors I was getting left and right, and <b>could not</b> get the
+    author's code to run on my machine, even when using docker and even after
+    discussing with the first author himself via email (see the full correspondence
+    <a href="./correspondence_with_Gabriel.pdf">here</a>). The correspondence
+    includes other errors I got along the way, but the last error I got when
+    trying to run the project natively (on my machine) is shown below:
+    <br>
+    <div style="color:red; padding-left:5em">
+    <code>
+    Traceback (most recent call last):
+    <br>File "main.py", line 13, in &lt;module&gt;
+    <br>from sim_framework.envs.drone_env import DroneEnv
+    <br>File "C:\Users\ophir\SAC_uav-master\sim_framework\envs\drone_env.py",
+    <br>line 11 in &lt;module&gt;
+    <br>from pyrep import PyRep
+    <br>ImportError: cannot import name 'PyRep' from 'pyrep' (C:\Users\ophir\AppData\Roa
+    ming\Python\Python38\site-packages\pyrep\__init__.py)
+    </code>
+    </div>
+    <br>
+    The issue here ^^ (I later realized) was that I had something called "pyrep" 
+    (available on PyPI) when I should have had "PyRep" (available 
+    <a href="https://github.com/stepjam/PyRep">here</a>). But trying to install
+    "PyRep" on my machine also gave me errors which I could not solve:
+    <br><br>
+    <div style="color:red; padding-left:5em">
+    <code>
+    ERROR: Command errored out with exit status 1:
+        command: 'C:\Program Files\Python38\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'C:\\Users\\ophir\\AppData\
+   \Local\\Temp\\pip-req-build-z_qq1rh_\\setup.py'"'"'; __file__='"'"'C:\\Users\\ophir\\AppData\\Local\\Temp\\pip-req-build-z_qq1rh_\\setup
+   .py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(
+   code, __file__, '"'"'exec'"'"'))' egg_info --egg-base 'C:\Users\ophir\AppData\Local\Temp\pip-pip-egg-info-8dljwqbr'
+            cwd: C:\Users\ophir\AppData\Local\Temp\pip-req-build-z_qq1rh_\
+       Complete output (8 lines):
+       Traceback (most recent call last):
+         File "&lt;string&gt;", line 1, in &lt;module&gt;
+         File "C:\Users\ophir\AppData\Local\Temp\pip-req-build-z_qq1rh_\setup.py", line 2, in &lt;module&gt;
+           import cffi_build.cffi_build as cffi_build
+         File "C:\Users\ophir\AppData\Local\Temp\pip-req-build-z_qq1rh_\cffi_build\cffi_build.py", line 747, in &lt;module&gt;
+           os.symlink(path, path + '.1')
+       FileExistsError: [WinError 183] Cannot create a file when that file already exists: 'C:\\Program Files\\CoppeliaRobotics\\CoppeliaSi
+   mEdu\\libcoppeliaSim.so' -> 'C:\\Program Files\\CoppeliaRobotics\\CoppeliaSimEdu\\libcoppeliaSim.so.1'
+       creating symlink: C:\Program Files\CoppeliaRobotics\CoppeliaSimEdu\libcoppeliaSim.so.1 -> C:\Program Files\CoppeliaRobotics\Coppelia
+   SimEdu\libcoppeliaSim.so
+       ----------------------------------------
+   ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+    </code>
+    </div>
+    <br>
+    Unfortunately, using Docker was not succesful as well, I was able to
+    instantiate the image and create the container but I got an error when
+    trying to run the training code, the error I got is:
+    <br><br>
+    <div style="color:red; padding-left:5em">
+    <code>
+        xvfb-run ./training.sh
+        Traceback (most recent call last):
+        File "main.py", line 13, in <module>
+            from sim_framework.envs.drone_env import DroneEnv
+        File "/home/Drone_RL/sim_framework/envs/drone_env.py", line 11, in <module>
+            from pyrep import PyRep
+        File "/usr/local/lib/python3.6/dist-packages/PyRep-4.1.0-py3.6-linux-x86_64.egg/pyrep/__init__.py", line 6, in <module>
+            from .pyrep import PyRep
+        File "/usr/local/lib/python3.6/dist-packages/PyRep-4.1.0-py3.6-linux-x86_64.egg/pyrep/pyrep.py", line 3, in <module>
+            from pyrep.backend import sim, utils
+        File "/usr/local/lib/python3.6/dist-packages/PyRep-4.1.0-py3.6-linux-x86_64.egg/pyrep/backend/sim.py", line 2, in <module>
+            from ._sim_cffi import ffi, lib
+        ImportError: /usr/local/lib/python3.6/dist-packages/PyRep-4.1.0-py3.6-linux-x86_64.egg/pyrep/backend/_sim_cffi.cpython-36m-x86_64-linux-
+        gnu.so: undefined symbol: simAddLog
+        Makefile:42: recipe for target 'training' failed
+    </code>
+    </div>
     </p>
     <p>
-        <h2 class="u_title">Content</h2>
-        <ul>
-        <li>Reproduced Result</li>
-        <li>Additional Result</li>
+        I've presented the errors above because I've discussed this with professor 
+        Tokekar on Sunday 11/15 on Piazza, and he said that if I show that I have done my due 
+        diligence in getting things to work and there isn't an obvious workaround that I
+        have not tried out, then I won't be penalized so long as I report the
+        and proce errors I got. 
+        <br><br>
+        Additionally, I tried but struggled to find a similar yet simple enough 
+        paper to run the code of and experiment with in the time left
+        for the mini-project. In light of that, I decided to do the following to
+        somehow still get some educational value here: below I share a small experiment
+         I performed with the <em><code>gym-pybullet-drones</code></em> environment, 
+        a simple OpenAI Gym environment based on PyBullet for multi-agent 
+        reinforcement learning with quadrotors (available 
+        <a href="https://github.com/JacopoPan/gym-pybullet-drones">here</a>).
     </p>
+    <p>
+        INSERT EXPERIMENT DESCRIPTION & RESULTS HERE
+    </p>
+
   </body>
 </html>
