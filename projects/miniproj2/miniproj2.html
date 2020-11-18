@@ -129,19 +129,105 @@
         Tokekar on Sunday 11/15 on Piazza, and he said that if I show that I have done my due 
         diligence in getting things to work and there isn't an obvious workaround that I
         have not tried out, then I won't be penalized so long as I report the
-        and proce errors I got. 
+        process and attach the errors I got. 
         <br><br>
         Additionally, I tried but struggled to find a similar yet simple enough 
         paper to run the code of and experiment with in the time left
         for the mini-project. In light of that, I decided to do the following to
-        somehow still get some educational value here: below I share a small experiment
+        somehow still get some educational value here: below I share a humble experiment
          I performed with the <em><code>gym-pybullet-drones</code></em> environment, 
         a simple OpenAI Gym environment based on PyBullet for multi-agent 
         reinforcement learning with quadrotors (available 
         <a href="https://github.com/JacopoPan/gym-pybullet-drones">here</a>).
     </p>
     <p>
-        INSERT EXPERIMENT DESCRIPTION & RESULTS HERE
+        I ran their provided experiment code to training a signle quadcopter
+        agent to fly through a gate using the 5 available reinforcement
+        algorithms: advantage actor critic (a2c), proximal policy optimization 
+        (ppo), soft actor critic (sac), deep deterministic policy
+        gradient (ddpg), and twin delayed DDPG (td3).
+    </p>
+    <p>
+        For each algorithm, I ran the <code>singleagent.py</code> file inside
+        (under the experiments/learning/ folder) with "rpm" as the action type,
+        "flythrugate" as the environment (the task), "kin" as the
+        observation type (which I believe stands for kinesthetic), and a
+        40,000 time steps. 
+    </p>
+    <h3>Results</h3>
+    <p>
+        Running the <code>test_singleagent.py</code> file it was evident the
+        the algorithms performed poorly since 40,000 timesteps appeared to be
+        not enough, all of the agents simply took off and then flew for a bit 
+        before immediately crashing into the ground, crashing into the gate, or
+        in the case of a2c, hovering and going up aimlessly. Surprisingly, the
+        SAC algorithm performed well for some of the tests. Below are quick 
+        videos of these poor performences (and the succesful SAC test) and 
+        graphs describing their position and velocity over time.    
+    </p>
+    <h5>A2C</h5>
+    <video width="100%" height="25%" controls>
+        <source src="a2c.mp4" type="video/mp4">
+    </video>
+    <br>
+    <br>
+    <img src="a2c.png" width="100%">
+    <h5>DDPG</h5>
+    <video width="100%" height="25%" controls>
+        <source src="ddpg.mp4" type="video/mp4">
+    </video>
+    <br>
+    <br>
+    <img src="ddpg.png" width="100%">
+    <h5>TD3</h5>
+    <video width="100%" height="25%" controls>
+        <source src="td3.mp4" type="video/mp4">
+    </video>
+    <br>
+    <br>
+    <img src="td3.png" width="100%">
+    <h5>SAC</h5>
+    <video width="100%" height="25%" controls>
+        <source src="sac.mp4" type="video/mp4">
+    </video>
+    <br>
+    <br>
+    <img src="sac.png" width="100%">
+    <p>
+        I had a limited amount of time and computational power but I managed to
+        run the PPO algorithm for 250,000 timesteps, which thankfully resulted
+        in decent performance: video and graphs are shown below.
+    </p>
+    <h5>PPO</h5>
+    <video width="100%" height="25%" controls>
+        <source src="ppo.mp4" type="video/mp4">
+    </video>
+    <br>
+    <br>
+    <img src="ppo.png" width="100%">
+    
+    <h3>Conclusion</h3>
+    <p>
+        Reproducibility is as important in computer science as any other
+        science, and can sometimes be a real issue when code bases have many
+        many dependencies (operating systems, software versions, processors,
+        random seeds, etc.), however, since computer is among the few sciences for which 
+        experiments and their conditions can be exactly reproduced (since it's
+        all virtual and depends on things like versions and random seeds) I
+        think computer scientists are ought to hold themselves to a higher
+        standard and make sure to keep track of all the relevant information
+        and make reproducibility as easy and as possible.
+    </p>
+    <p>
+        My experiment showed that using reinforcement learning for a relatively
+        simply optimal control task can take a large number of iterations to
+         train if we want our models to be robust to initialization. 
+         It seems that sometimes, when
+        the initialization is different, the model has an easier time
+        collecting rewards and completing the task succesfully. Despite the
+        surprising relative success of SAC over DDPG, A2C, and TD3, due to the 
+        small scope of these results, it's hard to say whether SAC has any sort
+         of advantage over the others.
     </p>
 
   </body>
